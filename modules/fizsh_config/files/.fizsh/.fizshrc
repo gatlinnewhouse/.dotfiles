@@ -1,0 +1,4 @@
+alias suspend="bash ~/lock.sh && systemctl suspend"
+#alias hibernate="bash ~/lock.sh && systemctl hibernate"
+alias pacleanup='sudo pacman -Rcns $(pacman -Qdtq)'
+alias archey='neofetch --image ~/Pictures/userimage.jpg'
