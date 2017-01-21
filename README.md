@@ -1,6 +1,6 @@
 # My dotfiles
 
-I manage my dotfiles with GNU stow, so they should be easy to install.
+I manage my dotfiles with puppet, so they should be easy to install.
 
 ### Screenshots
 
