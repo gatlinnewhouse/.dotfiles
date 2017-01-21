@@ -28,4 +28,10 @@ I use many of these for security and/or privacy purposes however I acknowledge t
 
 ## Installation
 
-WIP.
+```
+sudo paman -Syu
+pacman -S puppet
+git clone https://github.com/gatlinnewhouse/dotfiles.git ~/.dotfiles
+sudo puppet apply --modulepath=$HOME/.dotfiles/modules ~/.dotfiles/manifests/devmachine-root.pp
+puppet apply --modulepath=$HOME/.dotfiles/modules ~/.dotfiles/manifests/devmachine.pp
+```
