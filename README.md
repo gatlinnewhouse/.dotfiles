@@ -1,6 +1,6 @@
 # My dotfiles
 
-I manage my dotfiles with GNU stow, so they should be easy to install.
+I manage my dotfiles with puppet, so they should be easy to install.
 
 ### Screenshots
 
@@ -15,7 +15,7 @@ WIP
 * Lock: `i3lock`
 * Shell: `fizsh`
 * Terminal emulator: `urvxt`
-* Text editor: [`spacemacs`](http://spacemacs.org/)
+* Text editor: `vim`
 * Theme: [`paper`](https://snwh.org/paper)
 * Video player: `vlc`
 * Web browser: `google-chrome`
