@@ -15,7 +15,7 @@ WIP
 * Lock: `i3lock`
 * Shell: `fizsh`
 * Terminal emulator: `urvxt`
-* Text editor: [`spacemacs`](http://spacemacs.org/)
+* Text editor: `vim`
 * Theme: [`paper`](https://snwh.org/paper)
 * Video player: `vlc`
 * Web browser: `google-chrome`
