@@ -15,7 +15,7 @@ WIP
 * Lock: `i3lock`
 * Shell: `fizsh`
 * Terminal emulator: `urvxt`
-* Text editor: `vim`
+* Text editor: `vim` with `vundle`
 * Theme: [`paper`](https://snwh.org/paper)
 * Video player: `vlc`
 * Web browser: `google-chrome`
