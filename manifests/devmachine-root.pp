@@ -55,6 +55,7 @@ $desiredPackages = [
   'vim'
   'vlc'
   'whatsie'
+  'wpgtk-git'
   'xbanish'
   'xbindkeys'
   'yaourt'

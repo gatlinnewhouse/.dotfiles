@@ -199,6 +199,8 @@ for_window [class="Lollypop"] border none
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Disable annoying system beep
 exec xset b 0
+# Run gpg-agent on startup
+exec gpg-agent --daemon
 # Run CUPS on startup
 exec cupsd -F
 # Run unclutter-xfixes
