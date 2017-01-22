@@ -5,6 +5,7 @@ include i3_config
 include i3lock_config
 include logind_config
 include polybar_config
+include redshift_config
 include rclocal_config
 include vim_config
 include xbindkeys_config

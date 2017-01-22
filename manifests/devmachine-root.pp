@@ -39,6 +39,7 @@ $desiredPackages = [
   'powertop'
   'pulseaudio'
   'puppet'
+  'redshift'
   'rxvt-unicode'
   'slack-desktop'
   'soulseekqt'
