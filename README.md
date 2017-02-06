@@ -8,10 +8,10 @@ WIP
 
 ## Setup
 
-* Application launche: `albert`
+* Application launcher: `albert`
 * Bar: `polybar`
 * Compositor: `compton`
-* Icons: [`paper`](https://snwh.org/paper)
+* Icons: `Adapta-gtk`
 * Lock: `i3lock`
 * Shell: `fizsh`
 * Terminal emulator: `urvxt`
