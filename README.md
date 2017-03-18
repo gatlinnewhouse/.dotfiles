@@ -2,7 +2,7 @@
 
 I manage my dotfiles with puppet, so they should be easy to install.
 
-My `/etc/` folder is backed up via [`etckeeper`](https://wiki.archlinux.org/index.php/etckeeper) to a private GitLab repo^^^^^^[.](https://gitlab.com/gatlinnewhouse/etc_backup/tree/master) (I'd rather not scrub everything for personal data there).
+My `/etc/` folder is backed up via [`etckeeper`](https://wiki.archlinux.org/index.php/etckeeper) to a private GitLab repo<sup><sup><sup><a href="https://gitlab.com/gatlinnewhouse/etc_backup/tree/master">.</a></sup></sup></sup> (I'd rather not scrub everything for personal data there).
 
 ### Screenshots
 
