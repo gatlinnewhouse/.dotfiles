@@ -1,0 +1,57 @@
+# User settings
+[user]
+	signingkey = 89FD31E6F605D951
+	name = gatlinnewhouse
+	email = gatlinnewhouse@gmail.com
+
+# Always verify it is me
+[commit]
+	gpgsign = true
+
+# Enforce SSH
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[url "ssh://git@gitlab.com/"]
+	insteadOf = https://gitlab.com/
+[url "ssh://git@bitbucket.org/"]
+	insteadOf = https://bitbucket.org/
+
+# Aliases
+[alias]
+	# Stash all unsaved work
+	stash-all = stash save --include-untracked
+	# Lazy amend a commit
+	amend = commit --amend
+	# Prettier log
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+	# Get rid of local deprecated branches
+	prune = fetch --prune
+	# Force a push the nice way
+	please = push --force-with-lease
+
+[merge]
+	# Only fast forward
+	# https://sandofsky.com/images/fast_forward.pdf
+	ff = only
+	# Show before merge
+	conflictstyle = diff3
+
+[push]
+	# Automatically include tags in push
+	followTags = true
+
+[status]
+	# Show all untracked files
+	showUntrackedFiles = all
+
+[transfer]
+	# Do extra checks for data corruption
+	fsckobjects = true
+
+# Use icdiff as default
+[diff]
+	tool = icdiff
+[difftool]
+        prompt = false
+[difftool "icdiff"]
+        cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
