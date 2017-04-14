@@ -1,0 +1,101 @@
+############################################################################
+## Beets Configuration file.
+## ~./config/beets/config.yaml
+#############################################################################
+ 
+### Global Options
+library: /home/delueze/.config/beets/library.blb
+directory: /home/delueze/Music/
+pluginpath: /home/delueze/.config/beets/plugins
+ignore: .AppleDouble ._* *~ .DS_Store
+per_disc_numbering: true
+threaded: no
+
+ui:
+  color: yes
+
+# Plugins
+plugins: [
+  duplicates,
+  edit,
+  embedart,
+  fetchart,
+  ftintitle,
+  lyrics,
+  missing,
+  replaygain,
+  rymgenre,
+  setlister,
+  scrub
+]
+ 
+# Import Options
+import:
+  move: no
+  copy: no
+  link: no
+  write: yes
+  delete: false
+  resume: ask
+  incremental: false
+  quiet_fallback: skip
+  timid: false
+  group_albums: yes
+  languages: en
+  log: ~/.config/beets/beets-import.log
+
+# Autotagger options
+match:
+  strong_rec_thresh: 0.20
+  preferred:
+    contries: ['US','GB|UK','JP']
+    media: ['CD','Digital Media|File']
+    original_year: yes
+
+# Path options
+paths:
+  default: %asciify{$albumartist/$album%aunique{}/$track $title}
+  singleton: %asciify{$artist/$album%aunique{}/$track $title}
+  comp: %asciify{Various Artists/$album%aunique{}/$track $title}
+ 
+### Plugin Options
+
+# Embeded album art options
+embedart:
+   compare_threshold: 80
+   maxwidth: 500
+
+# FetchArt options
+fetchart:
+   minwidth: 500
+   sources: coverart albumart wikipedia
+
+# Lyrics options
+lyrics:
+   force: yes
+   google_API_key: AIzaSyDNcaUvSnrN2u0EpYaEa4LT05f7379PWHY
+
+# rymgenre doesn't run on import, so I use it as a backup
+# for when lastgenre is giving me garbage results.
+rymgenre:
+  classes: primary
+  depth: node
+ 
+# Fetch fresh album art for new imports
+fetchart:
+  sources: coverart itunes amazon albumart
+  store_source: yes
+
+# Normalizing audio decibels
+# Gstreamer is a pain, but still the correct backend
+replaygain:
+  backend: gstreamer
+  overwrite: yes
+
+# Make playlists from setlists
+setlister:
+  playlist_dir:~/Music/setlists
+ 
+# Scrub extra metadata
+scrub:
+  auto: no
