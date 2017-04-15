@@ -1,0 +1,219 @@
+#######################
+# A E S T H E T I C S #
+#######################
+
+# Font
+font pango:Noto Sans UI 12
+
+# Add a pixel border to every new tiling window
+new_window pixel 3
+
+# Enable focus following mouse
+focus_follows_mouse yes
+
+# Remove the window bar from all windows
+for_window [class="^.*"] border pixel 0
+
+# Windows that keep a window bar
+for_window [class="URxvt"] border normal
+for_window [class="URxvt"] title_format "<span font='Noto Sans UI 11'>   rxvt-unicode </span>"
+for_window [class="Gscreenshot"] border normal
+for_window [class="Gscreenshot"] title_format "<span font='Noto Sans UI 11'>   gscreenshot </span>"
+
+# Gaps
+gaps inner 8
+gaps outer 1
+
+# Smart Gaps
+# This will disable all gaps (outer and inner) on the workspace 
+# whenever only one container is on the current workspace.
+smart_gaps on
+
+# Window colors (only used for urxvt)
+# class                   border   backgr.  text     indicator  child_border
+client.focused            #EEEEEE  #EEEEEE  #4D4D4C  #EEEEEE    #EEEEEE
+client.focused_inactive   #EEEEEE  #EEEEEE  #4D4D4C  #EEEEEE    #EEEEEE
+client.unfocused          #EEEEEE  #EEEEEE  #4D4D4C  #EEEEEE    #EEEEEE
+client.urgent             #EEEEEE  #EEEEEE  #4D4D4C  #EEEEEE    #EEEEEE
+
+
+###################
+# B I N D I N G S #
+###################
+
+# Principle mod key (Super = Windows Key)
+set $mod Mod4
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# HANDLE POPUPS
+popup_during_fullscreen smart
+
+# Start a terminal
+bindsym $mod+Return exec urxvtc
+
+# Start a terminal in the same working directory
+bindsym $mod+Shift+Return exec urxvtc -cd "`xcwd`"
+
+# Start HTOP in a terminal
+bindsym $MOD+SHIFT+t exec urxvt -e htop
+
+# Kill focused window
+bindsym $mod+q kill
+
+# Change focus
+# You can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move focused window
+# You can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Split in horizontal orientation
+bindsym $mod+h split h
+
+# Split in vertical orientation
+bindsym $mod+v split v
+
+# Enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# Launch albert with key combo
+bindsym $mod+space exec --no-startup-id albert show
+
+# Toggle sticky windows (for floating windows only)
+bindsym $mod+s sticky toggle
+
+# Bind mod + home to toggle redshift
+bindsym $mod+Home exec pkill -USR1 '^redshift$'
+
+# Bind mod + F4 to cause the laptop to suspend
+bindsym $mod+F4 exec bash ~/lock.sh && systemctl suspend
+
+# Bind mod + End to shutdown
+bindsym $mod+Delete exec shutdown now
+
+# Change container layout (split horizontally or split vertically)
+bindsym $mod+e layout toggle split
+
+# Toggle tiling / floating
+bindsym $mod+d floating toggle
+
+# Change focus between tiling / floating windows
+bindsym $mod+Shift+d focus mode_toggle
+
+# Switch to a workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# Exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Resize window (you can also use the mouse for that)
+mode "resize" {
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+        # back to normal
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+
+############################
+# A P P L I C A T I O N S, #
+# W O R K S P A C E S,     #
+# A N D   M I S C.         #
+############################
+
+# Popups start in floating mode
+for_window [window_role="pop-up"] floating enable,move absolute center
+for_window [window_role="task_dialog"] floating enable
+
+# Assign windows a certain workspace
+assign [class="Lollypop|Google Play Music Desktop Player"] workspace 10
+
+
+#################
+# S T A R T U P #
+#################
+
+# Run urxvt daemon
+exec_always --no-startup-id urxvtd
+
+# Run polybar at start
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# Run Google Calendar Alert daemon
+exec_always --no-startup-id gcalert
+
+# Run unclutter-xfixes
+exec --no-startup-id unclutter
+
+# Run xbanish
+exec --no-startup-id xbanish
+
+# Start compton
+exec --no-startup-id compton --config $HOME/.compton.conf -b
+
+# Start albert omnilauncher
+exec --no-startup-id albert
+
+# Start Thunar in daemon mode
+exec --no-startup-id pcmanfm -d
+
+# Start xbindkeys
+exec xbindkeys
+
+# Run RedShift
+exec --no-startup-id nohup redshift -c $HOME/.config/redshift.conf
+
+# Set wallpaper and color scheme
+exec_always --no-startup-id feh  --bg-scale $HOME/Pictures/background.jpg
+
+# Start notification daemon
+exec_always --no-startup-id xfce4-notifyd
+
+# Set x11 keyboard layout to use the right alt key as a compose key
+# That way I can type accented characters for Spanish
+exec_always setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl
