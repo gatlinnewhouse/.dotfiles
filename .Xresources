@@ -9,7 +9,7 @@ Xft.rgba: rgb
 !   URXVT SETTINGS   !
 ! ****************** !
 URxvt.perl-ext-common: default,matcher,resize-font,clipboard
-! URxvt*termName:                       string
+URxvt*termName: urxvt
 ! URxvt*geometry:                       geometry
 ! URxvt*chdir:                          string
 ! URxvt*reverseVideo:                   boolean
