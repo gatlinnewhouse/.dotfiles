@@ -15,9 +15,11 @@ WIP
 * Compositor: `compton`
 * Icon Theme: [`Paper`](https://github.com/snwh/paper-icon-theme)
 * Lock: `i3lock`
-* Shell: `zsh` with [`oh-my-zsh`](https://github.com/robbyrussell/oh-my-zsh)
+* Shell: `zsh` 
+        * With [`oh-my-zsh`](https://github.com/robbyrussell/oh-my-zsh) for plugins and themes
 * Terminal emulator: `urvxt`
-* Text editor: [`neovim`](https://github.com/neovim/neovim) (it's not necessarily a gui for vim, just makes vim parallel and fixes the codebase of vim) with [`vim-plug`](https://github.com/junegunn/vim-plug)
+* Text editor: [`neovim`](https://github.com/neovim/neovim) (it's not necessarily a gui for vim, just makes vim parallel and fixes the codebase of vim) 
+        * With [`vim-plug`](https://github.com/junegunn/vim-plug) for plugins and themes
 * GTK Theme: [`Adapta`](https://github.com/adapta-project/adapta-gtk-theme)
 * Video player: [`gnome-mpv`](https://github.com/gnome-mpv/gnome-mpv)
 * Web browser: `google-chrome` and/or `firefox`
