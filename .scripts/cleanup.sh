@@ -22,3 +22,13 @@ printf "\n"
 pacaur -Sc
 printf "\n"
 printf "============================== \n"
+printf "\n"
+printf "\n"
+printf "Update the Arch repo & AUR mirrorlist \n"
+printf "============================== \n"
+printf "\n"
+sudo reflector -c US --latest 100 --number 500 --age 12 --sort rate --save /etc/pacman.d/mirrorlist
+printf "\n"
+printf "============================== \n"
+printf "\n"
+printf "\n"

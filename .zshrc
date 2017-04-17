@@ -7,6 +7,9 @@ export PATH="$HOME/.local/bin:$PATH"
 export ZSH="/home/deleuze/.oh-my-zsh"
 zstyle ':completion:*' rehash true
 
+# Enable zplug
+# source /usr/share/zsh/scripts/zplug/init.zsh
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes

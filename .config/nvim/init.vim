@@ -1,17 +1,18 @@
-set shell=zsh
-
 " *========================================================================================*
 "                         Using Vim-Plug to manage my NeoVim Plugins
 " *========================================================================================*
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+" Required dependencies
+Plug 'kana/vim-textobj-user'
+Plug 'tpope/vim-repeat'
+
+" Fancy start screen for vim
 Plug 'mhinz/vim-startify'
 
 " Easily align lines arbitrarily (github.com/junegunn/vim-easy-align) for README
-Plug 'junegunn/vim-easy-align'
 Plug 'godlygeek/tabular'
-Plug 'tpope/vim-repeat'
 
 " Automatic formatting of files with command :Neoformat
 Plug 'sbdchd/neoformat'
@@ -52,11 +53,16 @@ Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 " Syntax support for git files
 Plug 'tpope/vim-git', { 'for': ['gitconfig','gitcommit','gitrebase','gitsendemail', 'git'] }
 
+" Support for icon glyphs for filetypes
 Plug 'ryanoasis/vim-devicons'
+
+" Automatically add pairs to curly brackets, etc
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-characterize'
+
+" Show colors for hexadecimal codes in CSS files
 Plug 'ap/vim-css-color'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Raimondi/delimitMate'
@@ -65,10 +71,36 @@ Plug 'editorconfig/editorconfig-vim'
 " Material Design color scheme
 Plug 'NLKNguyen/papercolor-theme'
 
-" Add shading to indents in code as visual guides
-Plug 'nathanaelkane/vim-indent-guides'
+" Use visual character indent guides instead
+Plug 'Yggdroot/indentLine'
+
+" *=========================*
+"    Vim for Prose plugins
+" *=========================*
+  
+" Goyo centers the text for writing
+Plug 'junegunn/goyo.vim'
+
+" Vim-Pencil soft wraps lines
 Plug 'reedes/vim-pencil'
-Plug 'junegunn/limelight.vim'
+
+" Vim-Wordy checks for misused/abused/overused words or phrases*
+" *according to 'usuage experts' (take it with a grain of salt
+Plug 'reedes/vim-wordy'
+
+" Find repeated words in buffer
+Plug 'dbmrq/vim-ditto'
+
+" Better spellcheck for vim
+Plug 'reedes/vim-lexical'
+
+" Typographic quotes for prose
+Plug 'reedes/vim-textobj-quote'
+
+" Improve on Vim's sentance text object and motion for prose
+Plug 'reedes/vim-textobj-sentence'
+
+" *=========================*
 
 " Lightweight Powerline
 Plug 'itchyny/lightline.vim'
@@ -79,37 +111,10 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 
 " *========================================================================================*
-"                                        End Vim-Plug
+"                              	         Lightline settings
 " *========================================================================================*
 
-
-" Disable folding for markdown documents
-let g:vim_markdown_folding_disabled = 1
-
-" Enable LaTeX math for markdown
-let g:vim_markdown_math = 1
-
-" PaperColor theme, make terminal 256 bit, enable syntax highlighting, 
-" and use the light theme
-syntax enable
-set t_Co=256
-colorscheme PaperColor
-set background=light
-filetype plugin indent on
-
-" Enable indent guides
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=254
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=255
-autocmd VimEnter * IndentGuidesEnable
-
-" Add line numbers by default
-set number
-
-" ****************************************************************************
-"                              Lightline settings
-"
-" ****************************************************************************
+" Lightline colors and characters
 let g:lightline = { 
       \ 'colorscheme': 'PaperColor',
       \ 'active': {
@@ -170,24 +175,11 @@ function! LightlineFugitive()
   endif
   return ''
 endfunction
-" ****************************************************************************
-"                              End Lightline settings
-"
-" ****************************************************************************
 
-" No word wrapping
-set nowrap
-
-" Use spaces for tabs
-set expandtab
-
-" Set tabs equal to two spaces
-set tabstop=2
-
-" ****************************************************************************
+" *========================================================================================*
 "                          Set it so :q quits Goyo and Vim
-"
-" ****************************************************************************
+" *========================================================================================*
+
 function! s:goyo_enter()
 	let b:quitting = 0
 	let b:quitting_bang = 0
@@ -208,23 +200,141 @@ endfunction
 
 autocmd! User GoyoEnter call <SID>goyo_enter()
 autocmd! User GoyoLeave call <SID>goyo_leave()
-" ****************************************************************************
 
-" Set Vim-Pencil options
+" *========================================================================================*
+"                                       Key mappings
+" *========================================================================================*
+
+" Enable pasting
+set pastetoggle=<F3>
+
+" Spellcheck with Vim's built in spellchecker
+map <F4> :setlocal spell! spelllang=en_gb<CR>
+
+" Spellcheck with lexical
+map <F5> \s<CR>
+
+" Thesaurus with lexical
+map <F6> \t<CR>
+
+" Check words with Wordy
+map <F7> :NextWordy<CR>
+
+" Check for repeated words with Ditto
+map <F8> :ToggleDitto<CR>
+
+" Enable Goyo and Vim-Pencil 
+map <F11> :Goyo <bar> %:PencilToggle<CR>
+
+" Clear all comment markers (one rule for all languages) using "_" key
+map _ :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohlsearch<CR>
+
+function! s:MyCSettings()
+  " Insert comments markers
+  map - :s/^/\/\//<CR>:nohlsearch<CR>
+endfunction
+
+function! s:MyVimSettings()
+  " Insert comments markers
+  map - :s/^/\"/<CR>:nohlsearch<CR>
+endfunction
+
+" *========================================================================================*
+"                         	General NeoVim Settings
+" *========================================================================================*
+
+" Set not compatible with vi
+set nocompatible
+
+" Set shell to zsh
+set shell=zsh
+
+" Disable folding for markdown documents
+let g:vim_markdown_folding_disabled = 1
+
+" Enable LaTeX math for markdown
+let g:vim_markdown_math = 1
+
+" PaperColor theme, make terminal 256 bit, enable syntax highlighting, 
+" and use the light theme
+syntax enable
+set t_Co=256
+colorscheme PaperColor
+set background=light
+filetype plugin indent on
+
+" Add line numbers by default
+set number
+
+" No word wrapping
+set nowrap
+
+" Use spaces for tabs
+set expandtab
+
+" Set tabs equal to two spaces
+set tabstop=2
+
+" Set Vim-Pencil options for prose files
 let g:pencil#wrapModeDefault = 'soft'
 augroup pencil
-	autocmd!
-	autocmd FileType markdown,mkd call pencil#init()
-	autocmd FileType text         call pencil#init()
+  autocmd!
+  autocmd FileType markdown,mkd  call pencil#init()
+  autocmd FileType textile       call pencil#init()
+  autocmd FileType text          call pencil#init()
 augroup END
+
+" Turn on Ditto's autocmds
+au FileType markdown,text,tex DittoOn
+
+" Quick comment out lines or uncomment them
+augroup vimrc_filetype
+  autocmd!
+  autocmd FileType c    call s:MyCSettings()
+  autocmd FileType vim  call s:MyVimSettings()
+augroup end
+
+" Spellcheck/Thesaurus for prose files
+augroup lexical
+  autocmd!
+  autocmd FileType markdown,mkd  call lexical#init()
+  autocmd FileType textile       call lexical#init()
+  autocmd FileType text          call lexical#init({ 'spell': 0 })
+augroup END
+
+" Enable typographic quotes for prose files
+augroup textobj_quote
+  autocmd!
+  autocmd FileType markdown  call textobj#quote#init()
+  autocmd FileType textile   call textobj#quote#init()
+  autocmd FileType text      call textobj#quote#init({'educate': 0})
+augroup END
+
+" Enable textobj sentences for prose files
+augroup textobj_sentence
+  autocmd!
+  autocmd FileType markdown call textobj#sentence#init()
+  autocmd FileType textile call textobj#sentence#init()
+augroup END
+
+" Spellcheck dictionaries and languages (English and Spanish)
+let g:lexical#spellang = ['en_us', 'es_mx']
+
+" Specify lexical file locations
+let g:lexical#dictionary = ['~/.config/nvim/dict/words']
+let g:lexical#spellfile = ['~/.config/nvim/spell/en.utf-8.add','~/.config/nvim/spell/es.utf-8.add']
 
 " Vimtex settings
 let g:vimtex_enabled = 1
-" Use evince-synctex aur package, UNTESTED
-let g:vimtex_view_general_viewer = 'evince-synctex'
 
-" Key mappings
-set pastetoggle=<F3>
-map <F10> :Pencil <CR>
-map <F5> :setlocal spell! spelllang=en_us<CR>
-map <F11> :Goyo <bar>:Limelight <CR>
+" Enable indentline by default
+let g:indentLine_enabled = 1
+
+" Set indentLin character
+let g:indentLine_char = ''
+
+" Set indentLine color
+let g:indentLine_color_term = 249
+
+" Use evince-synctex aur package
+let g:vimtex_view_general_viewer = 'evince-synctex'
