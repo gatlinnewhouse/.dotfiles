@@ -1,93 +1,136 @@
-export TERM="rxvt-unicode"
+#########################################
+#              Zsh Settings             #
+#########################################
+
+# Autocorrect commands typed
+setopt correctall
+
+# Load advanced prompt settings
+autoload -Uz promptinit
+promptinit
+
+# Autocomplete with arrow-key interface
+zstyle ':completion:*' menu select
+
+# Set zsh to EMACs mode
+bindkey -e
+
+# Enable colors
+autoload -U colors zsh/terminfo
+colors
+
+#########################################
+#      Paths, Sources, & Variables      #
+#########################################
+
+# Function for adding stuff to path
+pathadd() {
+  [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]] && PATH="${PATH:+"$PATH:"}$1"
+}
+
+# Export environmental variables
+export BROWSER="firefox"
 export EDITOR="nvim"
-export EDITORCMD="/usr/bin/nvim"
-export SHELL="/bin/zsh"
+export GO_ENV="$HOME/.goenvs"
+export GOPATH="$HOME/.go"
 export PATH="/usr/local/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export ZSH="/home/deleuze/.oh-my-zsh"
-zstyle ':completion:*' rehash true
-
-# Enable zplug
-# source /usr/share/zsh/scripts/zplug/init.zsh
-
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="papercolor"
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(colored-man-pages colorize command-not-found compleat 
-        gpg-agent gitfast git-extras pass per-directory-history ssh-agent)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
+export SHELL="/bin/zsh"
 export SSH_KEY_PATH="~/.ssh/rsa_id"
+export TERM="rxvt-unicode"
+export ZPLUG_THREADS="24"
+export ZPLUG_PROTOCOL="HTTPS"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# Add additional directories to the path.
+pathadd $HOME/.local/bin
+pathadd $HOME/.scripts
+
+# Source files
 source ~/.aliases
+
+# Check if zplug is installed
+if [[ ! -d ~/.zplug ]]; then
+  git clone https://github.com/zplug/zplug ~/.zplug
+  source ~/.zplug/init.zsh && zplug update --self
+fi
+
+source ~/.zplug/init.zsh
+
+#########################################
+#              Z-Plug Plugins           #
+#########################################
+
+# Let zplug manage itself
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
+# Requirements for other plugins
+zplug "junegunn/fzf-bin", \
+  from:gh-r, \
+  as:command, \
+  rename-to:fzf, \
+  use:"*linux*amd64*"
+
+# Completions for zsh plugin
+zplug "zsh-users/zsh-completions", as:plugin
+
+# Suggest commands for zsh plugin
+zplug "zsh-users/zsh-autosuggestions", as:plugin
+
+# Fish-like syntax highlighting for zsh plugin
+zplug "zsh-users/zsh-syntax-highlighting", as:plugin
+
+# Forked, independent oh-my-zsh colored-man-pages plugin
+zplug "zuxfoucault/colored-man-pages_mod", as:plugin
+
+# Command not found package suggestor plugin
+zplug "Tarrasch/zsh-command-not-found", as:plugin
+
+# Libnotify for zsh plugin
+zplug "marzocchi/zsh-notify", as:plugin
+
+# Emoji menu plugin
+zplug "stedolan/jq", \
+    from:gh-r, \
+    as:command, \
+    rename-to:jq
+zplug "b4b4r07/emoji-cli", \
+    on:"stedolan/jq"
+
+# Per directory history plugin
+zplug "tymm/zsh-directory-history", as:plugin
+
+# Human readable errors plugin
+zplug "aphelionz/strerror.plugin.zsh", as:plugin
+
+# Emoji/Emoticon plugin
+zplug "MichaelAquilina/zsh-emojis", as:plugin
+
+# Zsh calculator
+zplug "arzzen/calc.plugin.zsh", as:plugin
+
+# goenv path variable
+zplug "bbenne10/goenv", as:plugin
+
+# Human readable time plugin
+zplug "sindresorhus/pretty-time-zsh", as:plugin
+
+# ls with git support
+zplug "supercrabtree/k", as:plugin
+
+# Import oh-my-zsh plugins
+zplug "robbyrussell/oh-my-zsh", use:"lib/git.zsh", defer:1, as:plugin
+zplug "robbyrussell/oh-my-zsh", use:"lib/prompt_info_functions.zsh", defer:1, as:plugin
+zplug "robbyrussell/oh-my-zsh", use:"lib/nvm.zsh", defer:1, as:plugin
+zplug "robbyrussell/oh-my-zsh", use:"lib/bzr.zsh", defer:1, as:plugin
+zplug "plugins/git", from:oh-my-zsh, as:plugin, defer:1
+zplug "plugins/gpg-agent", from:oh-my-zsh, as:plugin, defer:1
+zplug "plugins/ssh-agent", from:oh-my-zsh, as:plugin, defer:1
+zplug "~/.zsh", from:local, use:"papercolor.zsh-theme", as:theme, defer:2
+
+# zplug check returns true if all packages are installed
+# Therefore, when it returns false, run zplug install
+if ! zplug check; then
+    zplug install
+fi
+
+# source plugins and add commands to the PATH
+zplug load

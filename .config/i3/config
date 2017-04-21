@@ -182,9 +182,6 @@ assign [class="Lollypop|Google Play Music Desktop Player"] workspace 10
 # Run polybar at start
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-# Run Google Calendar Alert daemon
-exec_always --no-startup-id gcalert
-
 # Run unclutter-xfixes
 exec --no-startup-id unclutter
 
@@ -197,11 +194,11 @@ exec --no-startup-id compton --config $HOME/.compton.conf -b
 # Start albert omnilauncher
 exec --no-startup-id albert
 
-# Start Thunar in daemon mode
+# Start PCmanFM in daemon mode
 exec --no-startup-id pcmanfm -d
 
 # Start xbindkeys
-exec xbindkeys
+exec --no-startup-id xbindkeys
 
 # Run RedShift
 exec --no-startup-id nohup redshift -c $HOME/.config/redshift.conf
@@ -214,4 +211,4 @@ exec_always --no-startup-id xfce4-notifyd
 
 # Set x11 keyboard layout to use the right alt key as a compose key
 # That way I can type accented characters for Spanish
-exec_always setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl
+exec_always --no-startup-id setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl
