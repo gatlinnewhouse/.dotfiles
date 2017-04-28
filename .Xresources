@@ -87,7 +87,7 @@ URxvt.color15: #F5F5F5
 ! URxvt*pointerColor2:                  color
 ! URxvt*borderColor:                    color
 ! URxvt*iconFile:                       file
-URxvt*font: xft:FuraCode Nerd Font:size=9:antialias=true:hinting=true
+URxvt*font: xft:FuraCode Nerd Font:size=10:antialias=true:hinting=true
 ! URxvt*boldFont:                       fontname
 ! URxvt*italicFont:                     fontname
 ! URxvt*boldItalicFont:                 fontname
@@ -110,7 +110,7 @@ URxvt*font: xft:FuraCode Nerd Font:size=9:antialias=true:hinting=true
 ! URxvt*borderLess:                     boolean
 ! URxvt*lineSpace:                      number
 ! URxvt*letterSpace:                    number
-! URxvt*skipBuiltinGlyphs:              boolean
+URxvt*skipBuiltinGlyphs: true
 ! URxvt*pointerBlankDelay:              number
 ! URxvt*backspacekey:                   string
 ! URxvt*deletekey:                      string

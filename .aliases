@@ -6,4 +6,14 @@
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-record="ffmpeg -f x11grab -r 25 -s 1920x1080 -i :0.0+0,24 -vcodec libx264 -preset ultrafast -crf 0 video.mkv"
+alias record="ffmpeg -f x11grab -r 25 -s 1920x1080 -i :0.0+0,24 -vcodec libx264 -preset ultrafast -crf 0 video.mkv"
+alias ls='ls $LS_OPTIONS'
+alias grep='grep --color=auto'
+alias la='k -h -a'
+alias k='k -h'
+#alias tmux='tmux -2'
+#alias tpm_install='$HOME/.tmux/plugins/tpm/bin/install_plugins'
+#alias tpm_update='$HOME/.tmux/plugins/tpm/bin/update_plugins all'
+#alias tpm_clean='$HOME/.tmux/plugins/tpm/bin/clean_plugins'
+alias oh-my-zsh_update='$HOME/.oh-my-zsh/tools/check_for_upgrade.sh'
+alias oh-my-zsh_upgrade='$HOME/.oh-my-zsh/tools/upgrade.sh'

@@ -74,6 +74,9 @@ Plug 'NLKNguyen/papercolor-theme'
 " Use visual character indent guides instead
 Plug 'Yggdroot/indentLine'
 
+" Syntax highlighting for TMUX config
+Plug 'tmux-plugins/vim-tmux'
+
 " *=========================*
 "    Vim for Prose plugins
 " *=========================*
@@ -87,9 +90,6 @@ Plug 'reedes/vim-pencil'
 " Vim-Wordy checks for misused/abused/overused words or phrases*
 " *according to 'usuage experts' (take it with a grain of salt
 Plug 'reedes/vim-wordy'
-
-" Find repeated words in buffer
-Plug 'dbmrq/vim-ditto'
 
 " Better spellcheck for vim
 Plug 'reedes/vim-lexical'
@@ -219,9 +219,6 @@ map <F6> \t<CR>
 
 " Check words with Wordy
 map <F7> :NextWordy<CR>
-
-" Check for repeated words with Ditto
-map <F8> :ToggleDitto<CR>
 
 " Enable Goyo and Vim-Pencil 
 map <F11> :Goyo <bar> %:PencilToggle<CR>

@@ -27,7 +27,7 @@ else
   CARETCOLOR="$reset_color"
 fi
 
-ZSH_THEME_GIT_PROMPT_PREFIX=" %{$reset_color%}%{$blue%}["
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$blue%}["
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}%{$blue%}] %{$reset_color%}"
 
 ZSH_THEME_GIT_PROMPT_DIRTY=" %{$red%}✗%{$reset_color%}"
