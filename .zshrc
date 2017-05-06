@@ -41,7 +41,7 @@ export PATH="/usr/local/bin:$PATH"
 export SHELL="/bin/zsh"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export SSH_KEY_PATH="~/.ssh/rsa_id"
-export TERM="rxvt-unicode"
+export TERM="xterm-xfree86"
 export ZPLUG_THREADS="24"
 export ZPLUG_PROTOCOL="HTTPS"
 
@@ -113,6 +113,9 @@ zplug "MichaelAquilina/zsh-emojis", as:plugin
 
 # ls with git support
 zplug "supercrabtree/k", as:plugin
+
+# exercism.io autocomplete
+zplug "$HOME/.zsh/exercism_completion.zsh", from:local, as:plugin
 
 # Import oh-my-zsh plugins
 zplug "$HOME/.zplug/repos/robbyrussell/oh-my-zsh", from:local, use:"lib/git.zsh", defer:2, as:plugin

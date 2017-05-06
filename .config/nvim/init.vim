@@ -4,9 +4,27 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Required dependencies
+" ***** Required dependencies *****
+
+" Create your own Vim text objects (used for Prose plugins)
 Plug 'kana/vim-textobj-user'
+
+" Enable repeating supported plugin maps with '.' command
 Plug 'tpope/vim-repeat'
+
+" Asynchronus unite all interfaces
+Plug 'Shougo/denite.nvim'
+
+" Asynchronus :make command
+Plug 'neomake/neomake'
+
+" ***** Actual plugins *****
+
+" Vim Find And Replace (https://github.com/brooth/far.vim)
+Plug 'brooth/far.vim'
+
+" See git diff in Vim buffer gutters
+Plug 'airblade/vim-gitgutter'
 
 " Fancy start screen for vim
 Plug 'mhinz/vim-startify'
@@ -42,7 +60,7 @@ Plug 'kurayama/systemd-vim-syntax', { 'for': 'systemd' }
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
 
 " Syntax support for HTML5 files
-Plug 'othree/html5.vim'
+Plug 'othree/html5.vim', { 'for': 'html'}
 
 " Syntax support for Markdown files
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
@@ -58,14 +76,26 @@ Plug 'ryanoasis/vim-devicons'
 
 " Automatically add pairs to curly brackets, etc
 Plug 'tpope/vim-surround'
+
+" Heuristically set buffer options 'shiftwidth' and 'expandtab'
 Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-characterize'
+
+" Quickly comment stuff out
+Plug 'scrooloose/nerdcommenter'
 
 " Show colors for hexadecimal codes in CSS files
-Plug 'ap/vim-css-color'
+Plug 'ap/vim-css-color', { 'for': ['i3', 'css', 'html', 'svg', 'Xresources']}
+
+" Dark powered asynchronous completion framework for NeoVim
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" Insert mode auto-completion for quotes, parenthesis, brackets, and more!
 Plug 'Raimondi/delimitMate'
+
+" Use Neovim to edit encrypted files
+Plug 'jamessan/vim-gnupg', { 'for': ['gpg', 'pgp', 'asc']}
+
+" Plugin for using EditorConfig files to maintain consistent coding styles
 Plug 'editorconfig/editorconfig-vim'
 
 " Material Design color scheme
@@ -74,8 +104,8 @@ Plug 'NLKNguyen/papercolor-theme'
 " Use visual character indent guides instead
 Plug 'Yggdroot/indentLine'
 
-" Syntax highlighting for TMUX config
-Plug 'tmux-plugins/vim-tmux'
+" Tab completion for Neovim
+Plug 'ervandew/supertab'
 
 " *=========================*
 "    Vim for Prose plugins
@@ -86,10 +116,6 @@ Plug 'junegunn/goyo.vim'
 
 " Vim-Pencil soft wraps lines
 Plug 'reedes/vim-pencil'
-
-" Vim-Wordy checks for misused/abused/overused words or phrases*
-" *according to 'usuage experts' (take it with a grain of salt
-Plug 'reedes/vim-wordy'
 
 " Better spellcheck for vim
 Plug 'reedes/vim-lexical'
@@ -103,78 +129,16 @@ Plug 'reedes/vim-textobj-sentence'
 " *=========================*
 
 " Lightweight Powerline
-Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Dark powered neo-completion (asynchronous keyboard completion)
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
+" Completion for Python
+Plug 'zchee/deoplete-jedi'
+
 call plug#end()
-
-" *========================================================================================*
-"                              	         Lightline settings
-" *========================================================================================*
-
-" Lightline colors and characters
-let g:lightline = { 
-      \ 'colorscheme': 'PaperColor',
-      \ 'active': {
-      \    'left': [ [ 'mode', 'paste' ],
-      \              [ 'fugitive', 'filename' ] ]
-      \ },
-      \ 'component_function': {
-      \   'fugitive': 'LightlineFugitive',
-      \   'readonly': 'LightlineReadonly',
-      \   'modified': 'LightlineModified',
-      \   'filename': 'LightlineFilename'
-      \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
-      \ }
-
-" Check if the file is modified
-function! LightlineModified()
-  if &filetype == "help"
-    return ""
-  elseif &modified
-    return "+"
-  elseif &modifiable
-    return ""
-  else
-    return ""
-  endif
-endfunction
-
-" Check if the file is read only
-function! LightlineReadonly()
-  if &filetype == "help"
-    return ""
-  elseif &readonly
-    return ""
-  else
-    return ""
-  endif
-endfunction
-
-" Check if the file is part of a git repo
-function! LightlineFugitive()
-  return exists('*fugitive#head') ? fugitive#head() : ''
-endfunction
-
-" Check for the filename
-function! LightlineFilename()
-  return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
-       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
-       \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
-endfunction
-
-" Check if the file is apart of a git repo and a branch
-function! LightlineFugitive()
-  if exists("*fugitive#head")
-    let branch = fugitive#head()
-    return branch !=# '' ? ' '.branch : ''
-  endif
-  return ''
-endfunction
 
 " *========================================================================================*
 "                          Set it so :q quits Goyo and Vim
@@ -217,9 +181,6 @@ map <F5> \s<CR>
 " Thesaurus with lexical
 map <F6> \t<CR>
 
-" Check words with Wordy
-map <F7> :NextWordy<CR>
-
 " Enable Goyo and Vim-Pencil 
 map <F11> :Goyo <bar> %:PencilToggle<CR>
 
@@ -249,8 +210,17 @@ set shell=zsh
 " Disable folding for markdown documents
 let g:vim_markdown_folding_disabled = 1
 
+" Set Airline to use PaperColor theme
+let g:airline_theme='papercolor'
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
 " Enable LaTeX math for markdown
 let g:vim_markdown_math = 1
+
+" Use the GPG Agent for encrypted files
+let g:GPGUseAgent = 1
 
 " PaperColor theme, make terminal 256 bit, enable syntax highlighting, 
 " and use the light theme
@@ -280,9 +250,6 @@ augroup pencil
   autocmd FileType textile       call pencil#init()
   autocmd FileType text          call pencil#init()
 augroup END
-
-" Turn on Ditto's autocmds
-au FileType markdown,text,tex DittoOn
 
 " Quick comment out lines or uncomment them
 augroup vimrc_filetype
@@ -334,4 +301,18 @@ let g:indentLine_char = ''
 let g:indentLine_color_term = 249
 
 " Use evince-synctex aur package
-let g:vimtex_view_general_viewer = 'evince-synctex'
+let g:vimtex_view_general_viewer = 'evince'
+let g:vimtex_viewer_general = 'evince'
+
+" Disable blinking cursor
+let g:guicorsor=''
+
+" Set Goyo.vim settings
+let g:goyo_width = 85%
+let g:goyo_height = 85%
+
+" Disable folding and such for LaTeX
+let g:vimtex_fold_enalbed = 0
+let g:vimtex_fold_preamble = 0
+let g:vimtex_fold_envs = 0
+let g:vimtex_fold_markers = 0
