@@ -9,6 +9,9 @@ Xft.rgba: rgb
 !   URXVT SETTINGS   !
 ! ****************** !
 
+! Extensions
+URxvt.perl-ext-common: default, clipboard
+
 ! Name the terminal
 URxvt*termName: rxvt-unicode
 

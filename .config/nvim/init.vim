@@ -23,9 +23,6 @@ Plug 'neomake/neomake'
 " Vim Find And Replace (https://github.com/brooth/far.vim)
 Plug 'brooth/far.vim'
 
-" See git diff in Vim buffer gutters
-Plug 'airblade/vim-gitgutter'
-
 " Fancy start screen for vim
 Plug 'mhinz/vim-startify'
 
@@ -38,8 +35,8 @@ Plug 'sbdchd/neoformat'
 " Git wrapper for Vim
 Plug 'tpope/vim-fugitive'
 
-" Syntax support and latexmk support for LaTeX files
-Plug 'lervag/vimtex', { 'for': 'tex' }
+" LaTeX live preview for Neovim
+Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
 " Syntax support for Puppet files
 Plug 'voxpupuli/vim-puppet', { 'for': 'puppet' }
@@ -126,6 +123,9 @@ Plug 'reedes/vim-textobj-quote'
 " Improve on Vim's sentance text object and motion for prose
 Plug 'reedes/vim-textobj-sentence'
 
+" Live preview for LaTeX
+Plug 'donRaphaco/neotex', { 'for': 'tex' }
+
 " *=========================*
 
 " Lightweight Powerline
@@ -137,6 +137,9 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Completion for Python
 Plug 'zchee/deoplete-jedi'
+
+" Local wiki plugin
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -181,6 +184,9 @@ map <F5> \s<CR>
 " Thesaurus with lexical
 map <F6> \t<CR>
 
+" Turn on LaTeX live compilation
+map <F10> :NeoTex<CR>
+
 " Enable Goyo and Vim-Pencil 
 map <F11> :Goyo <bar> %:PencilToggle<CR>
 
@@ -224,7 +230,7 @@ let g:GPGUseAgent = 1
 
 " PaperColor theme, make terminal 256 bit, enable syntax highlighting, 
 " and use the light theme
-syntax enable
+syntax on
 set t_Co=256
 colorscheme PaperColor
 set background=light
@@ -281,15 +287,28 @@ augroup textobj_sentence
   autocmd FileType textile call textobj#sentence#init()
 augroup END
 
+" Enable goyo for prose files
+augroup goyo
+  autocmd!
+  autocmd FileType markdown call SetUpGoyo()
+  autocmd FileType textile call SetUpGoyo()
+  autocmd FileType text call SetUpGoyo()
+augroup END
+
+" Function to enable goyo
+function! SetUpGoyo()
+  NeoTexOn
+  if !exists('#goyo')
+    Goyo
+  endif
+endfunction
+
 " Spellcheck dictionaries and languages (English and Spanish)
 let g:lexical#spellang = ['en_us', 'es_mx']
 
 " Specify lexical file locations
 let g:lexical#dictionary = ['~/.config/nvim/dict/words']
 let g:lexical#spellfile = ['~/.config/nvim/spell/en.utf-8.add','~/.config/nvim/spell/es.utf-8.add']
-
-" Vimtex settings
-let g:vimtex_enabled = 1
 
 " Enable indentline by default
 let g:indentLine_enabled = 1
@@ -300,19 +319,11 @@ let g:indentLine_char = ''
 " Set indentLine color
 let g:indentLine_color_term = 249
 
-" Use evince-synctex aur package
-let g:vimtex_view_general_viewer = 'evince'
-let g:vimtex_viewer_general = 'evince'
+" NeoTex settings
+let g:neotex_enabled = 1
+let g:neotex_latexdiff = 0
+" Live compile every 5 seconds
+let g:neotex_delay = 5000
 
 " Disable blinking cursor
 let g:guicorsor=''
-
-" Set Goyo.vim settings
-let g:goyo_width = 85%
-let g:goyo_height = 85%
-
-" Disable folding and such for LaTeX
-let g:vimtex_fold_enalbed = 0
-let g:vimtex_fold_preamble = 0
-let g:vimtex_fold_envs = 0
-let g:vimtex_fold_markers = 0

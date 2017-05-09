@@ -21,7 +21,13 @@ bindkey "${terminfo[kend]}" end-of-line
 
 # Enable colors
 autoload -U colors zsh/terminfo
+[[ -s "$HOME/.zplug/repos/garabik/grc/grc.zsh" ]] && source $HOME/.zplug/repos/garabik/grc/grc.zsh
 colors
+
+# Load history
+autoload -Uz add-zsh-hook
+add-zsh-hook preexec _start_timer
+add-zsh-hook precmd  _stop_timer
 
 #########################################
 #      Paths, Sources, & Variables      #
@@ -61,6 +67,9 @@ pathadd $HOME/.scripts
 # Source files
 source ~/.aliases
 
+# History substring search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 # Check if zplug is installed
 if [[ ! -d ~/.zplug ]]; then
@@ -92,18 +101,22 @@ zplug "zsh-users/zsh-completions", as:plugin
 zplug "zsh-users/zsh-autosuggestions", as:plugin
 
 # Fish-like syntax highlighting for zsh plugin
-zplug "zsh-users/zsh-syntax-highlighting", as:plugin
+zplug "zdharma/fast-syntax-highlighting", as:plugin
 
 # Forked, independent oh-my-zsh colored-man-pages plugin
 zplug "zuxfoucault/colored-man-pages_mod", as:plugin
 
-# Emoji menu plugin
+# Emoji menu plugin dependency
 zplug "stedolan/jq", \
-    from:gh-r, \
-    as:command, \
-    rename-to:jq
-zplug "b4b4r07/emoji-cli", \
-    on:"stedolan/jq"
+  from:gh-r, \
+  as:command, \
+  rename-to:jq
+
+# Emoji CLI
+zplug "b4b4r07/emoji-cli", as:plugin
+
+# Human readable time
+zplug "sindresorhus/pretty-time-zsh", as:plugin
 
 # Human readable errors plugin
 zplug "aphelionz/strerror.plugin.zsh", as:plugin
@@ -111,25 +124,43 @@ zplug "aphelionz/strerror.plugin.zsh", as:plugin
 # Emoji/Emoticon plugin
 zplug "MichaelAquilina/zsh-emojis", as:plugin
 
+# Hacker quotes
+zplug "oldratlee/hacker-quotes", as:plugin
+
 # ls with git support
 zplug "supercrabtree/k", as:plugin
 
-# exercism.io autocomplete
-zplug "$HOME/.zsh/exercism_completion.zsh", from:local, as:plugin
+# 256 ZSH Color Plugin
+zplug "chrissicool/zsh-256color", as:plugin
+
+# Color support
+zplug "garabik/grc", as:plugin
+
+# zsh history substring search
+zplug "zsh-users/zsh-history-substring-search", as:plugin
+
+# ZSH history MySQL database
+zplug "larkery/zsh-histdb", use:"history-timer.zsh", as:plugin
+zplug "larkery/zsh-histdb", use:"sqlite-history.zsh", as:plugin
 
 # Import oh-my-zsh plugins
 zplug "$HOME/.zplug/repos/robbyrussell/oh-my-zsh", from:local, use:"lib/git.zsh", defer:2, as:plugin
 zplug "$HOME/.zplug/repos/robbyrussell/oh-my-zsh", from:local, use:"lib/prompt_info_functions.zsh", defer:1, as:plugin
-zplug "$HOME/.zplug/repos/robbyrussell/oh-my-zsh", from:local, use:"lib/history.zsh", defer:1, as:plugin
-zplug "$HOME/.zplug/repos/robbyrussell/oh-my-zsh", from:local, use:"lib/grep.zsh", defer:1, as:plugin
-zplug "$HOME/.zplug/repos/robbyrussell/oh-my-zsh", from:local, use:"plugins/per-directory-history/per-directory-history.zsh", defer:2, as:plugin
 zplug "$HOME/.zsh", from:local, use:"papercolor.zsh-theme", as:theme, defer:3
 
 # zplug check returns true if all packages are installed
 # Therefore, when it returns false, run zplug install
 if ! zplug check; then
-    zplug install
+  zplug install
 fi
 
 # source plugins and add commands to the PATH
 zplug load
+
+# Use zsh-autosuggestions with zsh mysql history
+_zsh_autosuggest_strategy_histdb_top_here() {
+  local query="select commands.argv from history left join commands on history.command_id = commands.rowid left join places on history.place_id = places.rowid where places.dir LIKE '$(sql_escape $PWD)%' and commands.argv LIKE '$(sql_escape $1)%' group by commands.argv order by  count(*) desc limit 1" 
+  _histdb_query "$query"
+}
+
+ZSH_AUTOSUGGEST_STRATEGY=histdb_top_here
