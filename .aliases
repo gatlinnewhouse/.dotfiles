@@ -2,18 +2,53 @@
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Record the desktop 
 alias record="ffmpeg -f x11grab -r 25 -s 1920x1080 -i :0.0+0,24 -vcodec libx264 -preset ultrafast -crf 0 video.mkv"
+
+# Fix the last command error
+alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
+
+# Export LS_OPTIONS for inheritance
+export LS_OPTIONS=(-kNphxC --color=always --group-directories-first -w $(tput cols))
 alias ls='ls $LS_OPTIONS'
-alias grep='grep --color=auto'
-alias la='k -h -a'
-alias k='k -h'
-#alias tmux='tmux -2'
-#alias tpm_install='$HOME/.tmux/plugins/tpm/bin/install_plugins'
-#alias tpm_update='$HOME/.tmux/plugins/tpm/bin/update_plugins all'
-#alias tpm_clean='$HOME/.tmux/plugins/tpm/bin/clean_plugins'
-alias oh-my-zsh_update='$HOME/.oh-my-zsh/tools/check_for_upgrade.sh'
-alias oh-my-zsh_upgrade='$HOME/.oh-my-zsh/tools/upgrade.sh'
+# List almost everything in columns (including dotfiles, hence 'ld')
+alias ld='ls -AC'
+# List almost everything with filesizes, times
+alias la='ls -Alto'
+
+# Quick cd aliases
+alias ..='cd ..'
+alias ...='cd ../..'
+
+# Reload z shell
+alias reload='zplug status && zplug update && zplug clean && zplug clear && reset'
+
+# Dummy-proof by using this in addition to safe-rm
+alias rm='rm -i'
+
+# Make parents and grandparents, make a whole lineage if needed
+alias mkdir='mkdir -pv'
+
+# Make and travel
+mkcd(){ mkdir "$@" && echo "and entered the newest child directory" && cd "$@"; }
+
+# Do not use top
+alias top='htop'
+
+# Extract things the easy way
+alias dtrx='dtrx -r'
+
+# Use less with syntax support
+alias less='hless'
+
+# Light-locker-command aliases
+#
+# Lock the screen
+alias lock='light-locker-command -l'
+
+# Inhibit the screensaver for awhile
+alias caffeine='light-locker-command -i &'
+
+# Stop inhibiting the screensaver
+alias melatonin='pkill -USR1 '^light-locker-command$''

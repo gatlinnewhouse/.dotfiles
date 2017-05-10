@@ -28,7 +28,8 @@
 	prune = fetch --prune
 	# Force a push the nice way
 	please = push --force-with-lease
-
+	# sparse read
+	sparse-read = "!f() { git config core.sparseCheckout true && touch $(echo $(git rev-parse --show-toplevel)'/.git/info/sparse-checkout') && echo $1 >> $(echo $(git rev-parse --show-toplevel)'/.git/info/sparse-checkout') && git read-tree -m -u origin/master; }; f"
 [merge]
 	# Only fast forward
 	# https://sandofsky.com/images/fast_forward.pdf

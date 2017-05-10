@@ -212,6 +212,18 @@ exec_always --no-startup-id feh  --bg-scale $HOME/Pictures/background.jpg
 # Start notification daemon
 exec_always --no-startup-id xfce4-notifyd
 
+# Battery notifications
+exec_always --no-startup-id i3-battery-popup -n -L 30 -t 10m
+
+# Arch package update notifications (including AUR)
+# Arguments list: check the AUR, disappear  check again
+#                                       after,     after,
+# Argument values:                            1m     6h
+exec_always --no-startup-id aarchup --aur -t 600 -l 360
+
+# Run light-locker daemon
+exec_always --no-startup-id light-locker --lock-on-suspend --late-locking --lock-after-screensaver=15
+
 # Set x11 keyboard layout to use the right alt key as a compose key
 # That way I can type accented characters for Spanish
 exec_always --no-startup-id setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl

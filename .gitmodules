@@ -1,0 +1,6 @@
+[submodule "Documents/updpkgver"]
+	path = Documents/updpkgver
+	url = /home/deleuze/.scripts/submodules/updpkgver
+[submodule ".scripts/submodules/updpkgver"]
+	path = .scripts/submodules/updpkgver
+	url = /home/deleuze/.scripts/submodules/updpkgver

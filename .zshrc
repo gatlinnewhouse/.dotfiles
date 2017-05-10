@@ -21,7 +21,6 @@ bindkey "${terminfo[kend]}" end-of-line
 
 # Enable colors
 autoload -U colors zsh/terminfo
-[[ -s "$HOME/.zplug/repos/garabik/grc/grc.zsh" ]] && source $HOME/.zplug/repos/garabik/grc/grc.zsh
 colors
 
 # Load history
@@ -52,24 +51,20 @@ export ZPLUG_THREADS="24"
 export ZPLUG_PROTOCOL="HTTPS"
 
 # LS colors, made with http://geoff.greer.fm/lscolors/
-export LSCOLORS="exfxcxdxbxegedabagacad"
+# export LSCOLORS="exfxcxdxbxegedabagacad"
 export LS_COLORS='di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:'
-export LS_OPTIONS=(--color=auto -a -q)
 export GREP_COLOR='1;33'
 
-# Enable LS_COLORS
+# Enable LS_COLORS in tab completion
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # Add additional directories to the path.
 pathadd $HOME/.local/bin
 pathadd $HOME/.scripts
+pathadd $HOME/.gem/ruby/2.4.0/bin
 
 # Source files
 source ~/.aliases
-
-# History substring search
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
 
 # Check if zplug is installed
 if [[ ! -d ~/.zplug ]]; then
@@ -96,9 +91,6 @@ zplug "junegunn/fzf-bin", \
 
 # Completions for zsh plugin
 zplug "zsh-users/zsh-completions", as:plugin
-
-# Suggest commands for zsh plugin
-zplug "zsh-users/zsh-autosuggestions", as:plugin
 
 # Fish-like syntax highlighting for zsh plugin
 zplug "zdharma/fast-syntax-highlighting", as:plugin
@@ -127,17 +119,8 @@ zplug "MichaelAquilina/zsh-emojis", as:plugin
 # Hacker quotes
 zplug "oldratlee/hacker-quotes", as:plugin
 
-# ls with git support
-zplug "supercrabtree/k", as:plugin
-
 # 256 ZSH Color Plugin
 zplug "chrissicool/zsh-256color", as:plugin
-
-# Color support
-zplug "garabik/grc", as:plugin
-
-# zsh history substring search
-zplug "zsh-users/zsh-history-substring-search", as:plugin
 
 # ZSH history MySQL database
 zplug "larkery/zsh-histdb", use:"history-timer.zsh", as:plugin
@@ -156,11 +139,3 @@ fi
 
 # source plugins and add commands to the PATH
 zplug load
-
-# Use zsh-autosuggestions with zsh mysql history
-_zsh_autosuggest_strategy_histdb_top_here() {
-  local query="select commands.argv from history left join commands on history.command_id = commands.rowid left join places on history.place_id = places.rowid where places.dir LIKE '$(sql_escape $PWD)%' and commands.argv LIKE '$(sql_escape $1)%' group by commands.argv order by  count(*) desc limit 1" 
-  _histdb_query "$query"
-}
-
-ZSH_AUTOSUGGEST_STRATEGY=histdb_top_here
