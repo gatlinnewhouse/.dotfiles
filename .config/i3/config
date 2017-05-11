@@ -222,7 +222,7 @@ exec_always --no-startup-id i3-battery-popup -n -L 30 -t 10m
 exec_always --no-startup-id aarchup --aur -t 600 -l 360
 
 # Run light-locker daemon
-exec_always --no-startup-id light-locker --lock-on-suspend --late-locking --lock-after-screensaver=15
+exec_always light-locker --lock-on-suspend --late-locking --lock-after-screensaver=15
 
 # Set x11 keyboard layout to use the right alt key as a compose key
 # That way I can type accented characters for Spanish

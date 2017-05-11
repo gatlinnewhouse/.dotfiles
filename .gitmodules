@@ -1,6 +1,3 @@
-[submodule "Documents/updpkgver"]
-	path = Documents/updpkgver
-	url = /home/deleuze/.scripts/submodules/updpkgver
-[submodule ".scripts/submodules/updpkgver"]
-	path = .scripts/submodules/updpkgver
-	url = /home/deleuze/.scripts/submodules/updpkgver
+[submodule "/home/deleuze/.scripts/submodules/pdftools"]
+	path = .scripts/submodules/pdftools
+	url = git@github.com:raffamaiden/pdftools.git

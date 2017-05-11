@@ -133,7 +133,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Dark powered neo-completion (asynchronous keyboard completion)
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Completion for Python
 Plug 'zchee/deoplete-jedi'
@@ -297,7 +297,6 @@ augroup END
 
 " Function to enable goyo
 function! SetUpGoyo()
-  NeoTexOn
   if !exists('#goyo')
     Goyo
   endif

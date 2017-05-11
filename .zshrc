@@ -104,8 +104,8 @@ zplug "stedolan/jq", \
   as:command, \
   rename-to:jq
 
-# Emoji CLI
-zplug "b4b4r07/emoji-cli", as:plugin
+# Emoji CLI - not working?
+#zplug "b4b4r07/emoji-cli", as:plugin
 
 # Human readable time
 zplug "sindresorhus/pretty-time-zsh", as:plugin
@@ -116,8 +116,11 @@ zplug "aphelionz/strerror.plugin.zsh", as:plugin
 # Emoji/Emoticon plugin
 zplug "MichaelAquilina/zsh-emojis", as:plugin
 
-# Hacker quotes
-zplug "oldratlee/hacker-quotes", as:plugin
+# Hacker quotes - not working?
+#zplug "oldratlee/hacker-quotes", as:plugin
+
+# Git extra commands (to make things easier)
+zplug "unixorn/git-extra-commands", as:plugin, use:"git-extra-commands.plugin.zsh"
 
 # 256 ZSH Color Plugin
 zplug "chrissicool/zsh-256color", as:plugin

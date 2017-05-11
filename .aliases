@@ -14,15 +14,26 @@ export LS_OPTIONS=(-kNphxC --color=always --group-directories-first -w $(tput co
 alias ls='ls $LS_OPTIONS'
 # List almost everything in columns (including dotfiles, hence 'ld')
 alias ld='ls -AC'
-# List almost everything with filesizes, times
-alias la='ls -Alto'
+# List almost everything with filesizes, times, and so on
+alias ll='ls -Alto'
+# la command deprecated but my muscle memory isn't :(
+la(){ 
+  echo "Do you want to list filesizes and other attributes [y/n]" 
+  read response
+    if [ "$response" = "y" ]; then
+      ll
+    else
+      ld
+    fi
+    echo
+}
 
 # Quick cd aliases
 alias ..='cd ..'
 alias ...='cd ../..'
 
 # Reload z shell
-alias reload='zplug status && zplug update && zplug clean && zplug clear && reset'
+alias reload='zplug status; sleep 0.25; zplug update; sleep 0.25; zplug clean; sleep 0.25; zplug clear; sleep 0.25; reset;'
 
 # Dummy-proof by using this in addition to safe-rm
 alias rm='rm -i'
@@ -30,17 +41,17 @@ alias rm='rm -i'
 # Make parents and grandparents, make a whole lineage if needed
 alias mkdir='mkdir -pv'
 
-# Make and travel
+# Make directory and travel to it
 mkcd(){ mkdir "$@" && echo "and entered the newest child directory" && cd "$@"; }
 
 # Do not use top
 alias top='htop'
 
-# Extract things the easy way
+# Extract things the easy way with recursion as default
 alias dtrx='dtrx -r'
 
-# Use less with syntax support
-alias less='hless'
+# Hardcode tray icons by changing them with Inkscape
+alias trayIcons='hardcode-tray --size 16 --theme Papirus-Light --conversion-tool ImageMagick --apply'
 
 # Light-locker-command aliases
 #
