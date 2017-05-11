@@ -1,9 +1,3 @@
 [submodule "/home/deleuze/.scripts/submodules/pdftools"]
 	path = .scripts/submodules/pdftools
 	url = git@github.com:raffamaiden/pdftools.git
-[submodule "/home/deleuze/.scripts/submodules/to_install/Sandman-Lite"]
-	path = /home/deleuze/.scripts/submodules/to_install/Sandman-Lite
-	url = git@github.com:alexanderepstein/Sandman-Lite.git
-[submodule "/home/deleuze/.scripts/submodules/to_install/pactoys"]
-	path = /home/deleuze/.scripts/submodules/to_install/pactoys
-	url = git@github.com:renatosilva/pactoys.git
