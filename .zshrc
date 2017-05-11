@@ -42,6 +42,7 @@ export BROWSER="firefox"
 export EDITOR="nvim"
 export GO_ENV="$HOME/.goenvs"
 export GOPATH="$HOME/.go"
+export _JAVA_OPTIONS='-Dsun.java2d.opengl=true -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export PATH="/usr/local/bin:$PATH"
 export SHELL="/bin/zsh"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
