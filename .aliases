@@ -6,11 +6,26 @@
 # Record the desktop 
 alias record="ffmpeg -f x11grab -r 25 -s 1920x1080 -i :0.0+0,24 -vcodec libx264 -preset ultrafast -crf 0 video.mkv"
 
-# Fix the last command error
-alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
+# Give diff some color
+alias diff='cwdiff'
+
+# And grep....
+alias grep='grep --color=auto'
+
+# And make........
+alias make='colormake'
+
+# And ping . . . . . . . . 
+alias ping='prettyping'
+
+# And gcc .......
+alias gcc='colorgcc'
+
+# And pacaur
+alias pacaur='pacaur --color=always'
 
 # Export LS_OPTIONS for inheritance
-export LS_OPTIONS=(-kNphxC --color=always --group-directories-first -w $(tput cols))
+export LS_OPTIONS=(-kNphxC --color=auto --group-directories-first -w $(tput cols))
 alias ls='ls $LS_OPTIONS'
 # List almost everything in columns (including dotfiles, hence 'ld')
 alias ld='ls -AC'
@@ -33,7 +48,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 # Reload z shell
-alias reload='zplug status; sleep 0.25; zplug update; sleep 0.25; zplug clean; sleep 0.25; zplug clear; sleep 0.25; reset;'
+alias reload='zplug status; sleep 2; zplug update; sleep 0.75; zplug clean; sleep 0.5; zplug clear; sleep 0.25; reset;'
 
 # Dummy-proof by using this in addition to safe-rm
 alias rm='rm -i'

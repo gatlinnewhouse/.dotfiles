@@ -28,6 +28,24 @@ autoload -Uz add-zsh-hook
 add-zsh-hook preexec _start_timer
 add-zsh-hook precmd  _stop_timer
 
+# Command completion
+autoload -Uz compinit
+compinit
+
+# Persistent rehashing for updating and adding new executables to $PATH
+zstyle ':completion:*' rehash true
+
+# Load fancy prompt
+autoload -Uz promptinit
+promptinit
+
+# Search key bindings and loading
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+[[ -n "$key[Up]"   ]] && bindkey -- "$key[Up]"   up-line-or-beginning-search
+[[ -n "$key[Down]" ]] && bindkey -- "$key[Down]" down-line-or-beginning-search
+
 #########################################
 #      Paths, Sources, & Variables      #
 #########################################
@@ -43,6 +61,8 @@ export EDITOR="nvim"
 export GO_ENV="$HOME/.goenvs"
 export GOPATH="$HOME/.go"
 export _JAVA_OPTIONS='-Dsun.java2d.opengl=true -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
+export LESS='-R '
 export PATH="/usr/local/bin:$PATH"
 export SHELL="/bin/zsh"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
@@ -59,9 +79,11 @@ export GREP_COLOR='1;33'
 # Enable LS_COLORS in tab completion
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
+# Enable arrow key driven autocompletion
+zstyle ':completion:*' menu select
+
 # Add additional directories to the path.
 pathadd $HOME/.local/bin
-pathadd $HOME/.scripts
 pathadd $HOME/.gem/ruby/2.4.0/bin
 
 # Source files

@@ -180,7 +180,7 @@ assign [class="Lollypop|Google Play Music Desktop Player"] workspace 10
 #################
 
 # Run polybar at start
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always $HOME/.config/polybar/launch.sh
 
 # Run Thunar in daemon mode at start
 exec_always --no-startup-id thunar --daemon
