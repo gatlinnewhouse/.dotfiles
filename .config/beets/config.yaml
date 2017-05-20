@@ -4,9 +4,9 @@
 #############################################################################
  
 ### Global Options
-library: /home/delueze/.config/beets/library.blb
-directory: /home/delueze/Music/
-pluginpath: /home/delueze/.config/beets/plugins
+library: ~/.config/beets/library.blb
+directory: ~/Music/
+pluginpath: ~/.config/beets/beetsplug
 ignore: .AppleDouble ._* *~ .DS_Store
 per_disc_numbering: true
 threaded: no
@@ -16,22 +16,22 @@ ui:
 
 # Plugins
 plugins: [
-  duplicates,
+  alternatives,
   edit,
   embedart,
   fetchart,
   ftintitle,
+  fromfilename,
   lyrics,
   missing,
   replaygain,
-  rymgenre,
   setlister,
   scrub
 ]
  
 # Import Options
 import:
-  move: no
+  move: yes
   copy: no
   link: no
   write: yes
@@ -39,7 +39,7 @@ import:
   resume: ask
   incremental: false
   quiet_fallback: skip
-  timid: false
+  timid: true
   group_albums: yes
   languages: en
   log: ~/.config/beets/beets-import.log
@@ -54,37 +54,48 @@ match:
 
 # Path options
 paths:
-  default: %asciify{$albumartist/$album%aunique{}/$track $title}
-  singleton: %asciify{$artist/$album%aunique{}/$track $title}
-  comp: %asciify{Various Artists/$album%aunique{}/$track $title}
+  default: %asciify{$albumartist/$album%aunique{}/$track_$title}
+  singleton: %asciify{$artist/$album%aunique{}/$track_$title}
+  comp: %asciify{Various_Artists/$album%aunique{}/$track_$title}
  
 ### Plugin Options
 
+# Use beets to sync with phone
+alternatives:
+  myplayer:
+    directory: ~/mtp/Internal\ shared\ storage/Music
+    paths:
+      default: %asciify{$albumartist/$album%aunique{}/$track_$title}
+      singleton: %asciify{$artist/$album%aunique{}/$track_$title}
+      comp: %asciify{Various_Artists/$album%aunique{}/$track_$title}
+    formats: mp3
+    query: "onplayer:true"
+    removable: true
+
 # Embeded album art options
 embedart:
-   compare_threshold: 80
-   maxwidth: 500
+  compare_threshold: 80
+  maxwidth: 500
 
 # FetchArt options
 fetchart:
-   minwidth: 500
-   sources: coverart albumart wikipedia
+  minwidth: 500
+  sources: coverart albumart wikipedia
 
 # Lyrics options
 lyrics:
-   force: yes
-   google_API_key: AIzaSyDNcaUvSnrN2u0EpYaEa4LT05f7379PWHY
-
-# rymgenre doesn't run on import, so I use it as a backup
-# for when lastgenre is giving me garbage results.
-rymgenre:
-  classes: primary
-  depth: node
+  force: yes
+  google_API_key: AIzaSyDNcaUvSnrN2u0EpYaEa4LT05f7379PWHY
  
 # Fetch fresh album art for new imports
 fetchart:
   sources: coverart itunes amazon albumart
   store_source: yes
+  art_source: folder
+
+# Features in the title
+ftintitle:
+  auto: yes
 
 # Normalizing audio decibels
 # Gstreamer is a pain, but still the correct backend
@@ -94,8 +105,8 @@ replaygain:
 
 # Make playlists from setlists
 setlister:
-  playlist_dir:~/Music/setlists
+  playlist_dir: ~/Music/playlists/setlists
  
 # Scrub extra metadata
 scrub:
-  auto: no
+  auto: yes

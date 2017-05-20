@@ -15,6 +15,9 @@ URxvt.perl-ext-common: default, clipboard, -readline
 ! Name the terminal
 URxvt*termName: rxvt-unicode
 
+! Speedhack
+URxvt*buffered: false
+
 ! Disable scroll bar
 URxvt*scrollBar: false
 
@@ -49,7 +52,7 @@ URxvt.color14: #3E999F
 URxvt.color7: #4D4D4C
 URxvt.color15: #F5F5F5
 
-URxvt*font: xft:FuraCode Nerd Font:size=10:antialias=true:hinting=true
+URxvt*font: xft:FuraCode Nerd Font:size=10:antialias=true
 
 ! Clipboard
 URxvt.keysym.C-C: perl:clipboard:copy

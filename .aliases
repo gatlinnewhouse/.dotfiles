@@ -3,7 +3,7 @@
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-# Record the desktop 
+# Record the desktop
 alias record="ffmpeg -f x11grab -r 25 -s 1920x1080 -i :0.0+0,24 -vcodec libx264 -preset ultrafast -crf 0 video.mkv"
 
 # Give diff some color
@@ -15,7 +15,7 @@ alias grep='grep --color=auto'
 # And make........
 alias make='colormake'
 
-# And ping . . . . . . . . 
+# And ping . . . . . . . .
 alias ping='prettyping'
 
 # And gcc .......
@@ -27,21 +27,10 @@ alias pacaur='pacaur --color=always'
 # Export LS_OPTIONS for inheritance
 export LS_OPTIONS=(-kNphxC --color=auto --group-directories-first -w $(tput cols))
 alias ls='ls $LS_OPTIONS'
-# List almost everything in columns (including dotfiles, hence 'ld')
-alias ld='ls -AC'
+# List almost everything in columns
+alias ll='ls -AC'
 # List almost everything with filesizes, times, and so on
-alias ll='ls -Alto'
-# la command deprecated but my muscle memory isn't :(
-la(){ 
-  echo "Do you want to list filesizes and other attributes [y/n]" 
-  read response
-    if [ "$response" = "y" ]; then
-      ll
-    else
-      ld
-    fi
-    echo
-}
+alias la='ls -Alto'
 
 # Quick cd aliases
 alias ..='cd ..'
@@ -51,7 +40,29 @@ alias ...='cd ../..'
 alias reload='zplug status; sleep 2; zplug update; sleep 0.75; zplug clean; sleep 0.5; zplug clear; sleep 0.25; reset;'
 
 # Dummy-proof by using this in addition to safe-rm
-alias rm='rm -i'
+#alias rm='rm -i'
+
+# Beets music organizer has a plural command too!
+alias beets='beet'
+
+# Castnow help page and alias as cast
+cast(){
+  if [ "$1" = "-h" ]; then
+    echo "// start playback of a local video file\ncast ./myvideo.mp4\n\n// start playback of video and mp3 files in the local directory\ncast ./mydirectory/\n\n// playback 3 videos after each other\ncast video1.mp4 video2.mp4 video3.mp4\n\n// start playback of an mp4 file over the web\ncast http://commondatastorage.googleapis.com/gtv-videos-bucket/ED_1280.mp4\n\n// start playback of a video over torrent\ncast <url-to-torrent-file OR magnet>\n\n// start playback of a video over torrent with local subtitles\ncast <url-to-torrent-file OR magnet> --subtitles </local/path/to/subtitles.srt>\n\n// transcode some other video format to mp4 while playback (requires ffmpeg)\ncast ./myvideo.avi --tomp4\n\n// transcode only audio while playback (in case the video shows, but there's no audio)\ncast ./myvideo.mkv --tomp4 --ffmpeg-vcodec copy\n\n// change the increment at which the volume steps up or down. A lower number\n// is helpful if your speakers are very loud, and you want more precision over\n// the change in volume\ncast ./song.mp3 --volume-step \"0.01\"\n\n// re-attach to a currently running playback session\ncast\n"
+  else
+    castnow $1
+  fi
+}
+
+# Cast youtube link to chromecast via castnow
+cast-youtube(){
+  if [ "$1" = *"http"* ]; then
+    youtube-dl -o - $1 | castnow --quiet -
+  else
+    echo "You need to provide a youtube link as an argument."
+    echo
+  fi
+}
 
 # Make parents and grandparents, make a whole lineage if needed
 alias mkdir='mkdir -pv'
@@ -72,6 +83,12 @@ alias trayIcons='hardcode-tray --size 16 --theme Papirus-Light --conversion-tool
 #
 # Lock the screen
 alias lock='light-locker-command -l'
+
+# Mount MTP
+alias mount-mtp='jmtpfs -o auto_unmount ~/mtp'
+
+# Unmount MTP
+alias unmount-mtp='fusermount -u ~/mtp'
 
 # Inhibit the screensaver for awhile
 alias caffeine='light-locker-command -i &'

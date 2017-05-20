@@ -64,6 +64,7 @@ export _JAVA_OPTIONS='-Dsun.java2d.opengl=true -Dawt.useSystemAAFontSettings=on 
 export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
 export LESS='-R '
 export PATH="/usr/local/bin:$PATH"
+export QT_QPA_PLATFORMTHEME="gtk2"
 export SHELL="/bin/zsh"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -85,6 +86,7 @@ zstyle ':completion:*' menu select
 # Add additional directories to the path.
 pathadd $HOME/.local/bin
 pathadd $HOME/.gem/ruby/2.4.0/bin
+pathadd $HOME/.scripts/
 
 # Source files
 source ~/.aliases
