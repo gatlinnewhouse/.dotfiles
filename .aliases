@@ -54,6 +54,15 @@ cast(){
   fi
 }
 
+# Add Wallapatta referece
+wallapat(){
+  if [ "$1" = "-h" ]; then
+    xdg-open https://wallapatta.github.io/reference.html
+  else
+    wallapatta
+  fi
+}
+
 # Cast youtube link to chromecast via castnow
 cast-youtube(){
   if [ "$1" = *"http"* ]; then
@@ -69,6 +78,9 @@ alias mkdir='mkdir -pv'
 
 # Make directory and travel to it
 mkcd(){ mkdir "$@" && echo "and entered the newest child directory" && cd "$@"; }
+
+# Glyphr desktop
+alias glyphr='~/.scripts/submodules/Glyphr-Studio-Desktop/build/Glyphr\ Studio-linux-x64/Glyphr\ Studio'
 
 # Do not use top
 alias top='htop'

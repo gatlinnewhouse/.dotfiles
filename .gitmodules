@@ -7,3 +7,24 @@
 [submodule ".scripts/submodules/to_install/sandman-lite"]
 	path = .scripts/submodules/to_install/sandman-lite
 	url = git@github.com:alexanderepstein/Sandman-Lite.git
+[submodule ".latextemplates/tufte-latex"]
+	path = .latextemplates/tufte-latex
+	url = git@github.com:Tufte-LaTeX/tufte-latex.git
+[submodule ".latextemplates/mla13"]
+	path = .latextemplates/mla13
+	url = git@github.com:jackson13info/mla13.git
+[submodule ".tikztemplates/Tikz"]
+	path = .tikztemplates/Tikz
+	url = https://github.com/walmes/Tikz
+[submodule ".latextemplates/TIKZ-TEMPLATES/PetarV_TikZ"]
+	path = .latextemplates/TIKZ-TEMPLATES/PetarV_TikZ
+	url = git@github.com:PetarV-/TikZ.git
+[submodule ".latextemplates/TIKZ-TEMPLATES/walmes_Tikz"]
+	path = .latextemplates/TIKZ-TEMPLATES/walmes_Tikz
+	url = git@github.com:walmes/Tikz.git
+[submodule ".latextemplates/pdftools"]
+	path = .latextemplates/pdftools
+	url = /home/deleuze/.scripts/submodules/pdftools
+[submodule "/home/deleuze/.latextemplates/MartinThoma_LaTeX-examples"]
+	path = /home/deleuze/.latextemplates/MartinThoma_LaTeX-examples
+	url = git@github.com:MartinThoma/LaTeX-examples.git
