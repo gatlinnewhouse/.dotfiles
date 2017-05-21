@@ -13,9 +13,6 @@
 [submodule ".latextemplates/mla13"]
 	path = .latextemplates/mla13
 	url = git@github.com:jackson13info/mla13.git
-[submodule ".tikztemplates/Tikz"]
-	path = .tikztemplates/Tikz
-	url = https://github.com/walmes/Tikz
 [submodule ".latextemplates/TIKZ-TEMPLATES/PetarV_TikZ"]
 	path = .latextemplates/TIKZ-TEMPLATES/PetarV_TikZ
 	url = git@github.com:PetarV-/TikZ.git
