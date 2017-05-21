@@ -19,9 +19,6 @@
 [submodule ".latextemplates/TIKZ-TEMPLATES/walmes_Tikz"]
 	path = .latextemplates/TIKZ-TEMPLATES/walmes_Tikz
 	url = git@github.com:walmes/Tikz.git
-[submodule ".latextemplates/pdftools"]
-	path = .latextemplates/pdftools
-	url = /home/deleuze/.scripts/submodules/pdftools
 [submodule "/home/deleuze/.latextemplates/MartinThoma_LaTeX-examples"]
 	path = /home/deleuze/.latextemplates/MartinThoma_LaTeX-examples
 	url = git@github.com:MartinThoma/LaTeX-examples.git
