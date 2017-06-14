@@ -26,9 +26,14 @@
 # m:xxx + c:xxx 
 # Shift+... 
 
+
+
+
 #keystate_numlock = enable
 #keystate_scrolllock = enable
 #keystate_capslock = enable
+
+
 
 #Raise Volume
 "pavolume volup"
@@ -53,7 +58,12 @@
 # Take a screenshot
 "gscreenshot"
     m:0x0 + c:107
-    Print
+    Print 
+
+#Suspend to RAM and Disk
+"sudo s2both --force --vbe_post --vbe_mode"
+    m:0x0 + c:150
+    XF86Sleep 
 
 #
 # End of xbindkeys configuration

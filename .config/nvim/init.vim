@@ -35,9 +35,6 @@ Plug 'sbdchd/neoformat'
 " Git wrapper for Vim
 Plug 'tpope/vim-fugitive'
 
-" LaTeX live preview for Neovim
-Plug 'donRaphaco/neotex', { 'for': 'tex' }
-
 " Syntax support for Puppet files
 Plug 'voxpupuli/vim-puppet', { 'for': 'puppet' }
 
@@ -82,9 +79,6 @@ Plug 'scrooloose/nerdcommenter'
 
 " Show colors for hexadecimal codes in CSS files
 Plug 'ap/vim-css-color', { 'for': ['i3', 'css', 'html', 'svg', 'Xresources']}
-
-" Dark powered asynchronous completion framework for NeoVim
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Insert mode auto-completion for quotes, parenthesis, brackets, and more!
 Plug 'Raimondi/delimitMate'
@@ -131,12 +125,6 @@ Plug 'donRaphaco/neotex', { 'for': 'tex' }
 " Lightweight Powerline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-" Dark powered neo-completion (asynchronous keyboard completion)
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-" Completion for Python
-Plug 'zchee/deoplete-jedi'
 
 " Local wiki plugin
 Plug 'vimwiki/vimwiki'

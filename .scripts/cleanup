@@ -3,7 +3,7 @@ printf "\n"
 printf "Cleaning GCC cache... \n"
 printf "============================== \n"
 printf "\n"
-ccache -c
+#sudo -u deleuze ccache -Cc
 printf "\n"
 printf "============================== \n"
 printf "\n"
@@ -19,7 +19,7 @@ printf "\n"
 printf "Clean the pacaur package cache \n"
 printf "============================== \n"
 printf "\n"
-pacaur -Sc
+#sudo -u deleuze pacaur -Sc
 printf "\n"
 printf "============================== \n"
 printf "\n"
@@ -27,7 +27,7 @@ printf "\n"
 printf "Update the Arch repo & AUR mirrorlist \n"
 printf "============================== \n"
 printf "\n"
-sudo reflector -c US --latest 300 --number 500 --age 12 --sort rate --save /etc/pacman.d/mirrorlist
+sudo -u deleuze reflector -c US --latest 300 --number 500 --age 12 --sort rate --save /etc/pacman.d/mirrorlist
 printf "\n"
 printf "============================== \n"
 printf "\n"
@@ -35,7 +35,7 @@ printf "\n"
 printf "Delete old log files for xsessions errors\n"
 printf "============================== \n"
 printf "\n"
-trash ~/.xsession-errors.old
+sudo -u deleuze trash ~/.xsession-errors.old
 printf "\n"
 printf "============================== \n"
 printf "\n"
@@ -43,7 +43,7 @@ printf "\n"
 printf "Uninstall true package orphans\n"
 printf "============================== \n"
 printf "\n"
-pacaur -Rsn $(pacaur -Qtdq)
+sudo -u deleuze pacaur -Rsn $(sudo -u deleuze pacaur -Qtdq)
 printf "\n"
 printf "============================== \n"
 printf "\n"
@@ -60,4 +60,4 @@ printf "\n"
 printf "Update preload\n"
 printf "============================== \n"
 printf "\n"
-gopreload-batch-refresh.sh
+sudo -u deleuze gopreload-batch-refresh.sh

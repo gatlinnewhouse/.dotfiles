@@ -9,7 +9,7 @@ directory: ~/Music/
 pluginpath: ~/.config/beets/beetsplug
 ignore: .AppleDouble ._* *~ .DS_Store
 per_disc_numbering: true
-threaded: no
+threaded: yes
 
 ui:
   color: yes
@@ -39,14 +39,14 @@ import:
   resume: ask
   incremental: false
   quiet_fallback: skip
-  timid: true
+  timid: false
   group_albums: yes
   languages: en
   log: ~/.config/beets/beets-import.log
 
 # Autotagger options
 match:
-  strong_rec_thresh: 0.20
+  strong_rec_thresh: 0.05
   preferred:
     contries: ['US','GB|UK','JP']
     media: ['CD','Digital Media|File']
@@ -63,7 +63,7 @@ paths:
 # Use beets to sync with phone
 alternatives:
   myplayer:
-    directory: ~/mtp/Internal\ shared\ storage/Music
+    directory: ~/.mtp/Internal\ shared\ storage/Music
     paths:
       default: %asciify{$albumartist/$album%aunique{}/$track_$title}
       singleton: %asciify{$artist/$album%aunique{}/$track_$title}

@@ -10,17 +10,18 @@
 [bar/top_bar]
 monitor = eDP1
 width = 100%
-height = 18
+height = 24
 offset-x = 0
 offset-y = 0
 background = #080808
 foreground = #fafafa
-padding = 2
-module-margin = 1
+padding = 4
+module-margin = 2
 ; Fonts
-font-0 = MaterialDesignIcons:size=11
-font-1 = fontawesome-webfont:size=11
-font-2 = NotoSansUI-Regular:size=11
+font-0 = MaterialDesignIcons:size=12
+font-1 = fontawesome-webfont:size=12
+font-2 = NotoSansUI-Regular:size=12
+font-3 = NotoSansUI-Bold:size=12
 ; Modules
 modules-left = i3 
 modules-center = date
@@ -29,7 +30,8 @@ modules-right = redshift backlight volume wireless-network battery menu-power
 [settings]
 ; Prevent flood of update events
 throttle-output = 5
-throttle-output-for = 10
+; Throttle output (in milliseconds)
+throttle-output-for = 60
 ; Throttle input (in miilliseconds)
 throttle-input-for = 30
 
@@ -60,8 +62,8 @@ full-at = 100
 ; Specify batteries and adapters
 battery = BAT0
 adapter = AC
-; Set polling interval (in seconds)
-poll-interval = 10
+; Set polling interval = 2 minutes
+poll-interval = 120
 ; Formatting options
 format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
@@ -107,20 +109,20 @@ ramp-3 = 
 [module/wireless-network]
 type = internal/network
 interface = wlp3s0
-; Seconds to sleep between updates
-interval = 5.0
+; Seconds to sleep between updates = 30s
+interval = 30
 ; Formatting options
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
 label-connected-font = 1
 label-connected =  %essid%
 label-disconnected-font = 1
-label-disconnected =  not connected
+label-disconnected =  ಥ_ಥ
 
 [module/date]
 type = internal/date
-; Seconds to sleep in between updates
-interval = 30.0
+; Seconds to sleep in between updates = 1 minute
+interval = 60.0
 ; Formatting options
 date = %Y/%m/%d
 time = %H:%M
@@ -156,7 +158,7 @@ menu-0-1-exec = exec systemctl poweroff
 
 [module/redshift]
 type = custom/script
-interval = 5
+; Seconds to sleep in between updates = 5 minutes
+interval = 300
 exec = ~/.config/polybar/redshift.sh
-
 ; vim:ft=dosini

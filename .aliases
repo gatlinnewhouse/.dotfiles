@@ -13,10 +13,15 @@ alias diff='cwdiff'
 alias grep='grep --color=auto'
 
 # And make........
-alias make='colormake'
+alias make='colormake-fast'
 
-# And ping . . . . . . . .
-alias ping='prettyping'
+# Limit the number of concurrent operations to how many cores on my machine
+colormake-fast() {
+  clmake-short "$@" -j4
+}
+
+# And cargo
+alias cargo='cargo --color'
 
 # And gcc .......
 alias gcc='colorgcc'
@@ -32,27 +37,20 @@ alias ll='ls -AC'
 # List almost everything with filesizes, times, and so on
 alias la='ls -Alto'
 
-# Quick cd aliases
-alias ..='cd ..'
-alias ...='cd ../..'
+# Suspend to both RAM and Swap by default
+alias suspend='sudo s2both'
+
+# Choose a license
+alias choosealicense='license'
 
 # Reload z shell
 alias reload='zplug status; sleep 2; zplug update; sleep 0.75; zplug clean; sleep 0.5; zplug clear; sleep 0.25; reset;'
 
-# Dummy-proof by using this in addition to safe-rm
-#alias rm='rm -i'
+# Only use hub, not git
+alias git='hub'
 
 # Beets music organizer has a plural command too!
 alias beets='beet'
-
-# Castnow help page and alias as cast
-cast(){
-  if [ "$1" = "-h" ]; then
-    echo "// start playback of a local video file\ncast ./myvideo.mp4\n\n// start playback of video and mp3 files in the local directory\ncast ./mydirectory/\n\n// playback 3 videos after each other\ncast video1.mp4 video2.mp4 video3.mp4\n\n// start playback of an mp4 file over the web\ncast http://commondatastorage.googleapis.com/gtv-videos-bucket/ED_1280.mp4\n\n// start playback of a video over torrent\ncast <url-to-torrent-file OR magnet>\n\n// start playback of a video over torrent with local subtitles\ncast <url-to-torrent-file OR magnet> --subtitles </local/path/to/subtitles.srt>\n\n// transcode some other video format to mp4 while playback (requires ffmpeg)\ncast ./myvideo.avi --tomp4\n\n// transcode only audio while playback (in case the video shows, but there's no audio)\ncast ./myvideo.mkv --tomp4 --ffmpeg-vcodec copy\n\n// change the increment at which the volume steps up or down. A lower number\n// is helpful if your speakers are very loud, and you want more precision over\n// the change in volume\ncast ./song.mp3 --volume-step \"0.01\"\n\n// re-attach to a currently running playback session\ncast\n"
-  else
-    castnow $1
-  fi
-}
 
 # Add Wallapatta referece
 wallapat(){
@@ -97,13 +95,28 @@ alias trayIcons='hardcode-tray --size 16 --theme Papirus-Light --conversion-tool
 alias lock='light-locker-command -l'
 
 # Mount MTP
-alias mount-mtp='jmtpfs -o auto_unmount ~/mtp'
+alias mount-mtp='jmtpfs -o auto_unmount ~/.mtp'
 
 # Unmount MTP
-alias unmount-mtp='fusermount -u ~/mtp'
+alias unmount-mtp='fusermount -u ~/.mtp'
 
-# Inhibit the screensaver for awhile
+# Inhibit the screensaver for awhile (only works when urxvt window kept open)
 alias caffeine='light-locker-command -i &'
 
 # Stop inhibiting the screensaver
 alias melatonin='pkill -USR1 '^light-locker-command$''
+
+# Add common ASCII emojis/emoticons from MichaelAquilina/zsh-emojis
+alias confused_em='echo "¯\_(⊙︿⊙)_/¯"'
+alias crying_em='echo "ಥ_ಥ"'
+alias bear_em='echo "ʕ•ᴥ•ʔ"'
+alias cute_emo='echo "(｡◕‿◕｡)"'
+alias excited_em='echo "☜(⌒▽⌒)☞"'
+alias fisticuffs_em='echo "ლ(｀ー´ლ)"'
+alias fliptable_em='echo "(╯°□°）╯︵  ┻━┻"'
+alias happy_em='echo "ヽ(´▽`)/"'
+alias innocent_em='echo "ʘ‿ʘ"'
+alias kirby_em='echo "⊂(◉‿◉)つ"'
+alias lennyface_em='echo "( ͡° ͜ʖ ͡°)"'
+alias muscleflex_em='echo "ᕙ(⇀‸↼‶)ᕗ"'
+alias shrug_em='echo "¯\_(ツ)_/¯"'
