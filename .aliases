@@ -40,6 +40,9 @@ alias ll='ls -AC'
 # List almost everything with filesizes, times, and so on
 alias la='ls -Alto'
 
+# List recently installed packages
+alias lspkgs='pkgInstallDateLister'
+
 # Suspend to both RAM and Swap by default
 alias suspend='sudo s2both'
 
