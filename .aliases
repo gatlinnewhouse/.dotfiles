@@ -109,7 +109,7 @@ alias top='htop'
 alias dtrx='dtrx -r'
 
 # Hardcode tray icons by changing them with Inkscape
-alias mktrayicons='hardcode-tray --size 16 --theme Papirus-Light --conversion-tool ImageMagick --apply'
+alias mktrayicons='hardcode-tray --size 16 --theme Papirus --conversion-tool ImageMagick --apply'
 
 # Light-locker-command aliases
 #
