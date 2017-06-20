@@ -52,7 +52,14 @@ URxvt.color14: #3E999F
 URxvt.color7: #4D4D4C
 URxvt.color15: #F5F5F5
 
+! The font
 URxvt*font: xft:FuraCode Nerd Font:size=10:antialias=true
+
+! Home and End key functionality
+URxvt.keysym.Home: \033[7~
+URxvt.keysym.End: \033[8~
+URxvt.keysym.KP_Home: \033[7~
+URxvt.keysym.KP_End:  \033[8~
 
 ! Clipboard
 URxvt.keysym.C-C: perl:clipboard:copy

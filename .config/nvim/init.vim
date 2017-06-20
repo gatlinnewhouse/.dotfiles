@@ -290,6 +290,12 @@ function! SetUpGoyo()
   endif
 endfunction
 
+" STOP HIDING STUFF
+augroup jsonshow
+  au!
+  au FileType json set conceallevel=0
+augroup END
+
 " Spellcheck dictionaries and languages (English and Spanish)
 let g:lexical#spellang = ['en_us', 'es_mx']
 

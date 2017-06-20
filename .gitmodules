@@ -22,3 +22,6 @@
 [submodule "/home/deleuze/.latextemplates/MartinThoma_LaTeX-examples"]
 	path = /home/deleuze/.latextemplates/MartinThoma_LaTeX-examples
 	url = git@github.com:MartinThoma/LaTeX-examples.git
+[submodule "/home/deleuze/.scripts/submodules/emojify"]
+	path = /home/deleuze/.scripts/submodules/emojify
+	url = git@github.com:mrowa44/emojify.git

@@ -3,8 +3,11 @@
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
+# Enable aliases to be sudo'ed
+alias sudo='sudo '
+
 # Record the desktop
-alias record="ffmpeg -f x11grab -r 25 -s 1920x1080 -i :0.0+0,24 -vcodec libx264 -preset ultrafast -crf 0 video.mkv"
+alias record='ffmpeg -f x11grab -r 25 -s 1920x1080 -i :0.0+0,24 -vcodec libx264 -preset ultrafast -crf 0 video.mkv'
 
 # Give diff some color
 alias diff='cwdiff'
@@ -17,7 +20,7 @@ alias make='colormake-fast'
 
 # Limit the number of concurrent operations to how many cores on my machine
 colormake-fast() {
-  clmake-short "$@" -j4
+  clmake-short '$@' -j4
 }
 
 # And cargo
@@ -40,8 +43,11 @@ alias la='ls -Alto'
 # Suspend to both RAM and Swap by default
 alias suspend='sudo s2both'
 
-# Choose a license
-alias choosealicense='license'
+# Make me a password
+alias mkpasswd='xkcdpass -i'
+
+# Make a license
+alias mklicense='license'
 
 # Reload z shell
 alias reload='zplug status; sleep 2; zplug update; sleep 0.75; zplug clean; sleep 0.5; zplug clear; sleep 0.25; reset;'
@@ -52,9 +58,20 @@ alias git='hub'
 # Beets music organizer has a plural command too!
 alias beets='beet'
 
+# Avoid stupidity with trash-cli:
+# 	https://github.com/sindresorhus/trash-cli
+# or use default rm -i
+rm(){
+  if type trash &>/dev/null; then
+	  alias rm='trash'
+  else
+	  alias rm='rm -i'
+  fi
+}
+
 # Add Wallapatta referece
 wallapat(){
-  if [ "$1" = "-h" ]; then
+  if [ '$1' = '-h' ]; then
     xdg-open https://wallapatta.github.io/reference.html
   else
     wallapatta
@@ -63,10 +80,10 @@ wallapat(){
 
 # Cast youtube link to chromecast via castnow
 cast-youtube(){
-  if [ "$1" = *"http"* ]; then
+  if [ '$1' = *'http'* ]; then
     youtube-dl -o - $1 | castnow --quiet -
   else
-    echo "You need to provide a youtube link as an argument."
+    echo 'You need to provide a youtube link as an argument.'
     echo
   fi
 }
@@ -75,7 +92,9 @@ cast-youtube(){
 alias mkdir='mkdir -pv'
 
 # Make directory and travel to it
-mkcd(){ mkdir "$@" && echo "and entered the newest child directory" && cd "$@"; }
+mkcd(){ 
+  mkdir '$@' && echo 'and entered the newest child directory' && cd '$@'; 
+}
 
 # Glyphr desktop
 alias glyphr='~/.scripts/submodules/Glyphr-Studio-Desktop/build/Glyphr\ Studio-linux-x64/Glyphr\ Studio'
@@ -87,7 +106,7 @@ alias top='htop'
 alias dtrx='dtrx -r'
 
 # Hardcode tray icons by changing them with Inkscape
-alias trayIcons='hardcode-tray --size 16 --theme Papirus-Light --conversion-tool ImageMagick --apply'
+alias mktrayicons='hardcode-tray --size 16 --theme Papirus-Light --conversion-tool ImageMagick --apply'
 
 # Light-locker-command aliases
 #
@@ -95,10 +114,10 @@ alias trayIcons='hardcode-tray --size 16 --theme Papirus-Light --conversion-tool
 alias lock='light-locker-command -l'
 
 # Mount MTP
-alias mount-mtp='jmtpfs -o auto_unmount ~/.mtp'
+alias mtp='jmtpfs -o auto_unmount ~/.mtp'
 
 # Unmount MTP
-alias unmount-mtp='fusermount -u ~/.mtp'
+alias umtp='fusermount -u ~/.mtp'
 
 # Inhibit the screensaver for awhile (only works when urxvt window kept open)
 alias caffeine='light-locker-command -i &'
