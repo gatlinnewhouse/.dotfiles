@@ -186,25 +186,25 @@ exec_always $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id thunar --daemon
 
 # Run unclutter-xfixes
-exec --no-startup-id unclutter
+exec_always --no-startup-id unclutter
+
+# Start umonitor to hotplug new monitors connected
+exec_always --no-startup-id umonitor --listen
 
 # Run xbanish
-exec --no-startup-id xbanish
+exec_always --no-startup-id xbanish
 
 # Start compton
-exec --no-startup-id compton --config $HOME/.compton.conf -b
+exec_always --no-startup-id compton --config $HOME/.compton.conf -b
 
 # Start albert omnilauncher
-exec --no-startup-id albert
-
-# Start PCmanFM in daemon mode
-exec --no-startup-id pcmanfm -d
+exec_always --no-startup-id albert
 
 # Start xbindkeys
-exec --no-startup-id xbindkeys
+exec_always --no-startup-id xbindkeys
 
 # Run RedShift
-exec --no-startup-id nohup redshift -c $HOME/.config/redshift.conf
+exec_always --no-startup-id nohup redshift -c $HOME/.config/redshift.conf
 
 # Set wallpaper and color scheme
 exec_always --no-startup-id feh  --bg-scale $HOME/Pictures/background.jpg

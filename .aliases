@@ -40,6 +40,9 @@ alias ll='ls -AC'
 # List almost everything with filesizes, times, and so on
 alias la='ls -Alto'
 
+# Faster ping
+alias ping='netselect -vv -t 25'
+
 # List recently installed packages
 alias lspkgs='pkgInstallDateLister'
 
@@ -108,6 +111,9 @@ alias top='htop'
 # Extract things the easy way with recursion as default
 alias dtrx='dtrx -r'
 
+# Enable tombs for pass
+alias pass='PASSWORD_STORE_ENABLE_EXTENSIONS=true pass'
+
 # Hardcode tray icons by changing them with Inkscape
 alias mktrayicons='hardcode-tray --size 16 --theme Papirus --conversion-tool ImageMagick --apply'
 
@@ -121,6 +127,9 @@ alias mtp='jmtpfs -o auto_unmount ~/.mtp'
 
 # Unmount MTP
 alias umtp='fusermount -u ~/.mtp'
+
+# Alias run-help to help for zsh
+alias help='run-help'
 
 # Inhibit the screensaver for awhile (only works when urxvt window kept open)
 alias caffeine='light-locker-command -i &'

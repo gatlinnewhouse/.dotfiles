@@ -16,7 +16,7 @@ ui:
 
 # Plugins
 plugins: [
-  alternatives,
+  convert,
   edit,
   embedart,
   fetchart,
@@ -25,8 +25,10 @@ plugins: [
   lyrics,
   missing,
   replaygain,
+  rewrite,
   setlister,
-  scrub
+  scrub,
+  the
 ]
  
 # Import Options
@@ -54,23 +56,21 @@ match:
 
 # Path options
 paths:
-  default: %asciify{$albumartist/$album%aunique{}/$track_$title}
-  singleton: %asciify{$artist/$album%aunique{}/$track_$title}
-  comp: %asciify{Various_Artists/$album%aunique{}/$track_$title}
+  default: %asciify{$albumartist}/%asciify{$album%aunique{}}/%asciify{[$disc - $track] $title}
+  singleton: %asciify{$albumartist}/%asciify{$album%aunique{}}/%asciify{[$disc - $track] $title}
+  comp: Various Artists/%asciify{$album%aunique{}}/%asciify{[$disc - $track] $title - $artist}
  
 ### Plugin Options
 
-# Use beets to sync with phone
-alternatives:
-  myplayer:
-    directory: ~/.mtp/Internal\ shared\ storage/Music
-    paths:
-      default: %asciify{$albumartist/$album%aunique{}/$track_$title}
-      singleton: %asciify{$artist/$album%aunique{}/$track_$title}
-      comp: %asciify{Various_Artists/$album%aunique{}/$track_$title}
-    formats: mp3
-    query: "onplayer:true"
-    removable: true
+# Convert plugin options
+convert:
+  auto: yes
+  copy_album_art: yes
+  album_art_maxwidth: 500
+  embed: yes
+  never_convert_lossy_files: yes
+  command: /home/deleuze/.scripts/gaplessmp3
+  extension: mp3
 
 # Embeded album art options
 embedart:
@@ -102,6 +102,10 @@ ftintitle:
 replaygain:
   backend: gstreamer
   overwrite: yes
+
+# Rewrite plugin
+rewrite:
+  artist The Jimi Hendrix Experience: Jimi Hendrix
 
 # Make playlists from setlists
 setlister:
