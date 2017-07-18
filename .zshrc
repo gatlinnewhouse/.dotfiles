@@ -2,41 +2,48 @@
 #              Zsh Settings             #
 #########################################
 
-# Autocorrect commands typed
-#setopt correctall
-
 # if you do a 'rm *', Zsh will give you a sanity check!
 setopt RM_STAR_WAIT
 
 # Autocomplete with arrow-key interface
 # and persistent rehashing for updating and adding new items to $PATH
-zstyle ':completion:*' menu select rehash true
+zstyle ':completion:*' menu select 
+zstyle ':completion:*' rehash true
+# Aliases too
+setopt COMPLETE_ALIASES
+
+# Enable zsh history search
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+# turn off ZLE bracketed paste in dumb term
+# otherwise turn on ZLE bracketed-paste-magic
+if [[ $TERM == dumb ]]; then
+    unset zle_bracketed_paste
+else
+    autoload -Uz bracketed-paste-magic
+    zle -N bracketed-paste bracketed-paste-magic
+fi
 
 # Set zsh to EMACs mode
 bindkey -e
 
-# Setup keybindings
-autoload zkbd
-function zkbd_file() {
-    [[ -f ~/.zkbd/${TERM}-${VENDOR}-${OSTYPE} ]] && printf '%s' ~/".zkbd/${TERM}-${VENDOR}-${OSTYPE}" && return 0
-    [[ -f ~/.zkbd/${TERM}-${DISPLAY}          ]] && printf '%s' ~/".zkbd/${TERM}-${DISPLAY}"          && return 0
-    return 1
-}
+# create a zkbd compatible hash;
+# to add other keys to this hash, see: man 5 terminfo
+typeset -A key
 
-[[ ! -d ~/.zkbd ]] && mkdir ~/.zkbd
-keyfile=$(zkbd_file)
-ret=$?
-if [[ ${ret} -ne 0 ]]; then
-    zkbd
-    keyfile=$(zkbd_file)
-    ret=$?
-fi
-if [[ ${ret} -eq 0 ]] ; then
-    source "${keyfile}"
-else
-    printf 'Failed to setup keys using zkbd.\n'
-fi
-unfunction zkbd_file; unset keyfile ret
+key[Home]="$terminfo[khome]"
+key[End]="$terminfo[kend]"
+key[Insert]="$terminfo[kich1]"
+key[Backspace]="$terminfo[kbs]"
+key[Delete]="$terminfo[kdch1]"
+key[Up]="$terminfo[kcuu1]"
+key[Down]="$terminfo[kcud1]"
+key[Left]="$terminfo[kcub1]"
+key[Right]="$terminfo[kcuf1]"
+key[PageUp]="$terminfo[kpp]"
+key[PageDown]="$terminfo[knp]"
 
 # setup key accordingly
 [[ -n "$key[Home]"      ]] && bindkey -- "$key[Home]"      beginning-of-line
@@ -44,10 +51,23 @@ unfunction zkbd_file; unset keyfile ret
 [[ -n "$key[Insert]"    ]] && bindkey -- "$key[Insert]"    overwrite-mode
 [[ -n "$key[Backspace]" ]] && bindkey -- "$key[Backspace]" backward-delete-char
 [[ -n "$key[Delete]"    ]] && bindkey -- "$key[Delete]"    delete-char
-[[ -n "$key[Up]"        ]] && bindkey -- "$key[Up]"        up-line-or-history
-[[ -n "$key[Down]"      ]] && bindkey -- "$key[Down]"      down-line-or-history
+[[ -n "$key[Up]"        ]] && bindkey -- "$key[Up]"        up-line-or-beginning-search
+[[ -n "$key[Down]"      ]] && bindkey -- "$key[Down]"      down-line-or-beginning-search
 [[ -n "$key[Left]"      ]] && bindkey -- "$key[Left]"      backward-char
 [[ -n "$key[Right]"     ]] && bindkey -- "$key[Right]"     forward-char
+
+# Finally, make sure the terminal is in application mode, when zle is
+# active. Only then are the values from $terminfo valid.
+if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
+    function zle-line-init () {
+        echoti smkx
+    }
+    function zle-line-finish () {
+        echoti rmkx
+    }
+    zle -N zle-line-init
+    zle -N zle-line-finish
+fi
 
 # Load modules:
 autoload -Uz compinit promptinit
@@ -60,10 +80,16 @@ promptinit
 autoload -U colors zsh/terminfo
 colors
 
-# Load history
-autoload -Uz add-zsh-hook
-add-zsh-hook preexec _start_timer
-add-zsh-hook precmd  _stop_timer
+# Enable help
+autoload -Uz run-help
+# Enable help commands
+autoload -Uz run-help-git
+autoload -Uz run-help-ip
+autoload -Uz run-help-openssl
+autoload -Uz run-help-p4
+autoload -Uz run-help-sudo
+autoload -Uz run-help-svk
+autoload -Uz run-help-svn
 
 #########################################
 #      Paths, Sources, & Variables      #
@@ -89,8 +115,9 @@ export SHELL="/bin/zsh"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export SSH_CONNECTION="rhizome"
 export SSH_KEY_PATH="~/.ssh/rsa_id"
-export TERM="xterm-xfree86"
-export ZPLUG_THREADS="24"
+export TERM="rxvt-unicode-256color"
+export XDG_CONFIG_HOME="$HOME/.config"
+export ZPLUG_THREADS="32"
 export ZPLUG_PROTOCOL="HTTPS"
 
 # LS colors, made with http://geoff.greer.fm/lscolors/
@@ -143,29 +170,25 @@ zplug "sindresorhus/pretty-time-zsh", as:plugin
 # Human readable errors
 zplug "aphelionz/strerror.plugin.zsh", as:plugin
 
-# Hacker quotes - not working?
-zplug "oldratlee/hacker-quotes", as:plugin
-
 # Git extra commands (to make things easier)
 zplug "unixorn/git-extra-commands", as:plugin, use:"git-extra-commands.plugin.zsh"
 
 # 256 ZSH Color
 zplug "chrissicool/zsh-256color", as:plugin
 
-# Zsh emoji completion
-zplug "b4b4r07/emoji-cli"
-
-# ZSH history MySQL database
-zplug "larkery/zsh-histdb", use:"history-timer.zsh", as:plugin
-zplug "larkery/zsh-histdb", use:"sqlite-history.zsh", as:plugin
+# Safe pasting
+zplug "oz/safe-paste", as:plugin
 
 # Use the spaceship-zsh-theme
 zplug "denysdovhan/spaceship-zsh-theme", use:"spaceship.zsh", from:github, as:theme
 
 # zplug check returns true if all packages are installed
 # Therefore, when it returns false, run zplug install
-if ! zplug check; then
-  zplug install
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
 fi
 
 # source plugins and add commands to the PATH
@@ -187,7 +210,6 @@ SPACESHIP_PROMPT_ORDER=(
   vi_mode
   char
 )
-
 
 SPACESHIP_PROMPT_PREFIXES_SHOW=true
 SPACESHIP_PROMPT_SUFFIXES_SHOW=true

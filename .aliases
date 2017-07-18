@@ -15,12 +15,9 @@ alias diff='cwdiff'
 # And grep....
 alias grep='grep --color=auto'
 
-# And make........
-alias make='colormake-fast'
-
 # Limit the number of concurrent operations to how many cores on my machine
-colormake-fast() {
-  clmake-short '$@' -j4
+make() {
+  colormake-short '$@' -j4
 }
 
 # And cargo
@@ -39,6 +36,9 @@ alias ls='ls $LS_OPTIONS'
 alias ll='ls -AC'
 # List almost everything with filesizes, times, and so on
 alias la='ls -Alto'
+
+# Faster ping
+alias ping='netselect -vv -t 25'
 
 # List recently installed packages
 alias lspkgs='pkgInstallDateLister'
@@ -111,6 +111,9 @@ alias dtrx='dtrx -r'
 # Vim is NeoVim
 alias vim='nvim'
 
+# Enable tombs for pass
+alias pass='PASSWORD_STORE_ENABLE_EXTENSIONS=true pass'
+
 # Hardcode tray icons by changing them with Inkscape
 alias mktrayicons='hardcode-tray --size 16 --theme Papirus --conversion-tool ImageMagick --apply'
 
@@ -124,6 +127,9 @@ alias mtp='jmtpfs -o auto_unmount ~/.mtp'
 
 # Unmount MTP
 alias umtp='fusermount -u ~/.mtp'
+
+# Alias run-help to help for zsh
+alias help='run-help'
 
 # Inhibit the screensaver for awhile (only works when urxvt window kept open)
 alias caffeine='light-locker-command -i &'

@@ -13,10 +13,13 @@ Xft.rgba: rgb
 URxvt.perl-ext-common: default, clipboard, -readline
 
 ! Name the terminal
-URxvt*termName: rxvt-unicode
+URxvt*termName: rxvt-unicode-256color
 
 ! Speedhack
 URxvt*buffered: false
+
+! Start as a login shell
+URxvt*loginShell: true
 
 ! Disable scroll bar
 URxvt*scrollBar: false
