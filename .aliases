@@ -16,7 +16,7 @@ alias diff='cwdiff'
 alias grep='grep --color=auto'
 
 # And make........
-alias make='colormake-fast'
+alias make='colormake-short'
 
 # Limit the number of concurrent operations to how many cores on my machine
 colormake-fast() {
