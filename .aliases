@@ -15,18 +15,16 @@ alias diff='cwdiff'
 # And grep....
 alias grep='grep --color=auto'
 
-# Limit the number of concurrent operations to how many cores on my machine
-make() {
-  colormake-short '$@' -j4
-}
+# And make.....
+alias make='colormake-short -j4'
 
-# And cargo
+# And cargo......
 alias cargo='cargo --color'
 
-# And gcc .......
+# And gcc ...........
 alias gcc='colorgcc'
 
-# And pacaur
+# And pacaur...............
 alias pacaur='pacaur --color=always'
 
 # Export LS_OPTIONS for inheritance
