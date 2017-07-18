@@ -108,6 +108,9 @@ alias top='htop'
 # Extract things the easy way with recursion as default
 alias dtrx='dtrx -r'
 
+# Vim is NeoVim
+alias vim='nvim'
+
 # Hardcode tray icons by changing them with Inkscape
 alias mktrayicons='hardcode-tray --size 16 --theme Papirus --conversion-tool ImageMagick --apply'
 

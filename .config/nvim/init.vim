@@ -59,9 +59,6 @@ Plug 'othree/html5.vim', { 'for': 'html'}
 " Syntax support for Markdown files
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
-" Syntax support for PHP files
-Plug 'StanAngeloff/php.vim', { 'for': 'php' }
-
 " Syntax support for git files
 Plug 'tpope/vim-git', { 'for': ['gitconfig','gitcommit','gitrebase','gitsendemail', 'git'] }
 
