@@ -1,27 +1,15 @@
-[submodule "/home/deleuze/.scripts/submodules/pdftools"]
-	path = .scripts/submodules/pdftools
-	url = git@github.com:raffamaiden/pdftools.git
-[submodule ".scripts/submodules/to_install/pactoys"]
-	path = .scripts/submodules/to_install/pactoys
-	url = git@github.com:renatosilva/pactoys.git
-[submodule ".scripts/submodules/to_install/sandman-lite"]
-	path = .scripts/submodules/to_install/sandman-lite
+[submodule ".pkgs_not_in_repo/simpleflix"]
+	path = .pkgs_not_in_repo/simpleflix
+	url = git@github.com:UnSimpleGeek/Simpleflix.git
+[submodule ".pkgs_not_in_repo/terminal-slack"]
+	path = .pkgs_not_in_repo/terminal-slack
+	url = git@github.com:evanyeung/terminal-slack.git
+[submodule ".pkgs_not_in_repo/sandman-lite"]
+	path = .pkgs_not_in_repo/sandman-lite
 	url = git@github.com:alexanderepstein/Sandman-Lite.git
-[submodule ".latextemplates/tufte-latex"]
-	path = .latextemplates/tufte-latex
-	url = git@github.com:Tufte-LaTeX/tufte-latex.git
-[submodule ".latextemplates/mla13"]
-	path = .latextemplates/mla13
-	url = git@github.com:jackson13info/mla13.git
-[submodule ".latextemplates/TIKZ-TEMPLATES/PetarV_TikZ"]
-	path = .latextemplates/TIKZ-TEMPLATES/PetarV_TikZ
-	url = git@github.com:PetarV-/TikZ.git
-[submodule ".latextemplates/TIKZ-TEMPLATES/walmes_Tikz"]
-	path = .latextemplates/TIKZ-TEMPLATES/walmes_Tikz
-	url = git@github.com:walmes/Tikz.git
-[submodule "/home/deleuze/.latextemplates/MartinThoma_LaTeX-examples"]
-	path = /home/deleuze/.latextemplates/MartinThoma_LaTeX-examples
-	url = git@github.com:MartinThoma/LaTeX-examples.git
-[submodule "/home/deleuze/.scripts/submodules/emojify"]
-	path = /home/deleuze/.scripts/submodules/emojify
-	url = git@github.com:mrowa44/emojify.git
+[submodule ".pkgs_not_in_repo/pactoys"]
+	path = .pkgs_not_in_repo/pactoys
+	url = https://github.com/renatosilva/pactoys
+[submodule ".bin/gitlab-convert-ssh-https"]
+	path = .bin/gitlab-convert-ssh-https
+	url = https://gist.github.com/gatlinnewhouse/f0d8a60bfc7b8fb003a522a96e80a756

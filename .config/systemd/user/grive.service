@@ -1,0 +1,6 @@
+[Unit]
+Description=Grive service
+[Service]
+ExecStart=/home/deleuze/.bin/grive.sh
+[Install]
+WantedBy=default.target

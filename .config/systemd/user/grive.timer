@@ -1,0 +1,10 @@
+[Unit]
+Description=Grive timer
+
+[Timer]
+OnBootSec=10min
+OnUnitActiveSec=6h
+Unit=grive.service
+
+[Install]
+WantedBy=multi-user.target

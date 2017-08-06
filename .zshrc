@@ -103,6 +103,7 @@ pathadd() {
 # Export environmental variables
 export BROWSER="firefox"
 export EDITOR="nvim"
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 export GO_ENV="$HOME/.goenvs"
 export GOPATH="$HOME/.go"
 export _JAVA_OPTIONS='-Dsun.java2d.opengl=true -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
@@ -110,7 +111,6 @@ export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
 export LESS='-R '
 export LOGNAME="godel"
 export PATH="/usr/local/bin:$PATH"
-export QT_QPA_PLATFORMTHEME="gtk2"
 export SHELL="/bin/zsh"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export SSH_CONNECTION="rhizome"
@@ -133,12 +133,15 @@ zstyle ':completion:*' menu select
 
 # Add additional directories to the path.
 pathadd $HOME/.local/bin
+pathadd $HOME/.go/bin
 pathadd $HOME/.gem/ruby/2.4.0/bin
-pathadd $HOME/.scripts/
-pathadd $HOME/.scripts/submodules/emojify/emojify
+pathadd $HOME/.bin/
 
 # Source files
 source ~/.aliases
+source ~/.inputrc
+source ~/.local/share/icons-in-terminal/icons_bash.sh
+source /etc/bash_completion.d/climate_completion
 
 # Check if zplug is installed
 if [[ ! -d ~/.zplug ]]; then

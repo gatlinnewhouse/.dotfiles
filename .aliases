@@ -21,8 +21,11 @@ alias make='colormake-short -j4'
 # And cargo......
 alias cargo='cargo --color'
 
+# And cat..........
+alias cat='pygmentize -g'
+
 # And gcc ...........
-alias gcc='colorgcc'
+#alias gcc='colorgcc'
 
 # And pacaur...............
 alias pacaur='pacaur --color=always'
@@ -52,6 +55,12 @@ alias mklicense='license'
 
 # Reload z shell
 alias reload='zplug status; sleep 2; zplug update; sleep 0.75; zplug clean; sleep 0.5; zplug clear; sleep 0.25; reset;'
+
+# Use terminal-slack for communicating on slack
+alias slack='node $HOME/.pkgs_not_in_repo/terminal-slack/main.js'
+
+# Netflix desktop client based on Electron
+alias simpleflix='cd $HOME/.pkgs_not_in_repo/simpleflix/ && setsid npm start main.js >/dev/null 2>&1 < /dev/null &'
 
 # Only use hub, not git
 alias git='hub'
@@ -96,6 +105,12 @@ alias mkdir='mkdir -pv'
 mkcd(){ 
   mkdir '$@' && echo 'and entered the newest child directory' && cd '$@'; 
 }
+
+# Update submodules yadm
+alias yadmSubmoduleUpdate='yadm submodule foreach git pull origin master && yadm submodule foreach update'
+
+# Remove true orphans
+alias rm-true-orhpans='pacaur -Rsn $(sudo -u deleuze pacaur -Qtdq)'
 
 # Glyphr desktop
 alias glyphr='~/.scripts/submodules/Glyphr-Studio-Desktop/build/Glyphr\ Studio-linux-x64/Glyphr\ Studio'

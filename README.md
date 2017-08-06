@@ -26,7 +26,7 @@ WIP
 * Web browser: `firefox`
 * Window manager: [`i3-gaps`](https://github.com/Airblader/i3)
 
-### Recommended Fire extensions/themes
+### Recommended Firefox extensions/themes
 
 
 

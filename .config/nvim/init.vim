@@ -92,6 +92,9 @@ Plug 'NLKNguyen/papercolor-theme'
 " Use visual character indent guides instead
 Plug 'Yggdroot/indentLine'
 
+" Encryption
+Plug 'jamessan/vim-gnupg'
+
 " Tab completion for Neovim
 Plug 'ervandew/supertab'
 
@@ -118,6 +121,24 @@ Plug 'reedes/vim-textobj-sentence'
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
 " *=========================*
+
+" Browse commits
+Plug 'junegunn/gv.vim'
+
+" Manage tag files in Vim
+Plug 'ludovicchabant/vim-gutentags'
+
+" Keep edit state in Vim
+Plug 'kopischke/vim-stay'
+
+" Get rid of pesky folding
+Plug 'konfekt/fastfold'
+
+" Interactive command execution in Vim
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+
+" Color picker
+Plug 'KabbAmine/vCoolor.vim'
 
 " Lightweight Powerline
 Plug 'vim-airline/vim-airline'
@@ -288,10 +309,7 @@ function! SetUpGoyo()
 endfunction
 
 " STOP HIDING STUFF
-augroup jsonshow
-  au!
-  au FileType json set conceallevel=0
-augroup END
+set conceallevel=0
 
 " Spellcheck dictionaries and languages (English and Spanish)
 let g:lexical#spellang = ['en_us', 'es_mx']
