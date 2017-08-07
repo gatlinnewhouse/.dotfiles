@@ -13,3 +13,21 @@
 [submodule ".bin/gitlab-convert-ssh-https"]
 	path = .bin/gitlab-convert-ssh-https
 	url = https://gist.github.com/gatlinnewhouse/f0d8a60bfc7b8fb003a522a96e80a756
+[submodule ".latextemplates/tufte-latex"]
+	path = .latextemplates/tufte-latex
+	url = git@github.com:Tufte-LaTeX/tufte-latex.git
+[submodule ".latextemplates/mla13"]
+	path = .latextemplates/mla13
+	url = git@github.com:jackson13info/mla13.git
+[submodule ".latextemplates/TIKZ-TEMPLATES/PetarV_TikZ"]
+	path = .latextemplates/TIKZ-TEMPLATES/PetarV_TikZ
+	url = git@github.com:PetarV-/TikZ.git
+[submodule ".latextemplates/TIKZ-TEMPLATES/walmes_TikZ"]
+	path = .latextemplates/TIKZ-TEMPLATES/walmes_TikZ
+	url = git@github.com:walmes/Tikz.git
+[submodule ".latextemplates/MartinThoma_LaTeX-examples"]
+	path = .latextemplates/MartinThoma_LaTeX-examples
+	url = git@github.com:MartinThoma/LaTeX-examples.git
+[submodule ".bin/github-convert-ssh-https"]
+	path = .bin/github-convert-ssh-https
+	url = https://gist.github.com/gatlinnewhouse/10d80df8fcd02618877a7e0ea2c01083

@@ -335,3 +335,9 @@ let g:neotex_delay = 5000
 
 " Disable blinking cursor
 let g:guicorsor=''
+
+" Use editorconfig with git plugin
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
+" Do not use editorconfig on ssh
+let g:EditorConfig_exclude_patterns = ['scp://.*']
