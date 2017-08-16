@@ -31,3 +31,18 @@
 [submodule ".bin/github-convert-ssh-https"]
 	path = .bin/github-convert-ssh-https
 	url = https://gist.github.com/gatlinnewhouse/10d80df8fcd02618877a7e0ea2c01083
+[submodule ".bin/aurcheck"]
+	path = .bin/aurcheck
+	url = https://gist.github.com/felipec/94752ddd08e1adfb80ac57947982443c
+[submodule ".bin/vpngate"]
+	path = .bin/vpngate
+	url = https://github.com/Dragon2fly/vpngate-with-proxy
+[submodule ".bin/megadown"]
+	path = .bin/megadown
+	url = https://github.com/tonikelope/megadown
+[submodule ".bin/pkgOutOfDate"]
+	path = .bin/pkgOutOfDate
+	url = https://github.com/anatol/pkgoutofdate
+[submodule ".pkgs_not_in_repo/icons-in-terminal"]
+	path = .pkgs_not_in_repo/icons-in-terminal
+	url = https://github.com/sebastiencs/icons-in-terminal

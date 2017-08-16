@@ -1,6 +1,6 @@
 [Unit]
 Description=Grive service
 [Service]
-ExecStart=/home/deleuze/.bin/grive.sh
+ExecStart=/home/deleuze/.bin/grive-sync
 [Install]
 WantedBy=default.target

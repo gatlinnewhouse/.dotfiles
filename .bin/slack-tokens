@@ -1,7 +1,0 @@
-#!/bin/sh
-
-if [ '$1' = 'psu-gsoc' ]; then
-        SLACKTOKEN="$(gpg --quiet --decrypt $HOME/.slack-tokens/psu-gsoc.gpg)"
-        echo SLACKTOKEN
-        export SLACK_TOKEN=SLACKTOKEN
-fi

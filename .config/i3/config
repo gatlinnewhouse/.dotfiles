@@ -167,9 +167,10 @@ bindsym $mod+r mode "resize"
 ############################
 
 # Popups start in floating mode
-for_window [window_role="pop-up"] floating enable,move absolute center
-for_window [window_role="task_dialog"] floating enable
-for_window [window_role="pop-up" class="google-chrome"] floating disable
+for_window [class="Pinetry"] floating enable
+for_window [title="pinentry"] floating enable
+for_window [class="albert"] floating enable
+for_window [class="Notify-osd"] floating enable
 
 # Assign windows a certain workspace
 assign [class="Lollypop|Google Play Music Desktop Player"] workspace 10
@@ -181,9 +182,6 @@ assign [class="Lollypop|Google Play Music Desktop Player"] workspace 10
 
 # Run polybar at start
 exec_always $HOME/.config/polybar/launch.sh
-
-# Run Thunar in daemon mode at start
-exec_always --no-startup-id thunar --daemon
 
 # Run unclutter-xfixes
 exec_always --no-startup-id unclutter
@@ -207,19 +205,25 @@ exec_always --no-startup-id xbindkeys
 exec_always --no-startup-id nohup redshift -c $HOME/.config/redshift.conf
 
 # Set wallpaper and color scheme
-exec_always --no-startup-id feh  --bg-scale $HOME/Pictures/background.jpg
+exec_always --no-startup-id feh  --bg-fill /usr/share/backgrounds/adapta/google_pixel_background_city1.png
 
 # Start notification daemon
 exec_always --no-startup-id xfce4-notifyd
+
+# Start polkit
+exec_always --no-startup-id lxpolkit
+
+# Automount removable media
+exec_always --no-startup-id udiskie --no-tray --automount --notify --password-cache 60
 
 # Battery notifications
 exec_always --no-startup-id i3-battery-popup -n -L 30 -t 10m
 
 # Arch package update notifications (including AUR)
-# Arguments list: check the AUR, disappear  check again
-#                                       after,     after,
-# Argument values:                            1m     6h
-exec_always --no-startup-id aarchup --aur -t 600 -l 360
+# Arguments list:               disappear   check
+#                                   after,  after,
+# Argument values:                      1m     6h
+exec_always --no-startup-id aarchup -t 600 -l 360
 
 # Run light-locker daemon
 exec_always light-locker --lock-on-suspend --late-locking --lock-after-screensaver=15

@@ -3,7 +3,7 @@ printf "\n"
 printf "Cleaning GCC cache... \n"
 printf "============================== \n"
 printf "\n"
-sudo -u deleuze ccache -Cc
+#sudo -u deleuze ccache -Cc
 printf "\n"
 printf "============================== \n"
 printf "\n"
@@ -60,4 +60,4 @@ printf "\n"
 printf "Update preload\n"
 printf "============================== \n"
 printf "\n"
-sudo -u deleuze gopreload-batch-refresh.sh
+#sudo -u deleuze gopreload-batch-refresh.sh

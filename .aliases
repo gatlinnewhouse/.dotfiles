@@ -62,9 +62,6 @@ alias slack='node $HOME/.pkgs_not_in_repo/terminal-slack/main.js'
 # Netflix desktop client based on Electron
 alias simpleflix='cd $HOME/.pkgs_not_in_repo/simpleflix/ && setsid npm start main.js >/dev/null 2>&1 < /dev/null &'
 
-# Only use hub, not git
-alias git='hub'
-
 # Beets music organizer has a plural command too!
 alias beets='beet'
 
@@ -95,6 +92,13 @@ cast-youtube(){
   else
     echo 'You need to provide a youtube link as an argument.'
     echo
+  fi
+}
+
+# Alias for slack-tokens
+slack-tokens(){
+  if [ '$1' = 'psu-gsoc' ]; then
+    export SLACK_TOKEN=$(gpg --quiet --decrypt $HOME/.slack-tokens/psu-gsoc.gpg)
   fi
 }
 

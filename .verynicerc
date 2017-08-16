@@ -1,0 +1,145 @@
+# verynice.conf
+
+# declare root immune (root owned processes will never be adjusted)
+immuneuser root
+immuneuser bin
+immuneuser daemon
+immuneuser dbus
+immuneuser systemd-network
+immuneuser polkitd
+immuneuser rtkit
+immuneuser git
+immuneuser pdnsd
+immuneuser dnscrypt
+immuneuser lightdm
+immuneuser clamav
+immuneuser kwakd
+
+# Declare immune program(s)
+# Any program immune to verynice cannot get reniced
+
+#immuneexe "matlab"
+
+# Declare "hungry" programs
+# Assumed to have 100% CPU usage
+# Usually have a ton of subprocesses
+#
+# NOTE: it is possible to set both hungry and runaway flags
+# simultaneously (the process will always be killed after a certain amount of time)
+
+hungryexe "/usr/bin/bleachbit"
+hungryexe "/usr/bin/make"
+hungryexe "/usr/bin/gmake"
+hungryexe "/bin/make"
+hungryexe "/bin/gmake"
+hungryexe "/make"
+hungryexe "/gmake"
+hungryexe "/gnumake"
+hungryexe "/usr/local/bin/make"
+hungryexe "/usr/local/bin/gmake"
+hungryexe "/usr/local/bin/gnumake"
+
+# Declare "good" programs
+# Automatically negatively reniced to multimedia job level
+goodexe "/usr/bin/albert"
+goodexe "/usr/bin/cupsd"
+goodexe "/usr/bin/ffmpeg"
+goodexe "/usr/bin/file-roller"
+goodexe "/usr/bin/firefox"
+goodexe "/usr/bin/git"
+goodexe "/usr/bin/gnome-mpv"
+goodexe "/usr/bin/gpg-agent"
+goodexe "/usr/bin/grive"
+goodexe "/usr/bin/gscreenshot"
+goodexe "/usr/bin/htop"
+goodexe "/usr/bin/i3"
+goodexe "/usr/bin/i3-input"
+goodexe "/usr/bin/i3lock"
+goodexe "/usr/bin/imdb-thumbnailer"
+goodexe "/usr/bin/iotop"
+goodexe "/usr/bin/irqbalance"
+goodexe "/usr/bin/java"
+goodexe "/usr/bin/keybase"
+goodexe "/usr/bin/logrotate"
+goodexe "/usr/bin/lollipop"
+goodexe "/usr/bin/mpv"
+goodexe "/usr/bin/neofetch"
+goodexe "/usr/bin/neovim-ruby-host"
+goodexe "/usr/bin/nvim"
+goodexe "/usr/bin/nvim-qt"
+goodexe "/usr/bin/pulseaudio"
+goodexe "/usr/bin/redshift"
+goodexe "/usr/bin/ssh-agent"
+goodexe "/usr/bin/start-pulseaudio-x11"
+goodexe "/usr/bin/startx"
+goodexe "/usr/bin/steam"
+goodexe "/usr/bin/systemctl"
+goodexe "/usr/bin/systemd-analyze"
+goodexe "/usr/bin/thunar"
+goodexe "/usr/bin/Thunar"
+goodexe "/usr/bin/thunar-volman"
+goodexe "/usr/bin/trash"
+goodexe "/usr/bin/trash-empty"
+goodexe "/usr/bin/trash-list"
+goodexe "/usr/bin/trash-restore"
+goodexe "/usr/bin/unclutter"
+goodexe "/usr/bin/wavebox"
+goodexe "/usr/bin/xbacklight"
+goodexe "/usr/bin/xbindkeys"
+goodexe "/usr/bin/xinput"
+goodexe "/usr/bin/xonotic-dedicated"
+goodexe "/usr/bin/Xorg"
+goodexe "/usr/bin/xprop"
+goodexe "/usr/bin/xrandr"
+goodexe "/usr/bin/yadm"
+goodexe "/usr/bin/youtube-dl"
+goodexe "/usr/bin/zotero"
+goodexe "/usr/bin/zsh"
+goodexe "/usr/bin/zsh-5.3.1"
+
+# Making the X server a "good" program is usually a good idea too
+#   -- X is essentially a multimedia app. These next few lines will 
+#   work even if root is declared an "immune" user and X is run as root, 
+#   because "goodexe"'s specified in verynice.conf are exceptions to
+#   the "immuneuser" rule
+# (these are appropriate for RedHat Linux, with XFree 3.x -- the appropriate
+# file might be different on your system. To find the proper name, do a PS
+# to find the X pid, then ls -l /proc/{pid}/exe
+goodexe "/etc/X11/X"
+goodexe "/usr/X11R6/bin/XF86_SVGA"
+goodexe "/usr/X11R6/bin/XF86_Mono"
+goodexe "/usr/X11R6/bin/XF86_VGA16"
+goodexe "/usr/X11R6/bin/XF86_S3"
+goodexe "/usr/X11R6/bin/XF86_Mach32"
+goodexe "/usr/X11R6/bin/XF86_Mach64"
+goodexe "/usr/X11R6/bin/XF86_Mach8"
+goodexe "/usr/X11R6/bin/XF86_8514"
+goodexe "/usr/X11R6/bin/XF86_P9000"
+goodexe "/usr/X11R6/bin/XF86_AGX"
+goodexe "/usr/X11R6/bin/XF86_W32"
+# These are for XFree86 4.0, but haven't been tested
+goodexe "/usr/X11R6/bin/XFree86"
+goodexe "/usr/X11R6/bin/X"
+
+# declare "potential runaway" program. potential runaways can go to a lower
+# priority (reniced all the way to +20), and if they exceed that will be
+# killed. Other processes are never killed. This is good for netscape and 
+# any other programs with a tendency to start eating the CPU for no reason.
+runawayexe "/usr/bin/calibre"
+runawayexe "/usr/bin/calibre-complete"
+runawayexe "/usr/bin/calibre-customize"
+runawayexe "/usr/bin/calibredb"
+runawayexe "/usr/bin/calibre-server"
+runawayexe "/usr/bin/gimp"
+runawayexe "/usr/bin/mathematica"
+runawayexe "/usr/bin/Mathematica"
+
+# Sample additional parameters, specifying the built in defaults
+#notnice    -4
+#batchjob   18
+#runaway    20
+#kill       22
+#badkarmarate .0167
+#badkarmarestorationrate .0167
+#periodicity 60
+#rereadcfgperiodicity 60
