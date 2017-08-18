@@ -167,11 +167,8 @@ bindsym $mod+r mode "resize"
 ############################
 
 # Popups start in floating mode
-for_window [class="Pinetry"] floating enable
-for_window [title="pinentry"] floating enable
-for_window [instance="pinentry"] floating enable
-for_window [id=62914563] floating enable
-for_window [class="albert"] floating enable
+for_window [class="Pinetry" instance="pinentry"] floating enable
+for_window [class="albert" instance="albert"] floating enable
 for_window [class="Notify-osd"] floating enable
 
 # Assign windows a certain workspace
