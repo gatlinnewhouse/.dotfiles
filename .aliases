@@ -76,29 +76,12 @@ rm(){
   fi
 }
 
-# Add Wallapatta referece
-wallapat(){
-  if [ '$1' = '-h' ]; then
-    xdg-open https://wallapatta.github.io/reference.html
-  else
-    wallapatta
-  fi
-}
-
-# Cast youtube link to chromecast via castnow
-cast-youtube(){
-  if [ '$1' = *'http'* ]; then
-    youtube-dl -o - $1 | castnow --quiet -
-  else
-    echo 'You need to provide a youtube link as an argument.'
-    echo
-  fi
-}
-
-# Alias for slack-tokens
+# Select a slack token
 slack-tokens(){
-  if [ '$1' = 'psu-gsoc' ]; then
-    export SLACK_TOKEN=$(gpg --quiet --decrypt $HOME/.slack-tokens/psu-gsoc.gpg)
+  if [ $1 = 'gsoc' ]; then
+    source $HOME/.slack-tokens/select-psu-gsoc
+  else
+    echo 'You need to pass an argument for which slack organization you want.'
   fi
 }
 
