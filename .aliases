@@ -80,6 +80,8 @@ rm(){
 slack-tokens(){
   if [ $1 = 'gsoc' ]; then
     source $HOME/.slack-tokens/select-psu-gsoc
+  elif [ $1 = 'quest' ]; then
+    source $HOME/.slack-tokens/select-the-quest
   else
     echo 'You need to pass an argument for which slack organization you want.'
   fi

@@ -1,0 +1,2 @@
+#!/bin/bash
+export SLACK_TOKEN=$(gpg --quiet --decrypt $HOME/.slack-tokens/psu-gsoc.gpg)
