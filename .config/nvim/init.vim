@@ -4,8 +4,6 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-" ***** Required dependencies *****
-
 " Create your own Vim text objects (used for Prose plugins)
 Plug 'kana/vim-textobj-user'
 
@@ -17,8 +15,6 @@ Plug 'Shougo/denite.nvim'
 
 " Asynchronus :make command
 Plug 'neomake/neomake'
-
-" ***** Actual plugins *****
 
 " Vim Find And Replace (https://github.com/brooth/far.vim)
 Plug 'brooth/far.vim'
@@ -92,15 +88,8 @@ Plug 'NLKNguyen/papercolor-theme'
 " Use visual character indent guides instead
 Plug 'Yggdroot/indentLine'
 
-" Encryption
-Plug 'jamessan/vim-gnupg'
-
 " Tab completion for Neovim
 Plug 'ervandew/supertab'
-
-" *=========================*
-"    Vim for Prose plugins
-" *=========================*
   
 " Goyo centers the text for writing
 Plug 'junegunn/goyo.vim'
@@ -120,14 +109,6 @@ Plug 'reedes/vim-textobj-sentence'
 " Live preview for LaTeX
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
-" *=========================*
-
-" Browse commits
-Plug 'junegunn/gv.vim'
-
-" Manage tag files in Vim
-Plug 'ludovicchabant/vim-gutentags'
-
 " Keep edit state in Vim
 Plug 'kopischke/vim-stay'
 
@@ -143,9 +124,6 @@ Plug 'KabbAmine/vCoolor.vim'
 " Lightweight Powerline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-" Local wiki plugin
-Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -245,11 +223,50 @@ filetype plugin indent on
 " Add line numbers by default
 set number
 
-" No word wrapping
-set nowrap
+" Watch for file changes
+set autoread
+
+" auto/smart indent
+set autoindent smartindent
+
+" Show the cursor line
+set cursorline
+
+" Set the charset
+set encoding=utf-8
+
+" Set the save encoding
+set fileencoding=utf-8
+
+" Set the terminal encoding
+set termencoding=utf-8
+
+" Set the maximum memory to 24 MB per buffer
+set maxmem=24576
+
+" Set the maximum total vim memory to 0.5 GB
+set maxmemtot=524288
+
+" Word wrapping
+set wrap
+
+" Better line wrap display
+set showbreak=⇇ 
+
+" Destroy Ex Mode
+nnoremap Q <nop>
 
 " Use spaces for tabs
 set expandtab
+
+" Spell checking for Git commits,
+autocmd FileType gitcommit setlocal spell
+
+" Subversion commits,
+autocmd FileType svn       setlocal spell
+
+" and Mercurial commits.
+autocmd FileType asciidoc  setlocal spell
 
 " Set tabs equal to two spaces
 set tabstop=2
@@ -308,8 +325,17 @@ function! SetUpGoyo()
   endif
 endfunction
 
-" STOP HIDING STUFF
+" Stop hiding things
 set conceallevel=0
+
+" Override indentLine conceal level
+autocmd FileType json let g:indentLine_conceallevel = 0
+
+" Automatically reload my vimrc
+augroup reload_vimrc " {
+    autocmd!
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END " }
 
 " Spellcheck dictionaries and languages (English and Spanish)
 let g:lexical#spellang = ['en_us', 'es_mx']
@@ -327,9 +353,12 @@ let g:indentLine_char = ''
 " Set indentLine color
 let g:indentLine_color_term = 249
 
-" NeoTex settings
+" Enable NeoTex
 let g:neotex_enabled = 1
+
+" Do not compile a latexdiff
 let g:neotex_latexdiff = 0
+
 " Live compile every 5 seconds
 let g:neotex_delay = 5000
 

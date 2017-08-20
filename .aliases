@@ -87,6 +87,14 @@ slack-tokens(){
   fi
 }
 
+# Google Calendar CLI
+alias gcalcli='gcalcli --includeRc'
+
+# Neovim
+# Do not use swap files
+alias vim='nvim -n'
+alias vi='nvim -n'
+
 # Make parents and grandparents, make a whole lineage if needed
 alias mkdir='mkdir -pv'
 
@@ -109,9 +117,6 @@ alias top='htop'
 
 # Extract things the easy way with recursion as default
 alias dtrx='dtrx -r'
-
-# Vim is NeoVim
-alias vim='nvim'
 
 # Enable tombs for pass
 alias pass='PASSWORD_STORE_ENABLE_EXTENSIONS=true pass'

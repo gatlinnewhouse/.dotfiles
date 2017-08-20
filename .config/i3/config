@@ -167,7 +167,7 @@ bindsym $mod+r mode "resize"
 ############################
 
 # Popups start in floating mode
-for_window [class="Pinetry" instance="pinentry"] floating enable
+for_window [class="pinentry|Pinentry"] floating enable
 for_window [class="albert" instance="albert"] floating enable
 for_window [class="Notify-osd"] floating enable
 
@@ -181,6 +181,9 @@ assign [class="Lollypop|Google Play Music Desktop Player"] workspace 10
 
 # Run polybar at start
 exec_always $HOME/.config/polybar/launch.sh
+
+# Run gcalcli for Google Calendar notifications
+exec_always $HOME/.bin/google-calendar-daemon
 
 # Run unclutter-xfixes
 exec_always --no-startup-id unclutter
