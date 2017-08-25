@@ -10,22 +10,23 @@
 [bar/top_bar]
 monitor = eDP1
 width = 100%
-height = 24
+height = 22
 offset-x = 0
 offset-y = 0
 background = #080808
-foreground = #fafafa
+foreground = #F5F5F5
 padding = 4
 module-margin = 2
 ; Fonts
-font-0 = MaterialDesignIcons:size=12
-font-1 = fontawesome-webfont:size=12
-font-2 = NotoSansUI-Regular:size=12
-font-3 = NotoSansUI-Bold:size=12
+font-0 = MaterialDesignIcons:size=11
+font-1 = fontawesome-webfont:size=11
+font-2 = Arimo-Regular:size=11
+font-3 = Arimo-Bold:size=11
+font-4 = MaterialWifi:size=11
 ; Modules
 modules-left = i3 
-modules-center = date
-modules-right = redshift backlight volume wireless-network battery menu-power
+modules-center = 
+modules-right = redshift bluetooth wireless-network backlight volume battery date menu-power
 
 [settings]
 ; Prevent flood of update events
@@ -42,7 +43,7 @@ master-soundcard = default
 speaker-soundcard = default
 headphone-soundcard = default
 ; Mixer to use
-master-mixer = IEC958
+master-mixer = Master
 ; Formatting options
 format-volume = <ramp-volume> <label-volume>
 ; Muted formatting
@@ -67,6 +68,8 @@ poll-interval = 120
 ; Formatting options
 format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
+label-full-font = 1
+label-full =  100%
 label-charging = %percentage%%
 label-discharging = %percentage%%
 ramp-capacity-font = 1
@@ -112,23 +115,27 @@ interface = wlp3s0
 ; Seconds to sleep between updates = 30s
 interval = 30
 ; Formatting options
-format-connected = <label-connected>
+format-connected = <ramp-signal> <label-connected>
 format-disconnected = <label-disconnected>
 label-connected-font = 1
-label-connected =  %essid%
-label-disconnected-font = 1
-label-disconnected =  ಥ_ಥ
+label-connected = %essid%
+label-disconnected-font = 4
+label-disconnected =  No signal
+ramp-signal-font = 4
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
 
 [module/date]
 type = internal/date
 ; Seconds to sleep in between updates = 1 minute
 interval = 60.0
 ; Formatting options
-date = %Y/%m/%d
+date = %b %d
 time = %H:%M
 format = <label>
 label-font = 1
-label =  %date% - %time%
+label = %date% - %time%
 
 [module/i3]
 type = internal/i3
@@ -141,19 +148,24 @@ format = <label-state> <label-mode>
 label-mode = %mode%
 label-mode-padding = 1
 label-focused = %index%
-label-focused-foreground = #ffffff
+label-focused-foreground = #FAFAFA
+label-focused-font = 3
 label-unfocused = %index%
+label-unfocused-foreground = #BDBDBD
 label-visible = %index%
 label-urgent = %index%
-label-urgent-foreground = #FF5722
+label-urgent-foreground = #FFC107
 
 [module/menu-power]
 type = custom/menu
 label-open = 
+label-open-foreground = #B71C1C
 label-close = 
 menu-0-0 = 
+menu-0-0-foreground = #00C853
 menu-0-0-exec = exec systemctl reboot
 menu-0-1 = 
+menu-0-1-foreground = #B71C1C
 menu-0-1-exec = exec systemctl poweroff
 
 [module/redshift]
@@ -161,4 +173,11 @@ type = custom/script
 ; Seconds to sleep in between updates = 5 minutes
 interval = 300
 exec = ~/.config/polybar/redshift.sh
+
+[module/bluetooth]
+type = custom/script
+interval = 5
+
+exec = ~/.config/polybar/bluetooth.sh
+
 ; vim:ft=dosini

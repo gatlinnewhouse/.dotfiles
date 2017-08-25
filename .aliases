@@ -24,19 +24,23 @@ alias cargo='cargo --color'
 # And cat..........
 alias cat='pygmentize -g'
 
-# And gcc ...........
-#alias gcc='colorgcc'
-
 # And pacaur...............
 alias pacaur='pacaur --color=always'
 
-# Export LS_OPTIONS for inheritance
-export LS_OPTIONS=(-kNphxC --color=auto --group-directories-first -w $(tput cols))
-alias ls='ls $LS_OPTIONS'
+# Alias ls to exa
+alias ls='exa --color=always --group-directories-first --across'
+
 # List almost everything in columns
-alias ll='ls -AC'
+alias ll='exa --color=always --group-directories-first --all --across'
+
 # List almost everything with filesizes, times, and so on
-alias la='ls -Alto'
+alias la='exa --color=always --group-directories-first --all --long'
+
+# List recursively
+alias lr='exa --color=always --group-directories-first --tree'
+
+# Tetris
+alias tetris='yetris'
 
 # Faster ping
 alias ping='netselect -vv -t 25'
@@ -46,6 +50,9 @@ alias lspkgs='pkgInstallDateLister'
 
 # Suspend to both RAM and Swap by default
 alias suspend='sudo s2both'
+
+# Make the parents too, if they do not exist
+alias mkdir='mkdir -p'
 
 # Make me a password
 alias mkpasswd='xkcdpass -i'

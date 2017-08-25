@@ -116,6 +116,7 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export SSH_CONNECTION="rhizome"
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 export TERM="rxvt-unicode-256color"
+export VDPAU_DRIVER='va_gl'
 export XDG_CONFIG_HOME="$HOME/.config"
 export ZPLUG_THREADS="32"
 export ZPLUG_PROTOCOL="HTTPS"
@@ -136,12 +137,16 @@ pathadd $HOME/.local/bin
 pathadd $HOME/.go/bin
 pathadd $HOME/.gem/ruby/2.4.0/bin
 pathadd $HOME/.bin/
+pathadd /usr/lib/ccache/bin/
 
 # Source files
 source ~/.aliases
 source ~/.inputrc
 source ~/.local/share/icons-in-terminal/icons_bash.sh
 source /etc/bash_completion.d/climate_completion
+
+# Configure thefuck to work
+eval $(thefuck --alias)
 
 # Check if zplug is installed
 if [[ ! -d ~/.zplug ]]; then

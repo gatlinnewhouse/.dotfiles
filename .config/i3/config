@@ -221,12 +221,6 @@ exec_always --no-startup-id udiskie --no-tray --automount --notify --password-ca
 # Battery notifications
 exec_always --no-startup-id i3-battery-popup -n -L 30 -t 10m
 
-# Arch package update notifications (including AUR)
-# Arguments list:               disappear   check
-#                                   after,  after,
-# Argument values:                      1m     6h
-exec_always --no-startup-id aarchup -t 600 -l 360
-
 # Run light-locker daemon
 exec_always light-locker --lock-on-suspend --late-locking --lock-after-screensaver=15
 

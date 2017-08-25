@@ -36,17 +36,17 @@
 
 
 #Raise Volume
-"pavolume volup"
+"pavolume --noshow volup"
     m:0x0 + c:123
     XF86AudioRaiseVolume 
 
 #Lower Volume
-"pavolume voldown"
+"pavolume --noshow voldown"
     m:0x0 + c:122
     XF86AudioLowerVolume 
 
 #Mute Audio
-"pavolume mutetoggle"
+"pavolume --noshow mutetoggle"
     m:0x0 + c:121
     XF86AudioMute 
 
