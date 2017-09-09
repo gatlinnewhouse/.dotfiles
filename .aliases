@@ -60,6 +60,15 @@ alias mkpasswd='xkcdpass -i'
 # Make a license
 alias mklicense='license'
 
+# VPN
+alias vpn='bash $HOME/.bin/vpngate/run'
+
+# Mount google drive
+alias mountGoogleDrive='sudo gdfs -o allow_other /home/deleuze/.config/gdfs.creds /mnt/GoogleDrive'
+
+# Unmount google drive
+alias umountGoogleDrive='sudo umount /mnt/GoogleDrive'
+
 # Reload z shell
 alias reload='zplug status; sleep 2; zplug update; sleep 0.75; zplug clean; sleep 0.5; zplug clear; sleep 0.25; reset;'
 

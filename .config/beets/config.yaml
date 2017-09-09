@@ -69,7 +69,7 @@ convert:
   album_art_maxwidth: 500
   embed: yes
   never_convert_lossy_files: yes
-  command: /home/deleuze/.scripts/gaplessmp3
+  command: /home/deleuze/.bin/gaplessmp3
   extension: mp3
 
 # Embeded album art options

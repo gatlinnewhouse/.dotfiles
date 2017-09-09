@@ -59,6 +59,9 @@ bindsym $mod+Shift+Return exec urxvt -cd "`xcwd`"
 # Start HTOP in a terminal
 bindsym $MOD+SHIFT+t exec urxvt -e htop
 
+# Start NeoVim in a terminal
+bindsym $MOD+SHIFT+v exec urxvt -e nvim
+
 # Kill focused window
 bindsym $mod+q kill
 

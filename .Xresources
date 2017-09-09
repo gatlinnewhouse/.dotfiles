@@ -10,7 +10,7 @@ Xft.rgba: rgb
 ! ****************** !
 
 ! Extensions
-URxvt.perl-ext-common: default, clipboard, -readline
+URxvt.perl-ext-common: default, clipboard, -readline, url-select
 
 ! Name the terminal
 URxvt*termName: rxvt-unicode-256color
@@ -72,3 +72,7 @@ URxvt.keysym.C-A-V: perl:clipboard:paste_escaped
 ! Disable control and shift operations
 URxvt*iso14755: False
 URxvt*iso14755_52: False
+
+! URL handling
+URxvt.url-select.launcher: firefox-nightly
+URxvt.url-select.button: 1

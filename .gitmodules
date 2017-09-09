@@ -1,6 +1,3 @@
-[submodule ".pkgs_not_in_repo/simpleflix"]
-	path = .pkgs_not_in_repo/simpleflix
-	url = git@github.com:UnSimpleGeek/Simpleflix.git
 [submodule ".pkgs_not_in_repo/terminal-slack"]
 	path = .pkgs_not_in_repo/terminal-slack
 	url = git@github.com:evanyeung/terminal-slack.git
@@ -46,3 +43,6 @@
 [submodule ".pkgs_not_in_repo/icons-in-terminal"]
 	path = .pkgs_not_in_repo/icons-in-terminal
 	url = https://github.com/sebastiencs/icons-in-terminal
+[submodule ".pkgs_not_in_repo/GDriveFS"]
+	path = .pkgs_not_in_repo/GDriveFS
+	url = https://github.com/dsoprea/GDriveFS.git

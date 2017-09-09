@@ -102,6 +102,7 @@ pathadd() {
 
 # Export environmental variables
 export BROWSER="firefox"
+export CCACHE_DIR="/var/tmp/ccache"
 export EDITOR="nvim"
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 export GO_ENV="$HOME/.goenvs"
@@ -111,6 +112,7 @@ export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
 export LESS='-R '
 export LOGNAME="godel"
 export PATH="/usr/local/bin:$PATH"
+export STEAM_RUNTIME=1
 export SHELL="/bin/zsh"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export SSH_CONNECTION="rhizome"

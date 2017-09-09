@@ -174,10 +174,4 @@ type = custom/script
 interval = 300
 exec = ~/.config/polybar/redshift.sh
 
-[module/bluetooth]
-type = custom/script
-interval = 5
-
-exec = ~/.config/polybar/bluetooth.sh
-
 ; vim:ft=dosini
