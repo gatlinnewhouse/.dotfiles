@@ -46,3 +46,6 @@
 [submodule ".pkgs_not_in_repo/GDriveFS"]
 	path = .pkgs_not_in_repo/GDriveFS
 	url = https://github.com/dsoprea/GDriveFS.git
+[submodule "Documents/redtexts"]
+	path = Documents/redtexts
+	url = git@github.com:redtexts/texts.git

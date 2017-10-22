@@ -112,6 +112,7 @@ export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
 export LESS='-R '
 export LOGNAME="godel"
 export PATH="/usr/local/bin:$PATH"
+export QT_QPA_PLATFORM='gtk'
 export STEAM_RUNTIME=1
 export SHELL="/bin/zsh"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"

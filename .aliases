@@ -39,14 +39,23 @@ alias la='exa --color=always --group-directories-first --all --long'
 # List recursively
 alias lr='exa --color=always --group-directories-first --tree'
 
+# List packages by size
+alias lspkgs-size='expac -H M "%011m\t%-20n\t%10d" $(comm -23 <(pacman -Qqe | sort) <(pacman -Qqg base base-devel | sort)) | sort -n'
+
+# List packages alphabetically
+alias lspkgs='comm -23 <(pacman -Qqe | sort) <(pacman -Qqg base base-devel | sort) | sort -n'
+
+# List packages by install date
+alias lspkgs-date='expac --timefmt="%F %T" "%l %w %n" | grep explicit | cut -d ' ' -f 1-2,4- | sort -n'
+
+# List packages that are optional dependencies and not explicitly installed
+alias lspkgs-opt='comm -13 <(pacman -Qdtq | sort) <(pacman -Qdttq | sort)'
+
 # Tetris
 alias tetris='yetris'
 
 # Faster ping
 alias ping='netselect -vv -t 25'
-
-# List recently installed packages
-alias lspkgs='pkgInstallDateLister'
 
 # Suspend to both RAM and Swap by default
 alias suspend='sudo s2both'
@@ -80,6 +89,9 @@ alias simpleflix='cd $HOME/.pkgs_not_in_repo/simpleflix/ && setsid npm start mai
 
 # Beets music organizer has a plural command too!
 alias beets='beet'
+
+# Make a single portrait PDF into a two page on Landscape paper PDF
+alias pdfmklandscape='pdfnup --nup 2x1 --suffix 2up --landscape --outfile .'
 
 # Avoid stupidity with trash-cli:
 # 	https://github.com/sindresorhus/trash-cli
@@ -123,7 +135,7 @@ mkcd(){
 alias yadmSubmoduleUpdate='yadm submodule foreach git pull origin master && yadm submodule foreach update'
 
 # Remove true orphans
-alias rm-true-orhpans='pacaur -Rsn $(sudo -u deleuze pacaur -Qtdq)'
+alias rm-true-orhpans='pacaur -Rnsc $(sudo -u deleuze pacaur -Qtdq)'
 
 # Glyphr desktop
 alias glyphr='~/.scripts/submodules/Glyphr-Studio-Desktop/build/Glyphr\ Studio-linux-x64/Glyphr\ Studio'

@@ -10,26 +10,11 @@ Plug 'kana/vim-textobj-user'
 " Enable repeating supported plugin maps with '.' command
 Plug 'tpope/vim-repeat'
 
-" Asynchronus unite all interfaces
-Plug 'Shougo/denite.nvim'
-
-" Asynchronus :make command
-Plug 'neomake/neomake'
-
 " Vim Find And Replace (https://github.com/brooth/far.vim)
 Plug 'brooth/far.vim'
 
 " Fancy start screen for vim
 Plug 'mhinz/vim-startify'
-
-" Easily align lines arbitrarily (github.com/junegunn/vim-easy-align) for README
-Plug 'godlygeek/tabular'
-
-" Automatic formatting of files with command :Neoformat
-Plug 'sbdchd/neoformat'
-
-" Git wrapper for Vim
-Plug 'tpope/vim-fugitive'
 
 " Syntax support for Puppet files
 Plug 'voxpupuli/vim-puppet', { 'for': 'puppet' }
@@ -52,8 +37,11 @@ Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
 " Syntax support for HTML5 files
 Plug 'othree/html5.vim', { 'for': 'html'}
 
+" Syntax and more support for hugo documents
+Plug 'robertbasic/vim-hugo-helper'
+
 " Syntax support for Markdown files
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
 
 " Syntax support for git files
 Plug 'tpope/vim-git', { 'for': ['gitconfig','gitcommit','gitrebase','gitsendemail', 'git'] }
@@ -88,9 +76,6 @@ Plug 'NLKNguyen/papercolor-theme'
 " Use visual character indent guides instead
 Plug 'Yggdroot/indentLine'
 
-" Tab completion for Neovim
-Plug 'ervandew/supertab'
-  
 " Goyo centers the text for writing
 Plug 'junegunn/goyo.vim'
 
@@ -126,31 +111,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
-
-" *========================================================================================*
-"                          Set it so :q quits Goyo and Vim
-" *========================================================================================*
-
-function! s:goyo_enter()
-	let b:quitting = 0
-	let b:quitting_bang = 0
-	autocmd QuitPre <buffer> let b:quitting = 1
-	cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
-endfunction
-
-function! s:goyo_leave()
-	" Quit Vim if this is the only remaining buffer
-	if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-		if b:quitting_bang
-			qa!
-		else
-			qa
-		endif
-	endif
-endfunction
-
-autocmd! User GoyoEnter call <SID>goyo_enter()
-autocmd! User GoyoLeave call <SID>goyo_leave()
 
 " *========================================================================================*
 "                                       Key mappings
@@ -310,21 +270,6 @@ augroup textobj_sentence
   autocmd FileType textile call textobj#sentence#init()
 augroup END
 
-" Enable goyo for prose files
-augroup goyo
-  autocmd!
-  autocmd FileType markdown call SetUpGoyo()
-  autocmd FileType textile call SetUpGoyo()
-  autocmd FileType text call SetUpGoyo()
-augroup END
-
-" Function to enable goyo
-function! SetUpGoyo()
-  if !exists('#goyo')
-    Goyo
-  endif
-endfunction
-
 " Stop hiding things
 set conceallevel=0
 
@@ -355,6 +300,12 @@ let g:indentLine_color_term = 249
 
 " Enable NeoTex
 let g:neotex_enabled = 1
+
+" No markdown folding
+let g:markdown_enable_folding = 0
+
+" No markdown concealing
+let g:markdown_enable_conceal = 0
 
 " Do not compile a latexdiff
 let g:neotex_latexdiff = 0

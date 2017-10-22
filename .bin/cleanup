@@ -11,7 +11,7 @@ printf "\n"
 printf "Cleaning browser profiles... \n"
 printf "============================== \n"
 printf "\n"
-browser-vacuum
+#browser-vacuum
 printf "\n"
 printf "============================== \n"
 printf "\n"

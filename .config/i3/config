@@ -210,7 +210,7 @@ exec_always --no-startup-id xbindkeys
 exec_always --no-startup-id nohup redshift -c $HOME/.config/redshift.conf
 
 # Set wallpaper and color scheme
-exec_always --no-startup-id feh  --bg-fill /usr/share/backgrounds/adapta/google_pixel_background_city1.png
+exec_always --no-startup-id feh --randomize --bg-fill /usr/share/wallpapers/chromecast1200/*
 
 # Start notification daemon
 exec_always --no-startup-id xfce4-notifyd
@@ -230,3 +230,6 @@ exec_always light-locker --lock-on-suspend --late-locking --lock-after-screensav
 # Set x11 keyboard layout to use the right alt key as a compose key
 # That way I can type accented characters for Spanish
 exec_always --no-startup-id setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl
+
+# Resore ALSA sound setting
+exec_always --no-startup-id alsactl --file ~/.config/asound.state restore
