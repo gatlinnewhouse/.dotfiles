@@ -198,9 +198,6 @@ exec_always --no-startup-id xbanish
 # Start compton
 exec_always --no-startup-id compton --config $HOME/.compton.conf -b
 
-# Start albert omnilauncher
-exec_always --no-startup-id env QT_AUTO_SCREEN_SCALE_FACTOR=0 albert
-
 # Start xbindkeys
 exec_always --no-startup-id xbindkeys
 

@@ -12,10 +12,20 @@ zstyle ':completion:*' rehash true
 # Aliases too
 setopt COMPLETE_ALIASES
 
+# Use a prompt
+setopt promptsubst
+
 # Enable zsh history search
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
+
+# Write to history immediately
+setopt inc_append_history
+# Save extended info in history
+setopt extended_history
+# Ignore duplicate entries in history
+setopt hist_ignore_dups
 
 # turn off ZLE bracketed paste in dumb term
 # otherwise turn on ZLE bracketed-paste-magic
@@ -107,6 +117,7 @@ export EDITOR="nvim"
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 export GO_ENV="$HOME/.goenvs"
 export GOPATH="$HOME/.go"
+export HISTSIZE=10000
 export _JAVA_OPTIONS='-Dsun.java2d.opengl=true -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
 export LESS='-R '
@@ -114,6 +125,7 @@ export LOGNAME="godel"
 export PATH="/usr/local/bin:$PATH"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
+export SAVEHIST=10000
 export STEAM_RUNTIME=1
 export SHELL="/bin/zsh"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
@@ -122,8 +134,6 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 export TERM="rxvt-unicode-256color"
 export VDPAU_DRIVER='va_gl'
 export XDG_CONFIG_HOME="$HOME/.config"
-export ZPLUG_THREADS="32"
-export ZPLUG_PROTOCOL="HTTPS"
 
 # LS colors, made with http://geoff.greer.fm/lscolors/
 # export LSCOLORS="exfxcxdxbxegedabagacad"
@@ -148,67 +158,58 @@ source ~/.aliases
 source ~/.inputrc
 source ~/.local/share/icons-in-terminal/icons_bash.sh
 source /etc/bash_completion.d/climate_completion
+source $HOME/.zplugin/bin/zplugin.zsh
 
 # Configure thefuck to work
 eval $(thefuck --alias)
 
-# Check if zplug is installed
-if [[ ! -d ~/.zplug ]]; then
-  git clone https://github.com/zplug/zplug ~/.zplug
-  source ~/.zplug/init.zsh && zplug update --self
-else
-  source ~/.zplug/init.zsh
-fi
+###########################################
+#              Z-Plugin Plugins           #
+###########################################
 
-#########################################
-#              Z-Plug Plugins           #
-#########################################
+# Load history search multiword
+zplugin load zdharma history-search-multi-word
 
-# Let zplug manage itself
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+# Load zplugin UI
+zplugin load zdharma/zui
 
-# Completions for zsh
-zplug "zsh-users/zsh-completions", as:plugin
+# Load zsh autosuggestions
+zplugin light zsh-users/zsh-autosuggestions
 
 # Fish-like syntax highlighting for zsh
-zplug "zdharma/fast-syntax-highlighting", as:plugin
+zplugin light zdharma/fast-syntax-highlighting
 
-# Forked, independent oh-my-zsh colored-man-pages
-zplug "zuxfoucault/colored-man-pages_mod", as:plugin
+# Oh-my-zsh colored-man-pages
+zplugin snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 
-# Human readable time
-zplug "sindresorhus/pretty-time-zsh", as:plugin
-
-# Human readable errors
-zplug "aphelionz/strerror.plugin.zsh", as:plugin
-
-# Git extra commands (to make things easier)
-zplug "unixorn/git-extra-commands", as:plugin, use:"git-extra-commands.plugin.zsh"
+# Oh-my-zsh per-directory-history
+zplugin snippet OMZ::plugins/per-directory-history/per-directory-history.zsh
 
 # 256 ZSH Color
-zplug "chrissicool/zsh-256color", as:plugin
+zplugin ice pick"zsh-256color.plugin.zsh"; zplugin light chrissicool/zsh-256color
 
 # Safe pasting
-zplug "oz/safe-paste", as:plugin
+zplugin ice pick"safe-paste.plugin.zsh"; zplugin light oz/safe-paste
+
+# Use Oh-my-zsh library for theme
+zplugin snippet OMZ::lib/git.zsh
 
 # Use the spaceship-zsh-theme
-zplug "denysdovhan/spaceship-zsh-theme", use:"spaceship.zsh", from:github, as:theme
+zplugin snippet http://github.com/denysdovhan/spaceship-zsh-theme/blob/master/spaceship.zsh 
 
-# zplug check returns true if all packages are installed
-# Therefore, when it returns false, run zplug install
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
+# This one to be ran just once, in interactive session 
+#zplugin creinstall %HOME/my_completions  # Handle completions without loading any plugin, see "clist" command
 
-# source plugins and add commands to the PATH
-zplug load
+# Zsh completions
+zplugin ice blockf
+zplugin light zsh-users/zsh-completions
 
 #########################################
 #      Spaceship zsh theme options      #
 #########################################
+
+# Load the theme
+ZSH_THEME="spaceship"
 
 # Order
 SPACESHIP_PROMPT_ORDER=(
