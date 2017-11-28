@@ -4,6 +4,9 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+" Minimal asynchronous task runner
+Plug 'hauleth/asyncdo.vim'
+
 " Create your own Vim text objects (used for Prose plugins)
 Plug 'kana/vim-textobj-user'
 
@@ -153,6 +156,9 @@ endfunction
 
 " Set not compatible with vi
 set nocompatible
+
+" Set automatically changing directories
+set autochdir
 
 " Set shell to zsh
 set shell=zsh

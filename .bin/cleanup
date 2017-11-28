@@ -11,7 +11,7 @@ printf "\n"
 printf "Cleaning browser profiles... \n"
 printf "============================== \n"
 printf "\n"
-#browser-vacuum
+browser-vacuum
 printf "\n"
 printf "============================== \n"
 printf "\n"
@@ -60,4 +60,4 @@ printf "\n"
 printf "Update preload\n"
 printf "============================== \n"
 printf "\n"
-sudo -u deleuze gopreload-batch-refresh.sh
+#sudo -u deleuze gopreload-batch-refresh.sh

@@ -46,7 +46,7 @@ alias lspkgs-size='expac -H M "%011m\t%-20n\t%10d" $(comm -23 <(pacman -Qqe | so
 alias lspkgs='comm -23 <(pacman -Qqe | sort) <(pacman -Qqg base base-devel | sort) | sort -n'
 
 # List packages by install date
-alias lspkgs-date='expac --timefmt="%F %T" "%l %w %n" | grep explicit | cut -d ' ' -f 1-2,4- | sort -n'
+alias lspkgs-date='expac --timefmt="%F %T" "%l %w %n" | grep explicit | cut --delimiter=" " -f 1-2,4- | sort -n'
 
 # List packages that are optional dependencies and not explicitly installed
 alias lspkgs-opt='comm -13 <(pacman -Qdtq | sort) <(pacman -Qdttq | sort)'
@@ -54,11 +54,11 @@ alias lspkgs-opt='comm -13 <(pacman -Qdtq | sort) <(pacman -Qdttq | sort)'
 # Tetris
 alias tetris='yetris'
 
-# Faster ping
-alias ping='netselect -vv -t 25'
-
 # Suspend to both RAM and Swap by default
 alias suspend='sudo s2both'
+
+# Next background
+alias nxtbackground='feh --randomize --bg-fill /usr/share/wallpapers/chromecast1200/*'
 
 # Make the parents too, if they do not exist
 alias mkdir='mkdir -p'

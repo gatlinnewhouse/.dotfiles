@@ -32,6 +32,8 @@
 	s = status -sb
 	# Sparse read
 	sparse-read = "!f() { git config core.sparseCheckout true && touch $(echo $(git rev-parse --show-toplevel)'/.git/info/sparse-checkout') && echo $1 >> $(echo $(git rev-parse --show-toplevel)'/.git/info/sparse-checkout') && git read-tree -m -u origin/master; }; f"
+	# Done maybe?
+	done-maybe = log --committer=[email] --since=[time] 
 [merge]
 	# Only fast forward
 	# https://sandofsky.com/images/fast_forward.pdf

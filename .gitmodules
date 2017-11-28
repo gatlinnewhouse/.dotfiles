@@ -49,3 +49,7 @@
 [submodule "Documents/redtexts"]
 	path = Documents/redtexts
 	url = git@github.com:redtexts/texts.git
+[submodule ".pkgs_not_in_repo/Firefox-user.js"]
+	path = .pkgs_not_in_repo/Firefox-user.js
+	url = git@github.com:pyllyukko/user.js.git
+	branch = relaxed

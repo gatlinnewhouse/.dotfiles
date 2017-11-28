@@ -26,7 +26,7 @@ font-4 = MaterialWifi:size=11
 ; Modules
 modules-left = i3 
 modules-center = 
-modules-right = redshift bluetooth wireless-network backlight volume battery date menu-power
+modules-right = caffeine redshift bluetooth wireless-network backlight volume battery date menu-power
 
 [settings]
 ; Prevent flood of update events
@@ -173,5 +173,10 @@ type = custom/script
 ; Seconds to sleep in between updates = 5 minutes
 interval = 300
 exec = ~/.config/polybar/redshift.sh
+
+[module/caffeine]
+type = custom/script
+interval = 5
+exec = ~/.config/polybar/caffeine-status.sh
 
 ; vim:ft=dosini

@@ -89,7 +89,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # Launch albert with key combo
-bindsym $mod+space exec --no-startup-id albert show
+bindsym $mod+space exec "rofi -show combi"
 
 # Toggle sticky windows (for floating windows only)
 bindsym $mod+s sticky toggle
@@ -97,11 +97,12 @@ bindsym $mod+s sticky toggle
 # Bind mod + home to toggle redshift
 bindsym $mod+Home exec pkill -USR1 '^redshift$'
 
-# Bind mod + F4 to cause the laptop to suspend
-bindsym $mod+F4 exec bash ~/lock.sh && systemctl suspend
+# Bind mod + Escape to shutdown
+bindsym $mod+Escape exec shutdown now
 
-# Bind mod + End to shutdown
-bindsym $mod+Delete exec shutdown now
+# Change wallpaper with mod + page down OR mod + page up
+bindsym $mod+Prior exec feh --randomize --bg-fill /usr/share/wallpapers/chromecast1200/*
+bindsym $mod+Next exec feh --randomize --bg-fill /usr/share/wallpapers/chromecast1200/*
 
 # Change container layout (split horizontally or split vertically)
 bindsym $mod+e layout toggle split
@@ -182,9 +183,6 @@ assign [class="Lollypop|Google Play Music Desktop Player"] workspace 10
 # S T A R T U P #
 #################
 
-# Run polybar at start
-exec_always $HOME/.config/polybar/launch.sh
-
 # Run gcalcli for Google Calendar notifications
 exec_always $HOME/.bin/google-calendar-daemon
 
@@ -201,7 +199,7 @@ exec_always --no-startup-id xbanish
 exec_always --no-startup-id compton --config $HOME/.compton.conf -b
 
 # Start albert omnilauncher
-exec_always --no-startup-id albert
+exec_always --no-startup-id env QT_AUTO_SCREEN_SCALE_FACTOR=0 albert
 
 # Start xbindkeys
 exec_always --no-startup-id xbindkeys
@@ -225,7 +223,7 @@ exec_always --no-startup-id udiskie --no-tray --automount --notify --password-ca
 exec_always --no-startup-id i3-battery-popup -n -L 30 -t 10m
 
 # Run light-locker daemon
-exec_always light-locker --lock-on-suspend --late-locking --lock-after-screensaver=15
+#exec_always light-locker --lock-on-suspend --late-locking --lock-after-screensaver=15
 
 # Set x11 keyboard layout to use the right alt key as a compose key
 # That way I can type accented characters for Spanish
@@ -233,3 +231,11 @@ exec_always --no-startup-id setxkbmap -rules evdev -model evdev -layout us -vari
 
 # Resore ALSA sound setting
 exec_always --no-startup-id alsactl --file ~/.config/asound.state restore
+
+##############
+# Status Bar #
+##############
+
+bar {
+        i3bar_command $HOME/.config/polybar/launch.sh
+}

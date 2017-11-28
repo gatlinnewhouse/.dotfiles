@@ -10,7 +10,8 @@ Xft.rgba: rgb
 ! ****************** !
 
 ! Extensions
-URxvt.perl-ext-common: default, clipboard, -readline, url-select
+URxvt.perl-ext:
+URxvt.perl-ext-common:
 
 ! Name the terminal
 URxvt*termName: rxvt-unicode-256color
