@@ -24,6 +24,7 @@ plugins: [
   fromfilename,
   lyrics,
   missing,
+  mpdupdate,
   replaygain,
   rewrite,
   setlister,
@@ -96,6 +97,12 @@ fetchart:
 # Features in the title
 ftintitle:
   auto: yes
+
+# MPD options
+mpd:
+  host: localhost
+  port: 6600
+  #  password: seekrit
 
 # Normalizing audio decibels
 # Gstreamer is a pain, but still the correct backend

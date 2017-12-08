@@ -117,6 +117,8 @@ export EDITOR="nvim"
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 export GO_ENV="$HOME/.goenvs"
 export GOPATH="$HOME/.go"
+export GTK_IM_MODULE=ibus
+export GTK_IM_MODULE_FILE=/usr/lib/gtk-3.0/3.0.0/immodules.cache
 export HISTSIZE=10000
 export _JAVA_OPTIONS='-Dsun.java2d.opengl=true -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
@@ -125,6 +127,7 @@ export LOGNAME="godel"
 export PATH="/usr/local/bin:$PATH"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
+export QT_IM_MODULE=ibus
 export SAVEHIST=10000
 export STEAM_RUNTIME=1
 export SHELL="/bin/zsh"
@@ -134,6 +137,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 export TERM="rxvt-unicode-256color"
 export VDPAU_DRIVER='va_gl'
 export XDG_CONFIG_HOME="$HOME/.config"
+export XMODIFIERS=@im=ibus
 
 # LS colors, made with http://geoff.greer.fm/lscolors/
 # export LSCOLORS="exfxcxdxbxegedabagacad"
@@ -159,9 +163,6 @@ source ~/.inputrc
 source ~/.local/share/icons-in-terminal/icons_bash.sh
 source /etc/bash_completion.d/climate_completion
 source $HOME/.zplugin/bin/zplugin.zsh
-
-# Configure thefuck to work
-eval $(thefuck --alias)
 
 ###########################################
 #              Z-Plugin Plugins           #

@@ -9,6 +9,10 @@ Xft.rgba: rgb
 !   URXVT SETTINGS   !
 ! ****************** !
 
+! Use ibus for input
+URxvt.inputMethod: ibus
+URxvt.preeditType: OverTheSpot
+
 ! Extensions
 URxvt.perl-ext:
 URxvt.perl-ext-common:

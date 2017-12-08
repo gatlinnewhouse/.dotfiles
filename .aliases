@@ -13,10 +13,10 @@ alias record='ffmpeg -f x11grab -r 25 -s 1920x1080 -i :0.0+0,24 -vcodec libx264 
 alias diff='cwdiff'
 
 # And grep....
-alias grep='grep --color=auto'
+alias grep='rg --color auto'
 
 # And make.....
-alias make='colormake-short -j4'
+#alias make='colormake-short -j4'
 
 # And cargo......
 alias cargo='cargo --color'
@@ -26,6 +26,12 @@ alias cat='pygmentize -g'
 
 # And pacaur...............
 alias pacaur='pacaur --color=always'
+
+# Alias find to fd
+alias find='fd'
+
+# Fuck alias
+alias fuck='sudo !!'
 
 # Alias ls to exa
 alias ls='exa --color=always --group-directories-first --across'
@@ -103,6 +109,9 @@ rm(){
 	  alias rm='rm -i'
   fi
 }
+
+# Make room on root partition
+alias bleachbit-clean-root='sudo bleachbit --clean system.cache system.localizations system.trash system.tmp'
 
 # Select a slack token
 slack-tokens(){

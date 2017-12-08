@@ -183,8 +183,11 @@ assign [class="Lollypop|Google Play Music Desktop Player"] workspace 10
 # S T A R T U P #
 #################
 
-# Run gcalcli for Google Calendar notifications
-exec_always $HOME/.bin/google-calendar-daemon
+# Run polybar
+exec_always --no-startup-id bash $HOME/.config/polybar/launch.sh
+
+# Run ibus daemon
+exec_always --no-startup-id ibus-daemon --xim
 
 # Run unclutter-xfixes
 exec_always --no-startup-id unclutter
@@ -228,11 +231,3 @@ exec_always --no-startup-id setxkbmap -rules evdev -model evdev -layout us -vari
 
 # Resore ALSA sound setting
 exec_always --no-startup-id alsactl --file ~/.config/asound.state restore
-
-##############
-# Status Bar #
-##############
-
-bar {
-        i3bar_command $HOME/.config/polybar/launch.sh
-}
