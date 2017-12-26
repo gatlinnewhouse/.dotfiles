@@ -6,7 +6,9 @@ My `/etc/` folder is backed up via [`etckeeper`](https://wiki.archlinux.org/inde
 
 ### Screenshots
 
-![](Documents/screenshot.png)
+![](Pictures/screenshot.png)
+
+![](Pictures/busyscreenshot.png)
 
 ## Setup
 

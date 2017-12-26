@@ -184,7 +184,7 @@ assign [class="Lollypop|Google Play Music Desktop Player"] workspace 10
 #################
 
 # Update image cache
-exec_always --no-startup-id bash $HOME/.bin/lock.sh -u $HOME/Pictures/totoro.png
+exec_always --no-startup-id bash $HOME/.bin/lock.sh -u $HOME/Pictures/Backgrounds/totoro.png
 
 # Run polybar
 exec_always --no-startup-id bash $HOME/.config/polybar/launch.sh
@@ -211,7 +211,7 @@ exec --no-startup-id xbindkeys
 exec --no-startup-id nohup redshift -c $HOME/.config/redshift.conf
 
 # Set wallpaper and color scheme
-exec_always --no-startup-id feh --bg-fill $HOME/Pictures/totoro.png
+exec_always --no-startup-id feh --bg-fill $HOME/Pictures/Backgrounds/totoro.png
 
 # Start notification daemon
 exec --no-startup-id xfce4-notifyd
