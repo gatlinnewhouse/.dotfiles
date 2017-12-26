@@ -24,7 +24,6 @@ plugins: [
   fromfilename,
   lyrics,
   missing,
-  mpdupdate,
   replaygain,
   rewrite,
   setlister,

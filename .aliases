@@ -15,9 +15,6 @@ alias diff='cwdiff'
 # And grep....
 alias grep='rg --color auto'
 
-# And make.....
-#alias make='colormake-short -j4'
-
 # And cargo......
 alias cargo='cargo --color'
 
@@ -60,6 +57,12 @@ alias lspkgs-opt='comm -13 <(pacman -Qdtq | sort) <(pacman -Qdttq | sort)'
 # Tetris
 alias tetris='yetris'
 
+# Multiplayer tron
+alias tron='ssh sshtron.zachlatta.com'
+
+# Look like a hacker
+alias hack='hexdump -C /dev/urandom | grep 'ca fe' '
+
 # Suspend to both RAM and Swap by default
 alias suspend='sudo s2both'
 
@@ -79,10 +82,10 @@ alias mklicense='license'
 alias vpn='bash $HOME/.bin/vpngate/run'
 
 # Mount google drive
-alias mountGoogleDrive='sudo gdfs -o allow_other /home/deleuze/.config/gdfs.creds /mnt/GoogleDrive'
+alias mountgd='sudo gdfs -o allow_other /home/deleuze/.config/gdfs.creds /mnt/GoogleDrive'
 
 # Unmount google drive
-alias umountGoogleDrive='sudo umount /mnt/GoogleDrive'
+alias umountgd='sudo umount /mnt/GoogleDrive'
 
 # Reload z shell
 alias reload='zplug status; sleep 2; zplug update; sleep 0.75; zplug clean; sleep 0.5; zplug clear; sleep 0.25; reset;'
@@ -161,25 +164,14 @@ alias pass='PASSWORD_STORE_ENABLE_EXTENSIONS=true pass'
 # Hardcode tray icons by changing them with Inkscape
 alias mktrayicons='hardcode-tray --size 16 --theme Papirus --conversion-tool ImageMagick --apply'
 
-# Light-locker-command aliases
-#
-# Lock the screen
-alias lock='light-locker-command -l'
-
 # Mount MTP
-alias mtp='jmtpfs -o auto_unmount ~/.mtp'
+alias mountp='jmtpfs -o auto_unmount ~/.mtp'
 
 # Unmount MTP
-alias umtp='fusermount -u ~/.mtp'
+alias umountp='fusermount -u ~/.mtp'
 
 # Alias run-help to help for zsh
 alias help='run-help'
-
-# Inhibit the screensaver for awhile (only works when urxvt window kept open)
-alias caffeine='light-locker-command -i &'
-
-# Stop inhibiting the screensaver
-alias melatonin='pkill -USR1 '^light-locker-command$''
 
 # Add common ASCII emojis/emoticons from MichaelAquilina/zsh-emojis
 alias confused_em='echo "¯\_(⊙︿⊙)_/¯"'

@@ -53,3 +53,6 @@
 	path = .pkgs_not_in_repo/Firefox-user.js
 	url = git@github.com:pyllyukko/user.js.git
 	branch = relaxed
+[submodule ".pkgs_not_in_repo/scientifica"]
+	path = .pkgs_not_in_repo/scientifica
+	url = https://github.com/NerdyPepper/scientifica

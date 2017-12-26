@@ -100,10 +100,6 @@ bindsym $mod+Home exec pkill -USR1 '^redshift$'
 # Bind mod + Escape to shutdown
 bindsym $mod+Escape exec shutdown now
 
-# Change wallpaper with mod + page down OR mod + page up
-bindsym $mod+Prior exec feh --randomize --bg-fill /usr/share/wallpapers/chromecast1200/*
-bindsym $mod+Next exec feh --randomize --bg-fill /usr/share/wallpapers/chromecast1200/*
-
 # Change container layout (split horizontally or split vertically)
 bindsym $mod+e layout toggle split
 
@@ -112,6 +108,10 @@ bindsym $mod+d floating toggle
 
 # Change focus between tiling / floating windows
 bindsym $mod+Shift+d focus mode_toggle
+
+# Tab through workplaces
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 
 # Switch to a workspace
 bindsym $mod+1 workspace number 1
@@ -183,51 +183,54 @@ assign [class="Lollypop|Google Play Music Desktop Player"] workspace 10
 # S T A R T U P #
 #################
 
+# Update image cache
+exec_always --no-startup-id bash $HOME/.bin/lock.sh -u $HOME/Pictures/totoro.png
+
 # Run polybar
 exec_always --no-startup-id bash $HOME/.config/polybar/launch.sh
 
 # Run ibus daemon
-exec_always --no-startup-id ibus-daemon --xim
+exec --no-startup-id ibus-daemon --xim
 
 # Run unclutter-xfixes
-exec_always --no-startup-id unclutter
+exec --no-startup-id unclutter
 
 # Start umonitor to hotplug new monitors connected
-exec_always --no-startup-id umonitor --listen
+exec --no-startup-id umonitor --listen
 
 # Run xbanish
-exec_always --no-startup-id xbanish
+exec --no-startup-id xbanish
 
 # Start compton
-exec_always --no-startup-id compton --config $HOME/.compton.conf -b
+exec --no-startup-id compton --config $HOME/.compton.conf -b
 
 # Start xbindkeys
-exec_always --no-startup-id xbindkeys
+exec --no-startup-id xbindkeys
 
 # Run RedShift
-exec_always --no-startup-id nohup redshift -c $HOME/.config/redshift.conf
+exec --no-startup-id nohup redshift -c $HOME/.config/redshift.conf
 
 # Set wallpaper and color scheme
-exec_always --no-startup-id feh --randomize --bg-fill /usr/share/wallpapers/chromecast1200/*
+exec_always --no-startup-id feh --bg-fill $HOME/Pictures/totoro.png
 
 # Start notification daemon
-exec_always --no-startup-id xfce4-notifyd
+exec --no-startup-id xfce4-notifyd
 
 # Start polkit
-exec_always --no-startup-id lxpolkit
+exec --no-startup-id lxpolkit
 
 # Automount removable media
-exec_always --no-startup-id udiskie --no-tray --automount --notify --password-cache 60
+exec --no-startup-id udiskie --no-tray --automount --notify --password-cache 60
 
 # Battery notifications
-exec_always --no-startup-id i3-battery-popup -n -L 30 -t 10m
-
-# Run light-locker daemon
-#exec_always light-locker --lock-on-suspend --late-locking --lock-after-screensaver=15
+exec --no-startup-id i3-battery-popup-git -n -L 30 -t 10m
 
 # Set x11 keyboard layout to use the right alt key as a compose key
 # That way I can type accented characters for Spanish
-exec_always --no-startup-id setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl
+exec --no-startup-id setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl
 
 # Resore ALSA sound setting
-exec_always --no-startup-id alsactl --file ~/.config/asound.state restore
+exec --no-startup-id alsactl --file $HOME/.config/asound.state restore
+
+# Lock screen on startup
+exec --no-startup-id i3lock -c 000000

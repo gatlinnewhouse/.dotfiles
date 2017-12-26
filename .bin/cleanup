@@ -11,7 +11,7 @@ printf "\n"
 printf "Cleaning browser profiles... \n"
 printf "============================== \n"
 printf "\n"
-browser-vacuum
+#browser-vacuum
 printf "\n"
 printf "============================== \n"
 printf "\n"
@@ -60,4 +60,12 @@ printf "\n"
 printf "Update preload\n"
 printf "============================== \n"
 printf "\n"
-sudo -u deleuze gopreload-batch-refresh.sh
+#sudo -u deleuze gopreload-batch-refresh.sh
+printf "\n"
+printf "============================== \n"
+printf "\n"
+printf "\n"
+printf "Clean space on root partition\n"
+printf "============================== \n"
+printf "\n"
+sudo bleachbit --clean system.cache system.localizations system.trash system.tmp

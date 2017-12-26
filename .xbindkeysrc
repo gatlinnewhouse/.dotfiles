@@ -65,5 +65,10 @@
     m:0x0 + c:150
     XF86Sleep 
 
+#Lock Desktop
+"bash /home/deleuze/.bin/lock.sh -l"
+    m:0xc + c:119
+    Control+Alt + Delete 
+
 #
 # End of xbindkeys configuration
