@@ -25,10 +25,10 @@ My `/etc/` folder is backed up via [`etckeeper`](https://wiki.archlinux.org/inde
   * With [`vim-plug`](https://github.com/junegunn/vim-plug) for plugins and themes
 * GTK Theme: [`Flat-Plat`](https://github.com/nana-4/Flat-Plat)
 * Video player: [`gnome-mpv`](https://github.com/gnome-mpv/gnome-mpv)
-* Web browser: `firefox`
+* Web browser: [`waterfox`](https://www.waterfoxproject.org/)
 * Window manager: [`i3-gaps`](https://github.com/Airblader/i3)
 
-### Recommended Firefox extensions/themes
+### Recommended Waterfox extensions/themes
 
 WIP
 
