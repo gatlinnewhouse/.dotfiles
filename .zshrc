@@ -134,7 +134,6 @@ export SHELL="/bin/zsh"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export SSH_CONNECTION="rhizome"
 export SSH_KEY_PATH="~/.ssh/rsa_id"
-export TERM="rxvt-unicode-256color"
 export VDPAU_DRIVER='va_gl'
 export XDG_CONFIG_HOME="$HOME/.config"
 export XMODIFIERS=@im=ibus

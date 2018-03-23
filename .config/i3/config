@@ -88,8 +88,11 @@ bindsym $mod+v split v
 # Enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# Launch albert with key combo
+# Launch rofi with key combo
 bindsym $mod+space exec "rofi -show combi"
+
+# Pick an emoji with rofi
+bindsym $mod+e exec "bash $HOME/.bin/rofi-emoji/rofi-emoji.sh"
 
 # Toggle sticky windows (for floating windows only)
 bindsym $mod+s sticky toggle
@@ -101,7 +104,7 @@ bindsym $mod+Home exec pkill -USR1 '^redshift$'
 bindsym $mod+Escape exec shutdown now
 
 # Change container layout (split horizontally or split vertically)
-bindsym $mod+e layout toggle split
+bindsym $mod+t layout toggle split
 
 # Toggle tiling / floating
 bindsym $mod+d floating toggle
@@ -210,8 +213,11 @@ exec --no-startup-id xbindkeys
 # Run RedShift
 exec --no-startup-id nohup redshift -c $HOME/.config/redshift.conf
 
+# Run blockify
+#exec --no-startup-id nohup blockify &
+
 # Set wallpaper and color scheme
-exec_always --no-startup-id feh --bg-fill $HOME/Pictures/Backgrounds/totoro.png
+exec_always --no-startup-id feh --bg-fill --randomize $HOME/Pictures/Backgrounds/*
 
 # Start notification daemon
 exec --no-startup-id xfce4-notifyd

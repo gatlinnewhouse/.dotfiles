@@ -22,6 +22,7 @@ plugins: [
   fetchart,
   ftintitle,
   fromfilename,
+  lastgenre,
   lyrics,
   missing,
   replaygain,
@@ -42,7 +43,7 @@ import:
   incremental: false
   quiet_fallback: skip
   timid: false
-  group_albums: yes
+  group_albums: no
   languages: en
   log: ~/.config/beets/beets-import.log
 
@@ -82,6 +83,16 @@ fetchart:
   minwidth: 500
   sources: coverart albumart wikipedia
 
+# Grab genre info from last.fm
+lastgenre:
+  auto: yes
+  count: 1
+  fallback: ''
+  force: yes
+  prefer_specific: yes
+  source: album
+  whitelist: no
+
 # Lyrics options
 lyrics:
   force: yes
@@ -120,3 +131,10 @@ setlister:
 # Scrub extra metadata
 scrub:
   auto: yes
+
+# WhatLastGenre plugin options
+wlg:
+  auto: yes
+  force: yes
+  count: 1
+  whitelist: wlg

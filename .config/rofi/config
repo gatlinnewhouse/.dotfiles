@@ -338,7 +338,7 @@ rofi.kb-toggle-case-sensitivity: Control+i
 rofi.kb-toggle-sort: Control+s
 
 ! Quit rofi
-rofi.kb-cancel: Escape,Control+c
+rofi.kb-cancel: Escape
 
 ! Custom keybinding 1
 rofi.kb-custom-1: Alt+1

@@ -56,3 +56,6 @@
 [submodule ".pkgs_not_in_repo/scientifica"]
 	path = .pkgs_not_in_repo/scientifica
 	url = https://github.com/NerdyPepper/scientifica
+[submodule ".bin/rofi-emoji"]
+	path = .bin/rofi-emoji
+	url = https://gist.github.com/Tadly/0741821d3694deaec1ee454a95c591fa

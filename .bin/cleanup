@@ -3,7 +3,7 @@ printf "\n"
 printf "Cleaning GCC cache... \n"
 printf "============================== \n"
 printf "\n"
-#sudo -u deleuze ccache -Cc
+sudo -u deleuze ccache -Cc
 printf "\n"
 printf "============================== \n"
 printf "\n"
@@ -16,10 +16,10 @@ printf "\n"
 printf "============================== \n"
 printf "\n"
 printf "\n"
-printf "Clean the pacaur package cache \n"
+printf "Clean the yay package cache \n"
 printf "============================== \n"
 printf "\n"
-sudo -u deleuze pacaur -Sc
+sudo -u deleuze pikaur -Sc
 printf "\n"
 printf "============================== \n"
 printf "\n"
@@ -43,7 +43,7 @@ printf "\n"
 printf "Uninstall true package orphans\n"
 printf "============================== \n"
 printf "\n"
-sudo -u deleuze pacaur -Rsn $(sudo -u deleuze pacaur -Qtdq)
+sudo -u deleuze pikaur -Rsncu $(sudo -u deleuze pikaur -Qtdq)
 printf "\n"
 printf "============================== \n"
 printf "\n"
@@ -68,4 +68,12 @@ printf "\n"
 printf "Clean space on root partition\n"
 printf "============================== \n"
 printf "\n"
-sudo bleachbit --clean system.cache system.localizations system.trash system.tmp
+sudo bleachbit --clean system.localizations system.trash
+printf "\n"
+printf "============================== \n"
+printf "\n"
+printf "\n"
+printf "Clean space by removing unused locales\n"
+printf "============================== \n"
+printf "\n"
+sudo localepurge

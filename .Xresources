@@ -58,7 +58,7 @@ URxvt.color6: #3E999F
 URxvt.color14: #3E999F
 ! white
 URxvt.color7: #4D4D4C
-URxvt.color15: #F5F5F5
+URxvt.color15: #BDBDBD
 
 ! The font
 URxvt*font: xft:FuraCode Nerd Font:size=10:antialias=true

@@ -21,9 +21,6 @@ alias cargo='cargo --color'
 # And cat..........
 alias cat='pygmentize -g'
 
-# And pacaur...............
-alias pacaur='pacaur --color=always'
-
 # Alias find to fd
 alias find='fd'
 
@@ -93,14 +90,14 @@ alias reload='zplug status; sleep 2; zplug update; sleep 0.75; zplug clean; slee
 # Use terminal-slack for communicating on slack
 alias slack='node $HOME/.pkgs_not_in_repo/terminal-slack/main.js'
 
-# Netflix desktop client based on Electron
-alias simpleflix='cd $HOME/.pkgs_not_in_repo/simpleflix/ && setsid npm start main.js >/dev/null 2>&1 < /dev/null &'
-
 # Beets music organizer has a plural command too!
 alias beets='beet'
 
 # Make a single portrait PDF into a two page on Landscape paper PDF
 alias pdfmklandscape='pdfnup --nup 2x1 --suffix 2up --landscape --outfile .'
+
+# Optimize PDF
+alias pdfoptimize='gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$2 $2'
 
 # Avoid stupidity with trash-cli:
 # 	https://github.com/sindresorhus/trash-cli
@@ -165,10 +162,10 @@ alias pass='PASSWORD_STORE_ENABLE_EXTENSIONS=true pass'
 alias mktrayicons='hardcode-tray --size 16 --theme Papirus --conversion-tool ImageMagick --apply'
 
 # Mount MTP
-alias mountp='jmtpfs -o auto_unmount ~/.mtp'
+alias mountp='jmtpfs /tmp/myphone'
 
 # Unmount MTP
-alias umountp='fusermount -u ~/.mtp'
+alias umountp='fusermount -u /tmp/myphone'
 
 # Alias run-help to help for zsh
 alias help='run-help'
