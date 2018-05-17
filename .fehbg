@@ -1,2 +1,2 @@
 #!/bin/sh
-'feh' '--bg-fill' '--randomize' '/home/deleuze/Pictures/Backgrounds/IBM.jpg' '/home/deleuze/Pictures/Backgrounds/rtfm.jpg' '/home/deleuze/Pictures/Backgrounds/the_tatami_galaxy.jpg' '/home/deleuze/Pictures/Backgrounds/totoro.png' '/home/deleuze/Pictures/Backgrounds/when-i_see_it_kanye.jpg' 
+feh --bg-fill '/home/deleuze/Pictures/Backgrounds/death-grips.jpg' '/home/deleuze/Pictures/Backgrounds/turnoffyourcomputer.jpg' 

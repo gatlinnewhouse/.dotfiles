@@ -55,7 +55,7 @@
     m:0x0 + c:172
     XF86AudioPlay 
 
-# Take a screenshot
+#Take a screenshot
 "gscreenshot"
     m:0x0 + c:107
     Print 
@@ -69,6 +69,16 @@
 "bash /home/deleuze/.bin/lock.sh -l"
     m:0xc + c:119
     Control+Alt + Delete 
+
+#Increase Brightness
+"intelbacklight -inc 131.825"
+    m:0x0 + c:233
+    XF86MonBrightnessUp 
+
+#Decrease backlight
+"intelbacklight -dec 131.825"
+    m:0x0 + c:232
+    XF86MonBrightnessDown 
 
 #
 # End of xbindkeys configuration

@@ -123,6 +123,7 @@ export HISTSIZE=10000
 export _JAVA_OPTIONS='-Dsun.java2d.opengl=true -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
 export LESS='-R '
+export LIBVA_DRIVER_NAME=i965
 export LOGNAME="godel"
 export PATH="/usr/local/bin:$PATH"
 export QT_QPA_PLATFORMTHEME="qt5ct"

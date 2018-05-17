@@ -19,9 +19,6 @@ Plug 'brooth/far.vim'
 " Fancy start screen for vim
 Plug 'mhinz/vim-startify'
 
-" Syntax support for Puppet files
-Plug 'voxpupuli/vim-puppet', { 'for': 'puppet' }
-
 " Syntax support for Python2 and Python3 files
 Plug 'mitsuhiko/vim-python-combined', { 'for': 'python' }
 
@@ -33,9 +30,6 @@ Plug 'JulesWang/css.vim', { 'for': 'css' }
 
 " Syntax support for systemd files
 Plug 'kurayama/systemd-vim-syntax', { 'for': 'systemd' }
-
-" Syntax support for SCSS (SASS CSS) files
-Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
 
 " Syntax support for HTML5 files
 Plug 'othree/html5.vim', { 'for': 'html'}
@@ -128,8 +122,7 @@ map <F4> :setlocal spell! spelllang=en_gb<CR>
 " Spellcheck with lexical
 map <F5> \s<CR>
 
-" Thesaurus with lexical
-map <F6> \t<CR>
+map <F9> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " Turn on LaTeX live compilation
 map <F10> :NeoTex<CR>
@@ -278,6 +271,9 @@ augroup END
 
 " Stop hiding things
 set conceallevel=0
+
+" No LaTeX syntax folding
+let g:tex_conceal="amgs"
 
 " Override indentLine conceal level
 autocmd FileType json let g:indentLine_conceallevel = 0

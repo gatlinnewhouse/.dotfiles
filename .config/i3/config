@@ -205,7 +205,7 @@ exec --no-startup-id umonitor --listen
 exec --no-startup-id xbanish
 
 # Start compton
-exec --no-startup-id compton --config $HOME/.compton.conf -b
+#exec --no-startup-id compton --paint-on-overlay --xrender-sync --xrender-sync-fence --config $HOME/.compton.conf -b
 
 # Start xbindkeys
 exec --no-startup-id xbindkeys

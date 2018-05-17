@@ -13,16 +13,13 @@ alias record='ffmpeg -f x11grab -r 25 -s 1920x1080 -i :0.0+0,24 -vcodec libx264 
 alias diff='cwdiff'
 
 # And grep....
-alias grep='rg --color auto'
+alias grep='sift'
 
 # And cargo......
 alias cargo='cargo --color'
 
 # And cat..........
 alias cat='pygmentize -g'
-
-# Alias find to fd
-alias find='fd'
 
 # Fuck alias
 alias fuck='sudo !!'
