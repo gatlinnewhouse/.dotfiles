@@ -73,16 +73,13 @@ alias mkpasswd='xkcdpass -i'
 alias mklicense='license'
 
 # VPN
-alias vpn='bash $HOME/.bin/vpngate/run'
+alias vpn='bash $HOME/.bin/vpngate/run cli'
 
 # Mount google drive
 alias mountgd='sudo gdfs -o allow_other /home/deleuze/.config/gdfs.creds /mnt/GoogleDrive'
 
 # Unmount google drive
 alias umountgd='sudo umount /mnt/GoogleDrive'
-
-# Reload z shell
-alias reload='zplug status; sleep 2; zplug update; sleep 0.75; zplug clean; sleep 0.5; zplug clear; sleep 0.25; reset;'
 
 # Use terminal-slack for communicating on slack
 alias slack='node $HOME/.pkgs_not_in_repo/terminal-slack/main.js'

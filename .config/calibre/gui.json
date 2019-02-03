@@ -1,0 +1,259 @@
+{
+  "quick_start_guide_added": true, 
+  "recently_used_languages": [
+    "English"
+  ], 
+  "plugin config dialog:File type:DeDRM": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywACAAAAAANGAAABUwAABEYAAAKrAAADRgAAAVMAAARGAAACqwAAAAAAAAAAB4A="
+  }, 
+  "book_details_splitter_horizontal_state": [
+    true, 
+    190
+  ], 
+  "book_list_pin_splitter_state": {
+    "__class__": "bytearray", 
+    "__value__": "AAAA/wAAAAEAAAACAAABAAAAAEYA/////wEAAAABAA=="
+  }, 
+  "convert_single_dialog_geom": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywACAAAAAAIGAAAAnwAABgUAAANaAAACBgAAAJ8AAAYFAAADWgAAAAAAAAAAB4A="
+  }, 
+  "polishing_settings": {
+    "subset": true, 
+    "smarten_punctuation": true, 
+    "compress_images": true, 
+    "do_cover": true, 
+    "jacket": false, 
+    "remove_unused_css": true, 
+    "remove_jacket": true, 
+    "upgrade_book": true, 
+    "embed": true, 
+    "metadata": true
+  }, 
+  "toolbar_text": "always", 
+  "book_details_splitter_vertical_state": [
+    false, 
+    120
+  ], 
+  "book_list_extra_row_spacing": 2, 
+  "font": [
+    "Carlito", 
+    11, 
+    50, 
+    false
+  ], 
+  "tag browser search box visible": false, 
+  "default_author_link": null, 
+  "previous_sort_order_BooksView": {
+    "title": true, 
+    "tags": true
+  }, 
+  "replace_scene_breaks_history": [
+    "", 
+    "<hr />", 
+    "\u2217 \u2217 \u2217", 
+    "\u2022 \u2022 \u2022", 
+    "\u2666 \u2666 \u2666", 
+    "\u2020 \u2020", 
+    "\u2021 \u2021 \u2021", 
+    "\u221e \u221e \u221e", 
+    "\u00a4 \u00a4 \u00a4"
+  ], 
+  "metadata_single_gui_geom": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywACAAAAAAM2AAABOwAABocAAAOSAAADNgAAATsAAAaHAAADkgAAAAAAAAAAB4A="
+  }, 
+  "cover_grid_texture": null, 
+  "jobs_dialog_geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywACAAAAAAOQAAAAzAAABggAAALpAAADkAAAAMwAAAYIAAAC6QAAAAAAAAAAB4A="
+  }, 
+  "preferences dialog geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywACAAAAAAHxAAAAqQAABZIAAAN4AAAB8QAAAKkAAAWSAAADeAAAAAAAAAAAB4A="
+  }, 
+  "hidpi": "off", 
+  "show_splash_screen": false, 
+  "tag_browser_splitter_horizontal_state": [
+    false, 
+    0
+  ], 
+  "toolbar_icon_size": "medium", 
+  "jobs view column layout3": {
+    "__class__": "bytearray", 
+    "__value__": "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAckAAAAFAQEBAAAAAAAAAAAAAAAAAGT/////AAAAhAAAAAAAAAAFAAABAQAAAAEAAAAAAAAAMgAAAAEAAAAAAAAAMgAAAAEAAAAAAAAAMgAAAAEAAAAAAAAAMgAAAAEAAAAAAAAD6AAAAAAA"
+  }, 
+  "polish_show_reports": true, 
+  "action-layout-toolbar": [
+    "Add Books", 
+    "Edit Metadata", 
+    null, 
+    "Convert Books", 
+    "View", 
+    null, 
+    "Remove Books", 
+    "Choose Library", 
+    "Save To Disk", 
+    "Connect Share", 
+    "Tweak ePub", 
+    "Preferences", 
+    "Plugin Updater", 
+    "Unpack Book", 
+    "Polish Books"
+  ], 
+  "show_emblems": false, 
+  "library_usage_stats": {
+    "/home/deleuze/Calibre_Library": 51
+  }, 
+  "Plugin Updater plugin:plugin updater dialog": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywACAAAAAAKiAAABQAAABNIAAAK9AAACogAAAUAAAATSAAACvQAAAAAAAAAAB4A="
+  }, 
+  "quickview visible": false, 
+  "grid view visible": false, 
+  "font_stretch": 0, 
+  "book_list_tooltips": false, 
+  "cover_grid_color": [
+    80, 
+    80, 
+    80
+  ], 
+  "custom_colors_for_color_dialog": [
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ], 
+    [
+      255, 
+      255, 
+      255, 
+      255
+    ]
+  ], 
+  "config_widget_dialog_geometry_Sharing_Metadata download": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywACAAAAAAKRAAAAUAAABX4AAAJ1AAACkQAAAFAAAAV+AAACdQAAAAAAAAAAB4A="
+  }, 
+  "book_info_dialog_layout": [
+    {
+      "__class__": "bytearray", 
+      "__value__": "AdnQywACAAAAAAH5AAAASAAABYYAAAQbAAAB+QAAAEgAAAWGAAAEGwAAAAAAAAAAB4A="
+    }, 
+    {
+      "__class__": "bytearray", 
+      "__value__": "AAAA/wAAAAEAAAACAAABXgAAAWYB/////wEAAAABAA=="
+    }
+  ], 
+  "cover_browser_splitter_horizontal_state": [
+    false, 
+    550
+  ], 
+  "job-detail-view-dialog-geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywACAAAAAACDAAAAIAAAAz4AAAITAAAAgwAAACAAAAM+AAACEwAAAAAAAAAAA8A="
+  }, 
+  "search bar visible": true, 
+  "metasingle_window_geometry3": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywACAAAAAAPWAAAAHwAAB4gAAAQuAAAD1gAAAB8AAAeIAAAELgAAAAAAAAAAB4A="
+  }, 
+  "cover_browser_splitter_vertical_state": [
+    false, 
+    300
+  ], 
+  "duplicates-question-dialog-geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywACAAAAAAKqAAABSQAABLUAAAJkAAACqgAAAUkAAAS1AAACZAAAAAAAAAAAB4A="
+  }, 
+  "choose-icon-theme-dialog-geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywACAAAAAAAfAAAALAAAA6IAAAH8AAAAHwAAACwAAAOiAAAB/AAAAAAAAAAAA8A="
+  }
+}

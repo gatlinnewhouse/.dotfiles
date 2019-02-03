@@ -179,8 +179,14 @@ for_window [class="albert" instance="albert"] floating enable
 for_window [class="Notify-osd"] floating enable
 
 # Assign windows a certain workspace
+assign [class="Zotero"] workspace 9
 assign [class="Lollypop|Google Play Music Desktop Player"] workspace 10
 
+# MTGA settings
+for_window [title="MTGA"] fullscreen disable
+for_window [title="WineDesktop - Wine desktop"] fullscreen disable
+#for_window [title="MTGA"] floating enable
+#assign [title="MTGA"] workspace 7
 
 #################
 # S T A R T U P #
@@ -199,7 +205,7 @@ exec --no-startup-id ibus-daemon --xim
 exec --no-startup-id unclutter
 
 # Start umonitor to hotplug new monitors connected
-exec --no-startup-id umonitor --listen
+#exec --no-startup-id umonitor --listen
 
 # Run xbanish
 exec --no-startup-id xbanish
@@ -210,11 +216,14 @@ exec --no-startup-id xbanish
 # Start xbindkeys
 exec --no-startup-id xbindkeys
 
+# Run Geolocation service
+exec --no-startup-id nohup /usr/lib/geoclue-2.0/demos/agent
+
 # Run RedShift
-exec --no-startup-id nohup redshift -c $HOME/.config/redshift.conf
+#exec --no-startup-id nohup /usr/lib/geoclue-2.0/demos/agent| redshift-gtk -c $HOME/.config/redshift.conf
 
 # Run blockify
-#exec --no-startup-id nohup blockify &
+exec --no-startup-id nohup blockify &
 
 # Set wallpaper and color scheme
 exec_always --no-startup-id feh --bg-fill --randomize $HOME/Pictures/Backgrounds/*

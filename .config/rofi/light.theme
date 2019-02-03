@@ -40,7 +40,7 @@
 	anchor: center;
 	border: 0;
 	padding: 10;
-	border-radius: 10;
+	border-radius: 0;
 	background-color: @background;
 }
 

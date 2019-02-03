@@ -31,9 +31,6 @@
 [submodule ".bin/aurcheck"]
 	path = .bin/aurcheck
 	url = https://gist.github.com/felipec/94752ddd08e1adfb80ac57947982443c
-[submodule ".bin/vpngate"]
-	path = .bin/vpngate
-	url = https://github.com/Dragon2fly/vpngate-with-proxy
 [submodule ".bin/megadown"]
 	path = .bin/megadown
 	url = https://github.com/tonikelope/megadown
@@ -59,3 +56,6 @@
 [submodule ".bin/rofi-emoji"]
 	path = .bin/rofi-emoji
 	url = https://gist.github.com/Tadly/0741821d3694deaec1ee454a95c591fa
+[submodule ".bin/vpngate"]
+	path = .bin/vpngate
+	url = https://github.com/Dragon2fly/vpngate-with-proxy.git

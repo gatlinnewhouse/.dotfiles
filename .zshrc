@@ -138,6 +138,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 export VDPAU_DRIVER='va_gl'
 export XDG_CONFIG_HOME="$HOME/.config"
 export XMODIFIERS=@im=ibus
+export WINEDEBUG=+relay,-debug
 
 # LS colors, made with http://geoff.greer.fm/lscolors/
 # export LSCOLORS="exfxcxdxbxegedabagacad"
@@ -165,6 +166,14 @@ source /etc/bash_completion.d/climate_completion
 source $HOME/.zplugin/bin/zplugin.zsh
 
 ###########################################
+#              Z-Plugin loading           #
+###########################################
+
+source '/home/deleuze/.zplugin/bin/zplugin.zsh'
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+
+###########################################
 #              Z-Plugin Plugins           #
 ###########################################
 
@@ -172,6 +181,7 @@ source $HOME/.zplugin/bin/zplugin.zsh
 zplugin load zdharma history-search-multi-word
 
 # Load zplugin UI
+zplugin ice compile"*.lzui" from"notabug"
 zplugin load zdharma/zui
 
 # Load zsh autosuggestions
@@ -192,11 +202,20 @@ zplugin ice pick"zsh-256color.plugin.zsh"; zplugin light chrissicool/zsh-256colo
 # Safe pasting
 zplugin ice pick"safe-paste.plugin.zsh"; zplugin light oz/safe-paste
 
-# Use Oh-my-zsh library for theme
+# Load OMZ Git library
 zplugin snippet OMZ::lib/git.zsh
 
-# Use the spaceship-zsh-theme
-zplugin snippet http://github.com/denysdovhan/spaceship-zsh-theme/blob/master/spaceship.zsh 
+# Load Git plugin from OMZ
+zplugin snippet OMZ::plugins/git/git.plugin.zsh
+zplugin cdclear -q # <- forget completions provided up to this moment
+
+setopt promptsubst
+
+# Load theme from OMZ
+zplugin snippet OMZ::themes/dstufft.zsh-theme
+
+# Load normal Github plugin with theme depending on OMZ Git library
+zplugin light denysdovhan/spaceship-prompt
 
 # This one to be ran just once, in interactive session 
 #zplugin creinstall %HOME/my_completions  # Handle completions without loading any plugin, see "clist" command

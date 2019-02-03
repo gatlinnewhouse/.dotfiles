@@ -10,19 +10,20 @@
 [bar/top_bar]
 monitor = eDP-1
 width = 100%
-height = 22
+height = 32
 offset-x = 0
 offset-y = 0
 background = #080808
 foreground = #F5F5F5
-padding = 4
-module-margin = 2
+padding = 0
+module-margin = 0
+line-size = 2
 ; Fonts
-font-0 = MaterialDesignIcons:size=11
-font-1 = fontawesome-webfont:size=11
-font-2 = Arimo-Regular:size=11
-font-3 = Arimo-Bold:size=11
-font-4 = MaterialWifi:size=11
+font-0 = MaterialDesignIcons:size=12;3
+font-1 = fontawesome-webfont:size=12;3
+font-2 = Arimo-Regular:size=12;3
+font-3 = Arimo-Bold:size=12;3
+font-4 = MaterialWifi:size=12;3
 ; Modules
 modules-left = i3 
 modules-center = 
@@ -46,8 +47,10 @@ headphone-soundcard = default
 master-mixer = Master
 ; Formatting options
 format-volume = <ramp-volume> <label-volume>
+format-volume-padding = 2
 ; Muted formatting
 format-muted = <label-muted>
+format-muted-padding = 2
 label-muted-font = 1
 label-muted =  muted
 ramp-volume-font = 1
@@ -67,7 +70,11 @@ adapter = AC
 poll-interval = 120
 ; Formatting options
 format-charging = <animation-charging> <label-charging>
+;format-charging-background = #455A64
+format-charging-padding = 2
 format-discharging = <ramp-capacity> <label-discharging>
+;format-discharging-background = #455A64
+format-discharging-padding = 2
 label-full-font = 1
 label-full =  100%
 label-charging = %percentage%%
@@ -102,6 +109,7 @@ card = intel_backlight
 enable-scroll = false
 ; Formatting options
 format = <ramp> <label>
+format-padding = 2
 label = %percentage%%
 ramp-font = 1
 ramp-0 = 
@@ -116,7 +124,9 @@ interface = wlp3s0
 interval = 30
 ; Formatting options
 format-connected = <ramp-signal> <label-connected>
+format-connected-padding = 2
 format-disconnected = <label-disconnected>
+format-disconnected-padding = 2
 label-connected-font = 1
 label-connected = %essid%
 label-disconnected-font = 4
@@ -136,6 +146,8 @@ time = %H:%M
 format = <label>
 label-font = 1
 label = %date% - %time%
+;label-background = #37474F
+label-padding = 2
 
 [module/i3]
 type = internal/i3
@@ -146,26 +158,39 @@ reverse-scroll = false
 ; Formatting options
 format = <label-state> <label-mode>
 label-mode = %mode%
-label-mode-padding = 1
-label-focused = %index%
-label-focused-foreground = #FAFAFA
-label-focused-font = 3
-label-unfocused = %index%
-label-unfocused-foreground = #BDBDBD
-label-visible = %index%
-label-urgent = %index%
+label-mode-padding = 2
+label-focused = 
+label-focused-foreground = #F5F5F5
+label-focused-font = 0
+label-focused-padding = 1
+label-unfocused = 
+label-unfocused-foreground = #F5F5F5
+label-unfocused-padding = 1
+label-visible = 
+label-visible-padding = 1
+label-urgent = 
 label-urgent-foreground = #FFC107
+label-urgent-padding = 1
 
 [module/menu-power]
 type = custom/menu
 label-open = 
-label-open-foreground = #B71C1C
+label-open-foreground = #F5F5F5
+label-open-background = #C62828
+label-open-padding = 2
 label-close = 
+label-close-foreground = #F5F5F5
+label-close-background = #424242
+label-close-padding = 2
 menu-0-0 = 
-menu-0-0-foreground = #00C853
+menu-0-0-foreground = #F5F5F5
+menu-0-0-background = #2E7D32
+menu-0-0-padding = 2
 menu-0-0-exec = exec systemctl reboot
 menu-0-1 = 
-menu-0-1-foreground = #B71C1C
+menu-0-1-foreground = #F5F5F5
+menu-0-1-background = #C62828
+menu-0-1-padding = 2
 menu-0-1-exec = exec systemctl poweroff
 
 [module/redshift]

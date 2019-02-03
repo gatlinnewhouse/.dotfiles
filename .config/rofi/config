@@ -2,7 +2,7 @@
 ! ----------------------------------------------------------------------------
 
 ! "Enabled modi" Set from: Default
-rofi.modi: window,drun,combi
+rofi.modi: drun,combi
 
 ! Specify the number of threads rofi should use:
 ! - 0 Autodetect the number of supported hardware threads.

@@ -117,7 +117,7 @@ call plug#end()
 set pastetoggle=<F3>
 
 " Spellcheck with Vim's built in spellchecker
-map <F4> :setlocal spell! spelllang=en_gb<CR>
+map <F4> :setlocal spell! spelllang=en_us<CR>
 
 " Spellcheck with lexical
 map <F5> \s<CR>
@@ -201,10 +201,10 @@ set fileencoding=utf-8
 set termencoding=utf-8
 
 " Set the maximum memory to 24 MB per buffer
-set maxmem=24576
+"set maxmem=24576
 
 " Set the maximum total vim memory to 0.5 GB
-set maxmemtot=524288
+"set maxmemtot=524288
 
 " Word wrapping
 set wrap
@@ -290,6 +290,9 @@ let g:lexical#spellang = ['en_us', 'es_mx']
 " Specify lexical file locations
 let g:lexical#dictionary = ['~/.config/nvim/dict/words']
 let g:lexical#spellfile = ['~/.config/nvim/spell/en.utf-8.add','~/.config/nvim/spell/es.utf-8.add']
+
+" Enable lexical by default
+let g:lexical#spell = 1
 
 " Enable indentline by default
 let g:indentLine_enabled = 1
