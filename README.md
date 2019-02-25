@@ -12,23 +12,23 @@ My `/etc/` folder is backed up via [`etckeeper`](https://wiki.archlinux.org/inde
 
 ## Setup
 
-* Application launcher: `albert`
+* Application launcher: `rofi`
 * Bar: `polybar`
 * Compositor: `compton`
 * Display Manager: `autologin and auto startx`
-* Icon Theme: [`Papirus`](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
-* Lock: `i3lock`
+* Icon Theme: [`papirus-icon-theme`](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
+* Lock: [`betterlockscreen`](https://github.com/pavanjadhaw/betterlockscreen)
 * Shell: `zsh` 
   * With [`zplugin`](https://github.com/zdharma/zplugin) for plugins and themes
 * Terminal emulator: `urvxt`, aka [`rxvt-unicode-cvx-patches-wideglyphs`](https://aur.archlinux.org/packages/rxvt-unicode-cvs-patched-wideglyphs/)
 * Text editor: [`neovim`](https://github.com/neovim/neovim) (it's not necessarily a gui for vim, just makes vim parallel and fixes the codebase of vim) 
   * With [`vim-plug`](https://github.com/junegunn/vim-plug) for plugins and themes
-* GTK Theme: [`Flat-Plat`](https://github.com/nana-4/Flat-Plat)
+* GTK Theme: [`materia-theme`](https://github.com/nana-4/Flat-Plat)
 * Video player: [`gnome-mpv`](https://github.com/gnome-mpv/gnome-mpv)
-* Web browser: [`waterfox`](https://www.waterfoxproject.org/)
+* Web browser: `firefox`
 * Window manager: [`i3-gaps`](https://github.com/Airblader/i3)
 
-### Recommended Waterfox extensions/themes
+### Recommended Firefox extensions/themes
 
 WIP
 
