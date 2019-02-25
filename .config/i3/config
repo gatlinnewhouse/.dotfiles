@@ -223,10 +223,11 @@ exec --no-startup-id nohup /usr/lib/geoclue-2.0/demos/agent
 #exec --no-startup-id nohup /usr/lib/geoclue-2.0/demos/agent| redshift-gtk -c $HOME/.config/redshift.conf
 
 # Run blockify
-exec --no-startup-id nohup blockify &
+#exec --no-startup-id nohup blockify &
 
 # Set wallpaper and color scheme
-exec_always --no-startup-id feh --bg-fill --randomize $HOME/Pictures/Backgrounds/*
+#exec_always --no-startup-id feh --bg-fill --randomize $HOME/Pictures/Backgrounds/*
+# This is now done by the startuplock script
 
 # Start notification daemon
 exec --no-startup-id xfce4-notifyd
@@ -248,4 +249,5 @@ exec --no-startup-id setxkbmap -rules evdev -model evdev -layout us -variant alt
 exec --no-startup-id alsactl --file $HOME/.config/asound.state restore
 
 # Lock screen on startup
-exec --no-startup-id i3lock -c 000000
+#exec --no-startup-id i3lock -c 000000
+exec --no-startup-id $HOME/.bin/startuplock

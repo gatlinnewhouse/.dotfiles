@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=lofi hip hop radio - beats to relax/study to
+Comment=gnome-mpv playing the livestream by ChilledCow on YouTube
+Exec=gnome-mpv "https://youtu.be/hHW1oY26kxQ" %U
+Icon=gnome-mpv
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GTK;GNOME;AudioVideo;
+X-KDE-Protocols=https

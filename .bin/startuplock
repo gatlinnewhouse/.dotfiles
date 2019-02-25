@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Set the lockscreen background to the resized Material Design Paper Desktop Background
+# Then lock the screen on startup
+cp $HOME/Pictures/Lockscreen/l_resized.png $HOME/.cache/i3lock/current/l_resized.png
+betterlockscreen -l
+
+# Then pick out a new background from my backgrounds folder
+# Then set my wallpaper to be that new background
+betterlockscreen -u $HOME/Pictures/Backgrounds/
+betterlockscreen -w

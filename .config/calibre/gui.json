@@ -21,22 +21,22 @@
   }, 
   "polishing_settings": {
     "subset": true, 
-    "smarten_punctuation": true, 
+    "jacket": false, 
     "compress_images": true, 
     "do_cover": true, 
-    "jacket": false, 
-    "remove_unused_css": true, 
-    "remove_jacket": true, 
+    "smarten_punctuation": true, 
     "upgrade_book": true, 
+    "remove_jacket": true, 
+    "remove_unused_css": true, 
     "embed": true, 
     "metadata": true
   }, 
   "toolbar_text": "always", 
+  "book_list_extra_row_spacing": 2, 
   "book_details_splitter_vertical_state": [
     false, 
     120
   ], 
-  "book_list_extra_row_spacing": 2, 
   "font": [
     "Carlito", 
     11, 
@@ -46,8 +46,8 @@
   "tag browser search box visible": false, 
   "default_author_link": null, 
   "previous_sort_order_BooksView": {
-    "title": true, 
-    "tags": true
+    "tags": true, 
+    "title": true
   }, 
   "replace_scene_breaks_history": [
     "", 
@@ -104,7 +104,7 @@
   ], 
   "show_emblems": false, 
   "library_usage_stats": {
-    "/home/deleuze/Calibre_Library": 51
+    "/home/deleuze/Calibre_Library": 52
   }, 
   "Plugin Updater plugin:plugin updater dialog": {
     "__class__": "bytearray", 

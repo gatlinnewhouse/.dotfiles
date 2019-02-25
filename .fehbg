@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --bg-fill '/home/deleuze/Pictures/Backgrounds/when-i_see_it_kanye.jpg' 
+feh --bg-fill '/home/deleuze/.cache/i3lock/current/resized.png' 

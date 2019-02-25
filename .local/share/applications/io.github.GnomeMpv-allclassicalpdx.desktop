@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=All Classical Portland
+Comment=gnome-mpv playing the All Classical Portland stream
+Exec=gnome-mpv "https://allclassical-ice.streamguys.com/ac96kmp3" %U
+Icon=gnome-mpv
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GTK;GNOME;AudioVideo;
+X-KDE-Protocols=https
