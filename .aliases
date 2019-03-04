@@ -36,6 +36,9 @@ alias la='exa --color=always --group-directories-first --all --long'
 # List recursively
 alias lr='exa --color=always --group-directories-first --tree'
 
+# List directories in current directory
+alias lsd='exa --color=always -d */'
+
 # List packages by size
 alias lspkgs-size='expac -H M "%011m\t%-20n\t%10d" $(comm -23 <(pacman -Qqe | sort) <(pacman -Qqg base base-devel | sort)) | sort -n'
 

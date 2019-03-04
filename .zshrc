@@ -155,8 +155,9 @@ zstyle ':completion:*' menu select
 pathadd $HOME/.local/bin
 pathadd $HOME/.go/bin
 pathadd $HOME/.gem/ruby/2.4.0/bin
-pathadd $HOME/.bin/
-pathadd /usr/lib/ccache/bin/
+pathadd $HOME/.bin
+pathadd /usr/lib/ccache/bin
+pathadd $HOME/.cargo/bin
 
 # Source files
 source ~/.aliases
