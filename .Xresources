@@ -81,3 +81,6 @@ URxvt*iso14755_52: False
 ! URL handling
 URxvt.url-select.launcher: firefox-nightly
 URxvt.url-select.button: 1
+
+! Save lines
+URxvt.saveLines: 1024

@@ -16,7 +16,7 @@ alias diff='cwdiff'
 alias grep='sift'
 
 # And cargo......
-alias cargo='cargo --color'
+alias cargo='cargo --color auto'
 
 # And cat..........
 alias cat='pygmentize -g'

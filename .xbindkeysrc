@@ -61,7 +61,7 @@
     Print 
 
 #Suspend to RAM and Disk
-"sudo s2both --force --vbe_post --vbe_mode"
+"systemctl suspend"
     m:0x0 + c:150
     XF86Sleep 
 

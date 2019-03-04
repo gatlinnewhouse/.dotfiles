@@ -2,13 +2,13 @@
   "viewer_toc_isvisible": false, 
   "main_window_state": {
     "__class__": "bytearray", 
-    "__value__": "AAAA/wAAAAL9AAAAAwAAAAAAAAEAAAAD+/wCAAAAAfsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAnAAAD+wAAAIcA////AAAAAQAAAAAAAAAA/AIAAAAB+wAAABwAYgBvAG8AawBtAGEAcgBrAHMALQBkAG8AYwBrAAAAAAD/////AAAAyQD///8AAAADAAABqAAAANX8AQAAAAH7AAAAHABmAG8AbwB0AG4AbwB0AGUAcwAtAGQAbwBjAGsAAAAAMgAAAagAAAA6AP///wAAB0QAAAP7AAAAAQAAAAIAAAABAAAAAvwAAAACAAAAAAAAAAEAAAAQAHQAbwBvAGwAXwBiAGEAcgMAAAAA/////wAAAAAAAAAAAAAAAgAAAAEAAAASAHQAbwBvAGwAXwBiAGEAcgAyAQAAAAD/////AAAAAAAAAAA="
+    "__value__": "AAAA/wAAAAL9AAAAAwAAAAAAAAEAAAAD+/wCAAAAAfsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAnAAAD+wAAAIcA////AAAAAQAAAAAAAAAA/AIAAAAB+wAAABwAYgBvAG8AawBtAGEAcgBrAHMALQBkAG8AYwBrAAAAAAD/////AAAAyQD///8AAAADAAABqAAAANX8AQAAAAH7AAAAHABmAG8AbwB0AG4AbwB0AGUAcwAtAGQAbwBjAGsAAAAAMgAAAagAAAA6AP///wAAA3cAAAPfAAAAAQAAAAIAAAABAAAAAvwAAAACAAAAAAAAAAEAAAAQAHQAbwBvAGwAXwBiAGEAcgMAAAAA/////wAAAAAAAAAAAAAAAgAAAAEAAAASAHQAbwBvAGwAXwBiAGEAcgAyAQAAAAD/////AAAAAAAAAAA="
   }, 
   "in_paged_mode": true, 
   "singleinstance": false, 
   "viewer_window_geometry": {
     "__class__": "bytearray", 
-    "__value__": "AdnQywACAAAAAAAAAAAAFgAAB38AAAQ3AAAAAAAAABYAAAd/AAAENwAAAAAAAAAAB4A="
+    "__value__": "AdnQywADAAAAAAPEAAAAKQAAB3YAAAQuAAADxAAAACkAAAd2AAAELgAAAAAAAAAAB4AAAAPEAAAAKQAAB3YAAAQu"
   }, 
   "multiplier": 1.2000000476837158, 
   "custom_colors_for_color_dialog": [
@@ -110,6 +110,8 @@
     ]
   ], 
   "viewer_open_history": [
+    "/home/deleuze/Calibre_Library/Eugene Thacker/Infinite Resignation (51)/Infinite Resignation - Eugene Thacker.epub", 
+    "/home/deleuze/Calibre_Library/Zygmunt Bauman/Babel (30)/Babel - Zygmunt Bauman.epub", 
     "/home/deleuze/Calibre_Library/Pedro Calderon de la Barca/Life Is a Dream (46)/Life Is a Dream - Pedro Calderon de la Barca.epub", 
     "/tmp/mozilla_deleuze0/Thesis_Template.docx", 
     "/home/deleuze/Calibre_Library/W.G. Sebald/Across the Land and the Water (45)/Across the Land and the Water - W.G. Sebald.epub", 

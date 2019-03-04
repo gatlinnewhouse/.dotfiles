@@ -51,16 +51,16 @@ floating_modifier $mod
 popup_during_fullscreen smart
 
 # Start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec urxvtc
 
 # Start a terminal in the same working directory
-bindsym $mod+Shift+Return exec urxvt -cd "`xcwd`"
+#bindsym $mod+Shift+Return exec urxvtc -cd "`xcwd`"
 
 # Start HTOP in a terminal
-bindsym $MOD+SHIFT+t exec urxvt -e htop
+bindsym $MOD+SHIFT+t exec urxvtc -e htop
 
 # Start NeoVim in a terminal
-bindsym $MOD+SHIFT+v exec urxvt -e nvim
+bindsym $MOD+SHIFT+v exec urxvtc -e nvim
 
 # Kill focused window
 bindsym $mod+q kill

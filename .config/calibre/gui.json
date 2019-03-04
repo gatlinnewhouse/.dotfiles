@@ -17,7 +17,7 @@
   }, 
   "convert_single_dialog_geom": {
     "__class__": "bytearray", 
-    "__value__": "AdnQywACAAAAAAIGAAAAnwAABgUAAANaAAACBgAAAJ8AAAYFAAADWgAAAAAAAAAAB4A="
+    "__value__": "AdnQywADAAAAAAIKAAAAnwAABgkAAANaAAACCgAAAJ8AAAYJAAADWgAAAAAAAAAAB4AAAAIKAAAAnwAABgkAAANa"
   }, 
   "polishing_settings": {
     "subset": true, 
@@ -62,12 +62,12 @@
   ], 
   "metadata_single_gui_geom": {
     "__class__": "bytearray", 
-    "__value__": "AdnQywACAAAAAAM2AAABOwAABocAAAOSAAADNgAAATsAAAaHAAADkgAAAAAAAAAAB4A="
+    "__value__": "AdnQywADAAAAAAM6AAABOwAABosAAAOSAAADOgAAATsAAAaLAAADkgAAAAAAAAAAB4AAAAM6AAABOwAABosAAAOS"
   }, 
   "cover_grid_texture": null, 
   "jobs_dialog_geometry": {
     "__class__": "bytearray", 
-    "__value__": "AdnQywACAAAAAAOQAAAAzAAABggAAALpAAADkAAAAMwAAAYIAAAC6QAAAAAAAAAAB4A="
+    "__value__": "AdnQywADAAAAAAPDAAAA4QAABjsAAAL+AAADwwAAAOEAAAY7AAAC/gAAAAAAAAAAB4AAAAPDAAAA4QAABjsAAAL+"
   }, 
   "preferences dialog geometry": {
     "__class__": "bytearray", 
@@ -104,7 +104,7 @@
   ], 
   "show_emblems": false, 
   "library_usage_stats": {
-    "/home/deleuze/Calibre_Library": 52
+    "/home/deleuze/Calibre_Library": 54
   }, 
   "Plugin Updater plugin:plugin updater dialog": {
     "__class__": "bytearray", 
@@ -242,7 +242,7 @@
   "search bar visible": true, 
   "metasingle_window_geometry3": {
     "__class__": "bytearray", 
-    "__value__": "AdnQywACAAAAAAPWAAAAHwAAB4gAAAQuAAAD1gAAAB8AAAeIAAAELgAAAAAAAAAAB4A="
+    "__value__": "AdnQywADAAAAAAFgAAAAKwAABdAAAAQ6AAABYAAAACsAAAXQAAAEOgAAAAAAAAAAB4AAAAFgAAAAKwAABdAAAAQ6"
   }, 
   "cover_browser_splitter_vertical_state": [
     false, 
