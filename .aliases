@@ -6,6 +6,9 @@
 # Enable aliases to be sudo'ed
 alias sudo='sudo '
 
+# Make yay always use the editmenu option
+alias yay='yay --editmenu'
+
 # Record the desktop
 alias record='ffmpeg -f x11grab -r 25 -s 1920x1080 -i :0.0+0,24 -vcodec libx264 -preset ultrafast -crf 0 video.mkv'
 
@@ -141,7 +144,10 @@ mkcd(){
 alias yadmSubmoduleUpdate='yadm submodule foreach git pull origin master && yadm submodule foreach update'
 
 # Remove true orphans
-alias rm-true-orhpans='pacaur -Rnsc $(sudo -u deleuze pacaur -Qtdq)'
+alias rm-true-orhpans='yay -Rnscu $(sudo -u deleuze yay -Qtdq)'
+
+# Optimize g++ compile
+alias g++='g++ -march=haswell'
 
 # Glyphr desktop
 alias glyphr='~/.scripts/submodules/Glyphr-Studio-Desktop/build/Glyphr\ Studio-linux-x64/Glyphr\ Studio'

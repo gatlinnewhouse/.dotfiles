@@ -19,7 +19,7 @@ printf "\n"
 printf "Clean the yay package cache \n"
 printf "============================== \n"
 printf "\n"
-sudo -u deleuze pikaur -Sc
+sudo -u deleuze yay -Sc
 printf "\n"
 printf "============================== \n"
 printf "\n"
@@ -43,7 +43,7 @@ printf "\n"
 printf "Uninstall true package orphans\n"
 printf "============================== \n"
 printf "\n"
-sudo -u deleuze pikaur -Rsncu $(sudo -u deleuze pikaur -Qtdq)
+sudo -u deleuze yay -Rsncu $(sudo -u deleuze yay -Qtdq)
 printf "\n"
 printf "============================== \n"
 printf "\n"

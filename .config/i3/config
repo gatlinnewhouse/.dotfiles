@@ -91,6 +91,9 @@ bindsym $mod+f fullscreen toggle
 # Launch rofi with key combo
 bindsym $mod+space exec "rofi -show combi"
 
+# Launch rofi greenclip menu
+bindsym $mod+g exec "rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'"
+
 # Pick an emoji with rofi
 bindsym $mod+e exec "bash $HOME/.bin/rofi-emoji/rofi-emoji.sh"
 
@@ -247,6 +250,9 @@ exec --no-startup-id setxkbmap -rules evdev -model evdev -layout us -variant alt
 
 # Resore ALSA sound setting
 exec --no-startup-id alsactl --file $HOME/.config/asound.state restore
+
+# Run greenclip daemon on startup
+exec --no-startup-id greenclip daemon
 
 # Lock screen on startup
 #exec --no-startup-id i3lock -c 000000

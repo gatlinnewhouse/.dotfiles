@@ -1,16 +1,4 @@
 {
-  "viewer_toc_isvisible": false, 
-  "main_window_state": {
-    "__class__": "bytearray", 
-    "__value__": "AAAA/wAAAAL9AAAAAwAAAAAAAAEAAAAD+/wCAAAAAfsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAnAAAD+wAAAIcA////AAAAAQAAAAAAAAAA/AIAAAAB+wAAABwAYgBvAG8AawBtAGEAcgBrAHMALQBkAG8AYwBrAAAAAAD/////AAAAyQD///8AAAADAAABqAAAANX8AQAAAAH7AAAAHABmAG8AbwB0AG4AbwB0AGUAcwAtAGQAbwBjAGsAAAAAMgAAAagAAAA6AP///wAAA3cAAAPfAAAAAQAAAAIAAAABAAAAAvwAAAACAAAAAAAAAAEAAAAQAHQAbwBvAGwAXwBiAGEAcgMAAAAA/////wAAAAAAAAAAAAAAAgAAAAEAAAASAHQAbwBvAGwAXwBiAGEAcgAyAQAAAAD/////AAAAAAAAAAA="
-  }, 
-  "in_paged_mode": true, 
-  "singleinstance": false, 
-  "viewer_window_geometry": {
-    "__class__": "bytearray", 
-    "__value__": "AdnQywADAAAAAAPEAAAAKQAAB3YAAAQuAAADxAAAACkAAAd2AAAELgAAAAAAAAAAB4AAAAPEAAAAKQAAB3YAAAQu"
-  }, 
-  "multiplier": 1.2000000476837158, 
   "custom_colors_for_color_dialog": [
     [
       255, 
@@ -109,7 +97,16 @@
       255
     ]
   ], 
+  "in_paged_mode": true, 
+  "main_window_state": {
+    "__class__": "bytearray", 
+    "__value__": "AAAA/wAAAAL9AAAAAwAAAAAAAAEAAAAD+/wCAAAAAfsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAnAAAD+wAAAIcA////AAAAAQAAAAAAAAAA/AIAAAAB+wAAABwAYgBvAG8AawBtAGEAcgBrAHMALQBkAG8AYwBrAAAAAAD/////AAAAyQD///8AAAADAAABqAAAANX8AQAAAAH7AAAAHABmAG8AbwB0AG4AbwB0AGUAcwAtAGQAbwBjAGsAAAAAMgAAAagAAAA6AP///wAAA3cAAAPfAAAAAQAAAAIAAAABAAAAAvwAAAACAAAAAAAAAAEAAAAQAHQAbwBvAGwAXwBiAGEAcgMAAAAA/////wAAAAAAAAAAAAAAAgAAAAEAAAASAHQAbwBvAGwAXwBiAGEAcgAyAQAAAAD/////AAAAAAAAAAA="
+  }, 
+  "multiplier": 1.2000000476837158, 
+  "singleinstance": false, 
   "viewer_open_history": [
+    "/tmp/mozilla_deleuze0/Late Tolstoy Syllabus 2019.docx", 
+    "/tmp/mozilla_deleuze0/18-19.F-S.due.dates.docx", 
     "/home/deleuze/Calibre_Library/Eugene Thacker/Infinite Resignation (51)/Infinite Resignation - Eugene Thacker.epub", 
     "/home/deleuze/Calibre_Library/Zygmunt Bauman/Babel (30)/Babel - Zygmunt Bauman.epub", 
     "/home/deleuze/Calibre_Library/Pedro Calderon de la Barca/Life Is a Dream (46)/Life Is a Dream - Pedro Calderon de la Barca.epub", 
@@ -120,7 +117,6 @@
     "/home/deleuze/Calibre_Library/Bolano, Roberto/Between Parentheses_ Essays, Articles and Speeches, 1998-2003 (37)/Between Parentheses_ Essays, Articles and - Bolano, Roberto.epub", 
     "/home/deleuze/Documents/READINGS/SENIOR YEAR/ART344: Visual Art in Spanish Baroque Literature/Week 2/pg5000-images.epub", 
     "/tmp/mozilla_deleuze0/18-19.F-S.due.dates-1.docx", 
-    "/tmp/mozilla_deleuze0/18-19.F-S.due.dates.docx", 
     "/tmp/mozilla_deleuze0/Semana 3 .docx", 
     "/tmp/mozilla_deleuze0/SEMANA 2 .docx", 
     "/home/deleuze/Calibre_Library/da Vinci Leonardo/The Notebooks of Leonardo Da Vinci -- Complete (35)/The Notebooks of Leonardo Da Vinci -- Comp - da Vinci Leonardo.epub", 
@@ -141,5 +137,10 @@
     "/home/deleuze/.drivetemp/quest2017/how_to_do_the_calendar:.docx", 
     "/home/deleuze/.drivetemp/quest2017/copy_of_how_to_deliver_the_paper.docx", 
     "/home/deleuze/Google Drive/Readings/Comics/Y - The Last Man/Y - The Last Man #001.cbr"
-  ]
+  ], 
+  "viewer_toc_isvisible": false, 
+  "viewer_window_geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywADAAAAAAPEAAAAKQAAB3YAAAQuAAADxAAAACkAAAd2AAAELgAAAAAAAAAAB4AAAAPEAAAAKQAAB3YAAAQu"
+  }
 }

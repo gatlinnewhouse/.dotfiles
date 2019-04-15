@@ -114,7 +114,10 @@ call plug#end()
 " *========================================================================================*
 
 " Enable pasting
-set pastetoggle=<F3>
+"set pastetoggle=<F3>
+
+" Count words in LaTeX document with F3
+map <F3> :w !detex \| wc -w<CR>
 
 " Spellcheck with Vim's built in spellchecker
 map <F4> :setlocal spell! spelllang=en_us<CR>
