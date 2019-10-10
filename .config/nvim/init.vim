@@ -150,6 +150,9 @@ endfunction
 "                         	General NeoVim Settings
 " *========================================================================================*
 
+" Set colorcolumn to 110
+set colorcolumn=110
+
 " Set not compatible with vi
 set nocompatible
 

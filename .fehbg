@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --bg-fill '/home/deleuze/.cache/i3lock/current/resized.png' 
+feh --no-fehbg --bg-fill '/home/deleuze/.cache/i3lock/current/resized.png' 

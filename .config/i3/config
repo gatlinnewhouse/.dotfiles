@@ -92,7 +92,7 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+space exec "rofi -show combi"
 
 # Launch rofi greenclip menu
-bindsym $mod+g exec "rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'"
+bindsym $mod+g exec "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
 
 # Pick an emoji with rofi
 bindsym $mod+e exec "bash $HOME/.bin/rofi-emoji/rofi-emoji.sh"
@@ -206,6 +206,9 @@ exec --no-startup-id ibus-daemon --xim
 
 # Run unclutter-xfixes
 exec --no-startup-id unclutter
+
+# Start yubikey touch notification daemon
+exec --no-startup-id nohup yubikey-touch-detector --libnotify
 
 # Start umonitor to hotplug new monitors connected
 #exec --no-startup-id umonitor --listen

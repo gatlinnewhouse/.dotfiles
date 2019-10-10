@@ -44,6 +44,7 @@ printf "Uninstall true package orphans\n"
 printf "============================== \n"
 printf "\n"
 sudo -u deleuze yay -Rsncu $(sudo -u deleuze yay -Qtdq)
+yay -Yc
 printf "\n"
 printf "============================== \n"
 printf "\n"

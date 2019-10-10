@@ -60,8 +60,8 @@
     m:0x0 + c:107
     Print 
 
-#Suspend to RAM and Disk
-"systemctl suspend"
+#Hibernate
+"systemctl hibernate"
     m:0x0 + c:150
     XF86Sleep 
 

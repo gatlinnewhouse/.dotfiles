@@ -54,7 +54,7 @@
   }, 
   "convert_single_dialog_geom": {
     "__class__": "bytearray", 
-    "__value__": "AdnQywADAAAAAAIUAAAAnwAABhMAAANaAAACFAAAAJ8AAAYTAAADWgAAAAAAAAAAB4AAAAIUAAAAnwAABhMAAANa"
+    "__value__": "AdnQywADAAAAAAIYAAAAnwAABhcAAANaAAACGAAAAJ8AAAYXAAADWgAAAAAAAAAAB4AAAAIYAAAAnwAABhcAAANa"
   }, 
   "cover_browser_splitter_horizontal_state": [
     false, 
@@ -195,15 +195,15 @@
     "__value__": "AdnQywADAAAAAAPKAAAAKQAAB3wAAAQuAAADygAAACkAAAd8AAAELgAAAAAAAAAAB4AAAAPKAAAAKQAAB3wAAAQu"
   }, 
   "library_usage_stats": {
-    "/home/deleuze/Calibre_Library": 62
+    "/home/deleuze/Calibre_Library": 63
   }, 
   "metadata_single_gui_geom": {
     "__class__": "bytearray", 
-    "__value__": "AdnQywADAAAAAAM+AAABOwAABo8AAAOSAAADPgAAATsAAAaPAAADkgAAAAAAAAAAB4AAAAM+AAABOwAABo8AAAOS"
+    "__value__": "AdnQywADAAAAAANAAAABOwAABpEAAAOSAAADQAAAATsAAAaRAAADkgAAAAAAAAAAB4AAAANAAAABOwAABpEAAAOS"
   }, 
   "metasingle_window_geometry3": {
     "__class__": "bytearray", 
-    "__value__": "AdnQywADAAAAAAFkAAAAKwAABdQAAAQ6AAABZAAAACsAAAXUAAAEOgAAAAAAAAAAB4AAAAFkAAAAKwAABdQAAAQ6"
+    "__value__": "AdnQywADAAAAAAFmAAAAKwAABdYAAAQ6AAABZgAAACsAAAXWAAAEOgAAAAAAAAAAB4AAAAFmAAAAKwAABdYAAAQ6"
   }, 
   "plugin config dialog:File type:DeDRM": {
     "__class__": "bytearray", 
@@ -238,17 +238,21 @@
   "replace_scene_breaks_history": [
     "", 
     "<hr />", 
-    "\u2217 \u2217 \u2217", 
-    "\u2022 \u2022 \u2022", 
-    "\u2666 \u2666 \u2666", 
-    "\u2020 \u2020", 
-    "\u2021 \u2021 \u2021", 
-    "\u221e \u221e \u221e", 
-    "\u00a4 \u00a4 \u00a4"
+    "∗ ∗ ∗", 
+    "• • •", 
+    "♦ ♦ ♦", 
+    "† †", 
+    "‡ ‡ ‡", 
+    "∞ ∞ ∞", 
+    "¤ ¤ ¤"
   ], 
   "search bar visible": true, 
   "show_emblems": false, 
   "show_splash_screen": false, 
+  "single-cover-fetch-dialog-geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywADAAAAAAHtAAAA3wAABT4AAAM2AAAB7QAAAN8AAAU+AAADNgAAAAAAAAAAB4AAAAHtAAAA3wAABT4AAAM2"
+  }, 
   "tag browser search box visible": false, 
   "tag_browser_splitter_horizontal_state": [
     false, 

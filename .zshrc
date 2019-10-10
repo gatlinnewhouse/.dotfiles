@@ -117,6 +117,7 @@ export EDITOR="nvim"
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 export GO_ENV="$HOME/.goenvs"
 export GOPATH="$HOME/.go"
+export GST_VAAPI_ALL_DRIVERS=1
 export GTK_IM_MODULE=ibus
 export GTK_IM_MODULE_FILE=/usr/lib/gtk-3.0/3.0.0/immodules.cache
 export HISTSIZE=10000
@@ -125,6 +126,7 @@ export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
 export LESS='-R '
 export LIBVA_DRIVER_NAME=i965
 export LOGNAME="godel"
+export MESA_LOADER_DRIVER_OVERRIDE="iris"
 export PATH="/usr/local/bin:$PATH"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
@@ -139,6 +141,7 @@ export VDPAU_DRIVER='va_gl'
 export XDG_CONFIG_HOME="$HOME/.config"
 export XMODIFIERS=@im=ibus
 export WINEDEBUG=+relay,-debug
+export WINESYNC=1
 
 # LS colors, made with http://geoff.greer.fm/lscolors/
 # export LSCOLORS="exfxcxdxbxegedabagacad"
@@ -154,7 +157,7 @@ zstyle ':completion:*' menu select
 # Add additional directories to the path.
 pathadd $HOME/.local/bin
 pathadd $HOME/.go/bin
-pathadd $HOME/.gem/ruby/2.4.0/bin
+pathadd $HOME/.gem/ruby/2.6.0/bin
 pathadd $HOME/.bin
 pathadd /usr/lib/ccache/bin
 pathadd $HOME/.cargo/bin
