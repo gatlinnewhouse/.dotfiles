@@ -208,7 +208,7 @@ exec --no-startup-id ibus-daemon --xim
 exec --no-startup-id unclutter
 
 # Start yubikey touch notification daemon
-exec --no-startup-id nohup yubikey-touch-detector --libnotify
+#exec --no-startup-id nohup yubikey-touch-detector --libnotify
 
 # Start umonitor to hotplug new monitors connected
 #exec --no-startup-id umonitor --listen

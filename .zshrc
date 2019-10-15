@@ -126,6 +126,7 @@ export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
 export LESS='-R '
 export LIBVA_DRIVER_NAME=i965
 export LOGNAME="godel"
+export MOZ_WEBRENDER=1
 export MESA_LOADER_DRIVER_OVERRIDE="iris"
 export PATH="/usr/local/bin:$PATH"
 export QT_QPA_PLATFORMTHEME="qt5ct"
