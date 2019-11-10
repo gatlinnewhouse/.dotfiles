@@ -2,8 +2,8 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/deleuze/.gtkrc-2.0.mine"
-gtk-theme-name="Materia-light-compact"
-gtk-icon-theme-name="Papirus"
+gtk-theme-name="Materia-light"
+gtk-icon-theme-name="Papirus-Light"
 gtk-font-name="Carlito 12"
 gtk-cursor-theme-name="xcursor-chromeos"
 gtk-cursor-theme-size=0

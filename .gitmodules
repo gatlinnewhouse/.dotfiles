@@ -59,3 +59,6 @@
 [submodule ".bin/vpngate"]
 	path = .bin/vpngate
 	url = https://github.com/Dragon2fly/vpngate-with-proxy.git
+[submodule ".bin/arch-pape-maker"]
+	path = .bin/arch-pape-maker
+	url = git@gitlab.com:SillyPill/arch-pape-maker.git

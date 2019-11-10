@@ -27,7 +27,7 @@ printf "\n"
 printf "Update the Arch repo & AUR mirrorlist \n"
 printf "============================== \n"
 printf "\n"
-sudo -u deleuze reflector -c US --latest 300 --number 500 --age 12 --sort rate --save /etc/pacman.d/mirrorlist
+sudo -u deleuze reflector -c US -c ES -c CA --latest 300 --number 500 --age 12 --sort rate --save /etc/pacman.d/mirrorlist
 printf "\n"
 printf "============================== \n"
 printf "\n"

@@ -207,6 +207,9 @@ exec --no-startup-id ibus-daemon --xim
 # Run unclutter-xfixes
 exec --no-startup-id unclutter
 
+# Start mullvad vpn tray
+exec --no-startup-id nohup mullvad-vpn
+
 # Start yubikey touch notification daemon
 #exec --no-startup-id nohup yubikey-touch-detector --libnotify
 
@@ -242,10 +245,10 @@ exec --no-startup-id xfce4-notifyd
 exec --no-startup-id lxpolkit
 
 # Automount removable media
-exec --no-startup-id udiskie --no-tray --automount --notify --password-cache 60
+exec --no-startup-id udiskie --tray --automount --notify --password-cache 60
 
 # Battery notifications
-exec --no-startup-id i3-battery-popup-git -n -L 30 -t 10m
+exec --no-startup-id i3-battery-popup-git -n -L 50 -t 10m
 
 # Set x11 keyboard layout to use the right alt key as a compose key
 # That way I can type accented characters for Spanish

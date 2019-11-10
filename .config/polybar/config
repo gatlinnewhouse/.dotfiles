@@ -18,6 +18,7 @@ foreground = #F5F5F5
 padding = 0
 module-margin = 0
 line-size = 2
+;wm-name = polybar
 ; Fonts
 font-0 = MaterialDesignIcons:size=12;3
 font-1 = fontawesome-webfont:size=12;3
@@ -28,6 +29,18 @@ font-4 = MaterialWifi:size=12;3
 modules-left = i3 
 modules-center = 
 modules-right = caffeine redshift bluetooth wireless-network backlight volume battery date menu-power
+; Tray
+tray-position = center
+tray-background = #000000
+tray-detached = true
+;tray-transparent = true
+tray-maxsize = 16
+;tray-offset-x = -50
+tray-padding = 1
+tray-scale = 1.0
+; Misc
+;wm-restack = i3
+;override-redirect = true
 
 [settings]
 ; Prevent flood of update events
@@ -62,7 +75,7 @@ label-volume = %percentage%%
 [module/battery]
 type = internal/battery
 ; Full at what percentage?
-full-at = 100
+full-at = 99
 ; Specify batteries and adapters
 battery = BAT0
 adapter = AC
@@ -119,7 +132,7 @@ ramp-3 = 
 
 [module/wireless-network]
 type = internal/network
-interface = wlp3s0
+interface = wlan0
 ; Seconds to sleep between updates = 30s
 interval = 30
 ; Formatting options

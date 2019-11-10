@@ -1,0 +1,9 @@
+# Replace subarch with Haswell
+replace#global#_subarch=31#_subarch=23
+
+#Replace oldconfig with xconfig
+replace#global#oldconfig#xconfig
+
+#Add patches
+addline#prepare#        patch -Np1 -i "$srcdir/add-acs-overrides.patch"#        patch -Np1 -i "$srcdir/futex-wait-multiple-5.2.1.patch"
+addline#prepare#        patch -Np1 -i "$srcdir/futex-wait-multiple-5.2.1.patch"#        patch -Np1 -i "$srcdir/net-mac80211-Disable-preeemption-when-updating-stat-counters.patch"

@@ -2,7 +2,7 @@
 
 # Set the lockscreen background to the resized Material Design Paper Desktop Background
 # Then lock the screen on startup
-cp $HOME/Pictures/Lockscreen/l_resized.png $HOME/.cache/i3lock/current/l_resized.png
+cp $HOME/Pictures/Lockscreen/l_resized-arch-btw.png $HOME/.cache/i3lock/current/l_resized.png
 betterlockscreen -l
 
 # Then pick out a new background from my backgrounds folder
