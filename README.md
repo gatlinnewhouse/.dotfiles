@@ -14,7 +14,7 @@ My `/etc/` folder is backed up via [`etckeeper`](https://wiki.archlinux.org/inde
 
 * Application launcher: `rofi`
 * Bar: `polybar`
-* Compositor: `compton`
+* Compositor: `compton` (not currently using a compositor)
 * Display Manager: `autologin and auto startx`
 * Icon Theme: [`papirus-icon-theme`](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
 * Lock: [`betterlockscreen`](https://github.com/pavanjadhaw/betterlockscreen)

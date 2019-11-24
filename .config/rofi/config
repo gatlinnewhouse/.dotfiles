@@ -52,7 +52,7 @@ rofi.levenshtein-sort: false
 rofi.monitor: -5
 
 ! DPI
-rofi.dpi: -1
+rofi.dpi: 157
 
 ! Make rofi create a pid file and check this on startup avoiding multiple copies running simultaneously.
 ! This is useful when running rofi from a keybinding daemon.

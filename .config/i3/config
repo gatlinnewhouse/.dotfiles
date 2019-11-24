@@ -195,6 +195,9 @@ for_window [title="WineDesktop - Wine desktop"] fullscreen disable
 # S T A R T U P #
 #################
 
+# Set GDK scale
+exec_always --no-startup-id env GDK_DPI_SCALE=0.5 GDK_SCALE=2
+
 # Update image cache
 exec_always --no-startup-id bash $HOME/.bin/lock.sh -u $HOME/Pictures/Backgrounds/totoro.png
 
@@ -240,6 +243,9 @@ exec --no-startup-id nohup /usr/lib/geoclue-2.0/demos/agent
 
 # Start notification daemon
 exec --no-startup-id xfce4-notifyd
+
+# Start caffeine
+exec --no-startup-id bash $HOME/.bin/caffeine-startup
 
 # Start polkit
 exec --no-startup-id lxpolkit

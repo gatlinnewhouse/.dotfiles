@@ -1,10 +1,12 @@
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
-Xft.hintstyle: hintmedium
+Xft.hintstyle: hintfull
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
+Xft.dpi: 157
 Xcursor.theme: xcursor-chromeos
+Xcursor.size: 64
 !URxvt.bell-command: notify-send "rxvt-unicode: done!"
 
 ! ****************** !
@@ -63,7 +65,7 @@ URxvt.color7: #4D4D4C
 URxvt.color15: #BDBDBD
 
 ! The font
-URxvt*font: xft:FuraCode Nerd Font:size=10:antialias=true
+URxvt*font: xft:FuraCode Nerd Font:size=12:antialias=true
 
 ! Home and End key functionality
 URxvt.keysym.Home: \033[7~

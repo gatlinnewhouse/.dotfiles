@@ -116,6 +116,8 @@ export CCACHE_DIR="/var/tmp/ccache"
 export EDITOR="nvim"
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 export GDK_CORE_DEVICE_EVENTS=1
+export GDK_DPI_SCALE=0.5
+export GDK_SCALE=2
 export GO_ENV="$HOME/.goenvs"
 export GOPATH="$HOME/.go"
 export GST_VAAPI_ALL_DRIVERS=1
@@ -132,7 +134,7 @@ export MESA_LOADER_DRIVER_OVERRIDE="iris"
 export NO_AT_BRIDGE=1
 export PATH="/usr/local/bin:$PATH"
 export QT_QPA_PLATFORMTHEME="qt5ct"
-export QT_AUTO_SCREEN_SCALE_FACTOR=0
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export QT_IM_MODULE=ibus
 export SAVEHIST=10000
 export STEAM_RUNTIME=1

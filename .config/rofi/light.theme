@@ -1,6 +1,6 @@
 * {
 
-	font: "Carlito Regular 13";
+	font: "Carlito Regular 14";
 
 	background: rgba(245, 245, 245, 100%);
 	foreground: rgba(68, 71, 81, 100%);
@@ -71,7 +71,7 @@
 }
 
 #element {
-	font: "Noto Sans 12";
+	font: "Noto Sans 14";
 	border: 0px 0px 1px solid;
 	border-color: @separator-color;
 	padding: 6 4;
