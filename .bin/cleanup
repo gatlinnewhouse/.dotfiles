@@ -27,7 +27,7 @@ printf "\n"
 printf "Update the Arch repo & AUR mirrorlist \n"
 printf "============================== \n"
 printf "\n"
-sudo -u deleuze reflector -c US -c ES -c CA --latest 300 --number 500 --age 12 --sort rate --save /etc/pacman.d/mirrorlist
+#sudo -u deleuze reflector -c US -c ES -c CA --latest 300 --number 500 --age 12 --sort rate --save /etc/pacman.d/mirrorlist
 printf "\n"
 printf "============================== \n"
 printf "\n"
@@ -110,6 +110,14 @@ printf "Run libtool\n"
 printf "============================== \n"
 printf "\n"
 libtool --finish /usr/lib
+printf "\n"
+printf "============================== \n"
+printf "\n"
+printf "\n"
+printf "Generate development package database used for devel update \n"
+printf "============================== \n"
+printf "\n"
+yay -Y --gendb
 printf "\n"
 printf "============================== \n"
 printf "\n"

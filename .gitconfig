@@ -51,7 +51,7 @@
 
 [transfer]
 	# Do extra checks for data corruption
-	fsckobjects = true
+	fsckobjects = false
 
 # Use icdiff as default
 [diff]
@@ -60,3 +60,6 @@
         prompt = false
 [difftool "icdiff"]
         cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
+[core]
+	compression = 9
+	askpass = 

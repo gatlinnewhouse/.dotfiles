@@ -1,0 +1,11 @@
+[Unit]
+Description=Pulseeffects inside Xvfb
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/pulseeffects-xvfb start
+ExecStop=/usr/local/bin/pulseeffects-xvfb stop
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

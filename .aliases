@@ -16,10 +16,13 @@ alias record='ffmpeg -f x11grab -r 25 -s 1920x1080 -i :0.0+0,24 -vcodec libx264 
 alias diff='cwdiff'
 
 # And grep....
-alias grep='sift'
+#alias grep='sift'
 
 # And cargo......
 alias cargo='cargo --color auto'
+
+# Alas go to gcc-go
+alias go='gccgo'
 
 # And cat..........
 alias cat='pygmentize -g'
@@ -178,6 +181,12 @@ alias pass='PASSWORD_STORE_ENABLE_EXTENSIONS=true pass'
 
 # Hardcode tray icons by changing them with Inkscape
 alias mktrayicons='hardcode-tray --size 16 --theme Papirus --conversion-tool ImageMagick --apply'
+
+# No less beep
+alias less='less -Q'
+
+# No man page beep
+alias man='man -P "less -Q"'
 
 # Mount MTP
 alias mountp='jmtpfs /tmp/myphone'

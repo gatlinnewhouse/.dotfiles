@@ -15,6 +15,9 @@ setopt COMPLETE_ALIASES
 # Use a prompt
 setopt promptsubst
 
+# No tab completion beep
+unsetopt LIST_BEEP
+
 # Enable zsh history search
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
@@ -111,6 +114,13 @@ pathadd() {
 }
 
 # Export environmental variables
+export ALSA_CARD=PCH
+# 20 seconds auto notify
+export AUTO_NOTIFY_THRESHOLD=20
+# auto expire after 3s
+export AUTO_NOTIFY_EXPIRE_TIME=3000
+# do not notify these programs
+export AUTO_NOTIFY_IGNORE=("vim" "man" "sleep" "nvim" "nano" "sudo")
 export BROWSER="waterfox"
 export CCACHE_DIR="/var/tmp/ccache"
 export EDITOR="nvim"
@@ -118,6 +128,8 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 export GDK_CORE_DEVICE_EVENTS=1
 export GDK_DPI_SCALE=0.5
 export GDK_SCALE=2
+#unset GIT_ASKPASS
+export GIT_ASKPASS=
 export GO_ENV="$HOME/.goenvs"
 export GOPATH="$HOME/.go"
 export GST_VAAPI_ALL_DRIVERS=1
@@ -130,7 +142,7 @@ export LESS='-R '
 export LIBVA_DRIVER_NAME=i965
 export LOGNAME="godel"
 export MOZ_WEBRENDER=1
-export MESA_LOADER_DRIVER_OVERRIDE="iris"
+##export MESA_LOADER_DRIVER_OVERRIDE=iris
 export NO_AT_BRIDGE=1
 export PATH="/usr/local/bin:$PATH"
 export QT_QPA_PLATFORMTHEME="qt5ct"
@@ -140,6 +152,8 @@ export SAVEHIST=10000
 export STEAM_RUNTIME=1
 export SHELL="/bin/zsh"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+#unset SSH_ASKPASS
+export SSH_ASKPASS=
 export SSH_CONNECTION="rhizome"
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 export VDPAU_DRIVER='va_gl'

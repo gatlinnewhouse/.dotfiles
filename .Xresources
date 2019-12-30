@@ -7,7 +7,7 @@ Xft.rgba: rgb
 Xft.dpi: 157
 Xcursor.theme: xcursor-chromeos
 Xcursor.size: 64
-!URxvt.bell-command: notify-send "rxvt-unicode: done!"
+URxvt.bell-command: notify-send --expire-time=60 --urgency=critical 'Sudo' 'Password Needed'
 
 ! ****************** !
 !   URXVT SETTINGS   !
@@ -19,7 +19,7 @@ URxvt.preeditType: OverTheSpot
 
 ! Extensions
 URxvt.perl-ext:
-URxvt.perl-ext-common:
+URxvt.perl-ext-common: bell-command
 
 ! Name the terminal
 URxvt*termName: rxvt-unicode-256color

@@ -8,7 +8,7 @@
 ;=====================================================
 
 [bar/top_bar]
-monitor = eDP1
+monitor = eDP-1
 width = 100%
 height = 64
 offset-x = 0
@@ -20,15 +20,15 @@ module-margin = 0
 line-size = 2
 ;wm-name = polybar
 ; Fonts
-font-0 = MaterialDesignIcons:size=24;3
-font-1 = fontawesome-webfont:size=24;3
-font-2 = Arimo-Regular:size=24;3
-font-3 = Arimo-Bold:size=24;3
+font-0 = Carlito:style=Regular:size=24;3
+font-1 = Carlito:style=Bold:size=24;3
+font-2 = MaterialDesignIcons:size=24;3
+font-3 = fontawesome-webfont:size=24;3
 font-4 = MaterialWifi:size=24;3
 ; Modules
 modules-left = i3 
 modules-center = 
-modules-right = caffeine redshift bluetooth wireless-network backlight volume battery date menu-power
+modules-right = updates-arch-combined wireless-network backlight pulseaudio battery date menu-power
 ; Tray
 tray-position = center
 tray-background = #000000
@@ -50,27 +50,30 @@ throttle-output-for = 60
 ; Throttle input (in miilliseconds)
 throttle-input-for = 30
 
-[module/volume]
-type = internal/volume
-; Soundcard to use
-master-soundcard = default
-speaker-soundcard = default
-headphone-soundcard = default
-; Mixer to use
-master-mixer = Master
+[module/pulseaudio]
+type = internal/pulseaudio
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+sink = alsa_output.pci-0000_00_1b.0.analog-stereo
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = true
+; Interval for volume increase/decrease (in percent points)
+; Default: 5
+interval = 5
 ; Formatting options
 format-volume = <ramp-volume> <label-volume>
 format-volume-padding = 2
 ; Muted formatting
 format-muted = <label-muted>
 format-muted-padding = 2
-label-muted-font = 1
-label-muted =  muted
-ramp-volume-font = 1
+label-muted-font = 3
+label-muted =  %{T-}muted
+ramp-volume-font = 3
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
-label-volume = %percentage%%
+label-volume = %{T-}%percentage%%
 
 [module/battery]
 type = internal/battery
@@ -88,11 +91,11 @@ format-charging-padding = 2
 format-discharging = <ramp-capacity> <label-discharging>
 ;format-discharging-background = #455A64
 format-discharging-padding = 2
-label-full-font = 1
-label-full =  100%
-label-charging = %percentage%%
-label-discharging = %percentage%%
-ramp-capacity-font = 1
+label-full-font = 3
+label-full =  %{T-}100%%
+label-charging = %{T-}%percentage%%
+label-discharging = %{T-}%percentage%%
+ramp-capacity-font = 3
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
@@ -104,7 +107,7 @@ ramp-capacity-7 = 
 ramp-capacity-8 = 
 ramp-capacity-9 = 
 ramp-capacity-10 = 
-animation-chargining-font = 1
+animation-chargining-font = 3
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
@@ -115,6 +118,18 @@ animation-charging-6 = 
 ; Framerate in milliseconds
 animation-charging-framerate = 750
 
+; From https://github.com/polybar/polybar-scripts/tree/master/polybar-scripts/updates-arch-combined
+[module/updates-arch-combined]
+type = custom/script
+exec = $HOME/.config/polybar/scripts/polybar-scripts/updates-arch-combined/updates-arch-combined.sh
+interval = 600
+
+; From https://github.com/drdeimos/polybar_another_battery
+;[module/custom-battery]
+;type = custom/script
+;exec = $HOME/.config/polybar/polybar-ab -polybar -thr 10
+;tail = true
+
 [module/backlight]
 type = internal/backlight
 card = intel_backlight
@@ -123,8 +138,8 @@ enable-scroll = false
 ; Formatting options
 format = <ramp> <label>
 format-padding = 2
-label = %percentage%%
-ramp-font = 1
+label = %{T-}%percentage%%
+ramp-font = 3
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
@@ -140,11 +155,11 @@ format-connected = <ramp-signal> <label-connected>
 format-connected-padding = 2
 format-disconnected = <label-disconnected>
 format-disconnected-padding = 2
-label-connected-font = 1
-label-connected = %essid%
-label-disconnected-font = 4
-label-disconnected =  No signal
-ramp-signal-font = 4
+label-connected-font = 3
+label-connected = %{T-}%essid%
+label-disconnected-font = 5
+label-disconnected =  %{T-}No signal
+ramp-signal-font = 5
 ramp-signal-0 = 
 ramp-signal-1 = 
 ramp-signal-2 = 
@@ -174,15 +189,18 @@ label-mode = %mode%
 label-mode-padding = 2
 label-focused = 
 label-focused-foreground = #F5F5F5
-label-focused-font = 0
+label-focused-font = 3
 label-focused-padding = 1
 label-unfocused = 
 label-unfocused-foreground = #F5F5F5
+label-unfocused-font = 3
 label-unfocused-padding = 1
 label-visible = 
 label-visible-padding = 1
+label-visible-font = 3
 label-urgent = 
 label-urgent-foreground = #FFC107
+label-urgent-font = 3
 label-urgent-padding = 1
 
 [module/menu-power]
@@ -190,31 +208,24 @@ type = custom/menu
 label-open = 
 label-open-foreground = #F5F5F5
 label-open-background = #C62828
+label-open-font = 3
 label-open-padding = 2
 label-close = 
 label-close-foreground = #F5F5F5
 label-close-background = #424242
+label-close-font = 3
 label-close-padding = 2
-menu-0-0 = 
+menu-0-0 = 
 menu-0-0-foreground = #F5F5F5
 menu-0-0-background = #2E7D32
+menu-0-0-font = 3
 menu-0-0-padding = 2
 menu-0-0-exec = exec systemctl reboot
 menu-0-1 = 
 menu-0-1-foreground = #F5F5F5
 menu-0-1-background = #C62828
+menu-0-1-font = 3
 menu-0-1-padding = 2
 menu-0-1-exec = exec systemctl poweroff
-
-;[module/redshift]
-;type = custom/script
-; Seconds to sleep in between updates = 5 minutes
-;interval = 300
-;exec = ~/.config/polybar/redshift.sh
-
-;[module/caffeine]
-;type = custom/script
-;interval = 5
-;exec = ~/.config/polybar/caffeine-status.sh
 
 ; vim:ft=dosini

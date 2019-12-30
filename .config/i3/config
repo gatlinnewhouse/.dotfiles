@@ -198,6 +198,12 @@ for_window [title="WineDesktop - Wine desktop"] fullscreen disable
 # Set GDK scale
 exec_always --no-startup-id env GDK_DPI_SCALE=0.5 GDK_SCALE=2
 
+# Set Pulseaudio Binaural sink on
+#exec_always --no-startup-id pacmd load-module module-ladspa-sink sink_name=binaural master=alsa_output.pci-0000_00_1b.0.analog-stereo plugin=bs2b label=bs2b control=700,4.5
+
+# Start clight
+#exec_always --no-startup-id nohup clight
+
 # Update image cache
 exec_always --no-startup-id bash $HOME/.bin/lock.sh -u $HOME/Pictures/Backgrounds/totoro.png
 
@@ -211,7 +217,7 @@ exec --no-startup-id ibus-daemon --xim
 exec --no-startup-id unclutter
 
 # Start mullvad vpn tray
-exec --no-startup-id nohup mullvad-vpn
+#exec --no-startup-id nohup mullvad-vpn
 
 # Start yubikey touch notification daemon
 #exec --no-startup-id nohup yubikey-touch-detector --libnotify

@@ -30,7 +30,16 @@ if [ -f "$usermodmap" ]; then
 fi
 
 # Set DPI and scale
-xrandr --dpi 157 --output eDP1 --scale 2x2
+xrandr --dpi 157 --output eDP-1 --scale 2x2
+
+# Restore ALSA settings
+restore_alsa() {
+ while [ -z "$(pidof pulseaudio)" ]; do
+  sleep 0.5
+ done
+ alsactl -f /var/lib/alsa/asound.state restore 
+}
+restore_alsa &
 
 # start some nice programs
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
@@ -46,4 +55,11 @@ if [ $? -eq 2 ]; then
   urxvtc "$@"
 fi
 
+# start pulseeffects
+#bash $HOME/.bin/pulseeffects-xvfb start &
+
+unset GIT_ASKPASS
+unset SSH_ASKPASS
+
+# Load i3
 i3
