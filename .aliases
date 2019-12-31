@@ -7,7 +7,7 @@
 alias sudo='sudo '
 
 # Make yay always use the editmenu option
-alias yay='yay --editmenu --nodiffmenu --save --makepkg $HOME/.bin/customize-makepkg'
+alias yay='yay --batchinstall --timeupdate --devel --editmenu --nodiffmenu --save --makepkg $HOME/.bin/customize-makepkg'
 
 # Record the desktop
 alias record='ffmpeg -f x11grab -r 25 -s 1920x1080 -i :0.0+0,24 -vcodec libx264 -preset ultrafast -crf 0 video.mkv'
