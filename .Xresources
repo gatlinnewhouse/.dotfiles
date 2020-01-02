@@ -7,7 +7,7 @@ Xft.rgba: rgb
 Xft.dpi: 157
 Xcursor.theme: xcursor-chromeos
 Xcursor.size: 64
-URxvt.bell-command: notify-send --expire-time=60 --urgency=critical 'Sudo' 'Password Needed'
+URxvt.bell-command: notify-send --expire-time=1500 'Sudo' 'Password Needed'
 
 ! ****************** !
 !   URXVT SETTINGS   !

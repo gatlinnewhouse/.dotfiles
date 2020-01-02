@@ -118,9 +118,9 @@ export ALSA_CARD=PCH
 # 20 seconds auto notify
 export AUTO_NOTIFY_THRESHOLD=20
 # auto expire after 3s
-export AUTO_NOTIFY_EXPIRE_TIME=3000
+export AUTO_NOTIFY_EXPIRE_TIME=1500
 # do not notify these programs
-export AUTO_NOTIFY_IGNORE=("vim" "man" "sleep" "nvim" "nano" "sudo")
+export AUTO_NOTIFY_IGNORE=("vim" "man" "sleep" "nvim" "nano" "sudo" "steam" "steam-native")
 export BROWSER="waterfox"
 export CCACHE_DIR="/var/tmp/ccache"
 export EDITOR="nvim"

@@ -269,9 +269,6 @@ exec --no-startup-id setxkbmap -rules evdev -model evdev -layout us -variant alt
 # Resore ALSA sound setting
 exec --no-startup-id alsactl --file $HOME/.config/asound.state restore
 
-# Ask for SSH password on startup
-exec --no-startup-id ssh-add
-
 # Run greenclip daemon on startup
 exec --no-startup-id greenclip daemon
 
