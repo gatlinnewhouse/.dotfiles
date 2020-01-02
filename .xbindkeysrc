@@ -36,17 +36,17 @@
 
 
 #Raise Volume
-"pavolume --noshow volup"
+"amixer set Master 5%+"
     m:0x0 + c:123
     XF86AudioRaiseVolume 
 
 #Lower Volume
-"pavolume --noshow voldown"
+"amixer set Master 5%-"
     m:0x0 + c:122
     XF86AudioLowerVolume 
 
 #Mute Audio
-"pavolume --noshow mutetoggle"
+"amixer set Master toggle"
     m:0x0 + c:121
     XF86AudioMute 
 
