@@ -65,3 +65,6 @@
 [submodule "Documents/Tk-Glitch-PKGBUILDS"]
 	path = Documents/Tk-Glitch-PKGBUILDS
 	url = https://github.com/Tk-Glitch/PKGBUILDS.git
+[submodule "/home/gatnewhou/.pkgs_not_in_repo/grub-sleek"]
+	path = /home/gatnewhou/.pkgs_not_in_repo/grub-sleek
+	url = https://github.com/sandesh236/sleek--themes.git
