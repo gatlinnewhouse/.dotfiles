@@ -1,9 +1,9 @@
 [submodule ".pkgs_not_in_repo/terminal-slack"]
 	path = .pkgs_not_in_repo/terminal-slack
-	url = git@github.com:evanyeung/terminal-slack.git
+	url = https://github.com/evanyeung/terminal-slack.git
 [submodule ".pkgs_not_in_repo/sandman-lite"]
 	path = .pkgs_not_in_repo/sandman-lite
-	url = git@github.com:alexanderepstein/Sandman-Lite.git
+	url = https://github.com/alexanderepstein/Sandman-Lite.git
 [submodule ".pkgs_not_in_repo/pactoys"]
 	path = .pkgs_not_in_repo/pactoys
 	url = https://github.com/renatosilva/pactoys
@@ -12,19 +12,19 @@
 	url = https://gist.github.com/gatlinnewhouse/f0d8a60bfc7b8fb003a522a96e80a756
 [submodule ".latextemplates/tufte-latex"]
 	path = .latextemplates/tufte-latex
-	url = git@github.com:Tufte-LaTeX/tufte-latex.git
+	url = https://github.com/Tufte-LaTeX/tufte-latex.git
 [submodule ".latextemplates/mla13"]
 	path = .latextemplates/mla13
-	url = git@github.com:jackson13info/mla13.git
+	url = https://github.com/jackson13info/mla13.git
 [submodule ".latextemplates/TIKZ-TEMPLATES/PetarV_TikZ"]
 	path = .latextemplates/TIKZ-TEMPLATES/PetarV_TikZ
-	url = git@github.com:PetarV-/TikZ.git
+	url = https://github.com/PetarV-/TikZ.git
 [submodule ".latextemplates/TIKZ-TEMPLATES/walmes_TikZ"]
 	path = .latextemplates/TIKZ-TEMPLATES/walmes_TikZ
-	url = git@github.com:walmes/Tikz.git
+	url = https://github.com/walmes/Tikz.git
 [submodule ".latextemplates/MartinThoma_LaTeX-examples"]
 	path = .latextemplates/MartinThoma_LaTeX-examples
-	url = git@github.com:MartinThoma/LaTeX-examples.git
+	url = https://github.com/MartinThoma/LaTeX-examples.git
 [submodule ".bin/github-convert-ssh-https"]
 	path = .bin/github-convert-ssh-https
 	url = https://gist.github.com/gatlinnewhouse/10d80df8fcd02618877a7e0ea2c01083
@@ -45,7 +45,7 @@
 	url = https://github.com/dsoprea/GDriveFS.git
 [submodule ".pkgs_not_in_repo/Firefox-user.js"]
 	path = .pkgs_not_in_repo/Firefox-user.js
-	url = git@github.com:pyllyukko/user.js.git
+	url = https://github.com/pyllyukko/user.js.git
 	branch = relaxed
 [submodule ".pkgs_not_in_repo/scientifica"]
 	path = .pkgs_not_in_repo/scientifica
@@ -58,13 +58,10 @@
 	url = https://github.com/Dragon2fly/vpngate-with-proxy.git
 [submodule ".bin/arch-pape-maker"]
 	path = .bin/arch-pape-maker
-	url = git@gitlab.com:SillyPill/arch-pape-maker.git
-[submodule ".config/polybar/scripts"]
-	path = .config/polybar/scripts
-	url = https://github.com/polybar/polybar-scripts.git
+	url = https://gitlab.com/SillyPill/arch-pape-maker.git
 [submodule "Documents/Tk-Glitch-PKGBUILDS"]
 	path = Documents/Tk-Glitch-PKGBUILDS
 	url = https://github.com/Tk-Glitch/PKGBUILDS.git
-[submodule "/home/gatnewhou/.pkgs_not_in_repo/grub-sleek"]
-	path = /home/gatnewhou/.pkgs_not_in_repo/grub-sleek
+[submodule ".pkgs_not_in_repo/grub-sleek"]
+	path = .pkgs_not_in_repo/grub-sleek
 	url = https://github.com/sandesh236/sleek--themes.git

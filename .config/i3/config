@@ -3,10 +3,13 @@
 #######################
 
 # Font
-font pango:Noto Sans UI 12
+font pango:Carlito 12
+
+# Cursor
+seat seat0 xcursor_theme xcursor-chromeos 16
 
 # Add a pixel border to every new tiling window
-new_window pixel 3
+default_border none
 
 # Enable focus following mouse
 focus_follows_mouse yes
@@ -15,9 +18,6 @@ focus_follows_mouse yes
 for_window [class="^.*"] border pixel 0
 
 # Windows that keep a window bar
-for_window [class="URxvt"] border normal
-for_window [class="URxvt"] title_format "<span font='Noto Sans UI 11'>   rxvt-unicode </span>"
-for_window [class="Gscreenshot"] border normal
 for_window [class="Gscreenshot"] title_format "<span font='Noto Sans UI 11'>   gscreenshot </span>"
 
 # Gaps
@@ -51,16 +51,16 @@ floating_modifier $mod
 popup_during_fullscreen smart
 
 # Start a terminal
-bindsym $mod+Return exec urxvtc
+bindsym $mod+Return exec kitty
 
 # Start a terminal in the same working directory
 #bindsym $mod+Shift+Return exec urxvtc -cd "`xcwd`"
 
 # Start HTOP in a terminal
-bindsym $MOD+SHIFT+t exec urxvtc -e htop
+bindsym $mod+SHIFT+t exec kitty -e htop
 
 # Start NeoVim in a terminal
-bindsym $MOD+SHIFT+v exec urxvtc -e nvim
+bindsym $mod+Shift+v exec kitty -e nvim
 
 # Kill focused window
 bindsym $mod+q kill
@@ -89,22 +89,24 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # Launch rofi with key combo
-bindsym $mod+space exec "rofi -show combi"
+bindsym $mod+space exec rofi -show combi
 
-# Launch rofi greenclip menu
-bindsym $mod+g exec "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
+# Launch rofi clipman menu
+bindsym $mod+g exec clipman pick -t rofi
 
 # Pick an emoji with rofi
-bindsym $mod+e exec "bash $HOME/.bin/rofi-emoji/rofi-emoji.sh"
+bindsym $mod+e exec bash $HOME/.bin/rofi-emoji/rofi-emoji.sh
 
 # Toggle sticky windows (for floating windows only)
 bindsym $mod+s sticky toggle
 
-# Bind mod + home to toggle redshift
-bindsym $mod+Home exec pkill -USR1 '^redshift$'
+# Bind screenshot keyboard shortcuts
+bindsym Print exec swayshot
+bindsym Mod1+Print exec swayshot window
+bindsym Shift+Print exec swayshot region
 
 # Bind mod + Escape to shutdown
-bindsym $mod+Escape exec shutdown now
+#bindsym $mod+Escape exec shutdown now
 
 # Change container layout (split horizontally or split vertically)
 bindsym $mod+t layout toggle split
@@ -147,10 +149,10 @@ bindsym $mod+Shift+0 move container to workspace number 10
 bindsym $mod+Shift+c reload
 
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+#bindsym $mod+Shift+r restart
 
 # Exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Resize window (you can also use the mouse for that)
 mode "resize" {
@@ -169,12 +171,45 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+###############
+# I N P U T S #
+###############
+
+input "2:7:SynPS/2_Synaptics_TouchPad" {
+        accel_profile adaptive
+        click_method clickfinger
+        natural_scroll enabled
+        scroll_method two_finger
+        tap disabled
+        dwt disabled
+}
+
+input "type:keyboard" {
+        xkb_options compose:ralt
+}
+
+bindsym XF86MonBrightnessDown exec doas /usr/bin/light -U 5
+bindsym XF86MonBrightnessUp exec doas /usr/bin/light -A 5
+bindsym XF86AudioMicMute exec bash $HOME/.bin/mutemiclight
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec bash $HOME/.bin/muteaudiolight
+#bindsym XF86Display
+#bindsym XF86WLAN <- works out of the box
+#bindsym XF86Tools
+#bindsym XF86Bluetooth
+#bindsym XF86Keyboard
+#bindsym XF86Favorites
 
 ############################
 # A P P L I C A T I O N S, #
 # W O R K S P A C E S,     #
 # A N D   M I S C.         #
 ############################
+
+bar {
+	swaybar_command waybar
+}
 
 # Popups start in floating mode
 for_window [class="pinentry|Pinentry"] floating enable
@@ -195,8 +230,50 @@ for_window [title="WineDesktop - Wine desktop"] fullscreen disable
 # S T A R T U P #
 #################
 
+# Set background image
+set $wallpapers_path $HOME/Pictures/Backgrounds
+output * bg `find $wallpapers_path -type f | shuf -n 1` fill
+
+# Prepare XWayland
+exec_always .bin/sway-prep-xwayland
+
+# Use XWayland
+#xwayland enable
+
+# Use Clipman
+exec wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"
+
+# Xwayland load
+exec xrdb -load ~/.Xresources
+
+# GTK applications load faster
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+# Set GTK Theme
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Materia-dark'
+    gsettings set $gnome-schema icon-theme 'Papirus-Dark'
+    gsettings set $gnome-schema cursor-theme 'xcursor-chromeos'
+    gsettings set $gnome-schema font-name 'Carlito 12'
+}
+
+# Run Xsettingsd daemon for XWayland and Java applications
+exec xsettingsd
+
+# Run gammastep (RedShift)
+exec gammastep-indicator -c $HOME/.config/gammastep/config.ini
+
+# Run TLP after boot (due to systemd unit file impact on bootup time)
+exec doas tlp start
+
+# Run safeeyes
+exec safeeyes
+
 # Set GDK scale
-exec_always --no-startup-id env GDK_DPI_SCALE=0.5 GDK_SCALE=2
+#exec_always --no-startup-id env GDK_DPI_SCALE=0.5 GDK_SCALE=2
 
 # Set Pulseaudio Binaural sink on
 #exec_always --no-startup-id pacmd load-module module-ladspa-sink sink_name=binaural master=alsa_output.pci-0000_00_1b.0.analog-stereo plugin=bs2b label=bs2b control=700,4.5
@@ -205,16 +282,16 @@ exec_always --no-startup-id env GDK_DPI_SCALE=0.5 GDK_SCALE=2
 #exec_always --no-startup-id nohup clight
 
 # Update image cache
-exec_always --no-startup-id bash $HOME/.bin/lock.sh -u $HOME/Pictures/Backgrounds/totoro.png
+#exec_always --no-startup-id bash $HOME/.bin/lock.sh -u $HOME/Pictures/Backgrounds/totoro.png
 
 # Run polybar
-exec_always --no-startup-id bash $HOME/.config/polybar/launch.sh
+#exec_always --no-startup-id bash $HOME/.config/polybar/launch.sh
 
 # Run ibus daemon
-exec --no-startup-id ibus-daemon --xim
+#exec --no-startup-id ibus-daemon --xim
 
 # Run unclutter-xfixes
-exec --no-startup-id unclutter
+#exec --no-startup-id unclutter
 
 # Start mullvad vpn tray
 #exec --no-startup-id nohup mullvad-vpn
@@ -226,16 +303,16 @@ exec --no-startup-id unclutter
 #exec --no-startup-id umonitor --listen
 
 # Run xbanish
-exec --no-startup-id xbanish
+#exec --no-startup-id xbanish
 
 # Start compton
 #exec --no-startup-id compton --paint-on-overlay --xrender-sync --xrender-sync-fence --config $HOME/.compton.conf -b
 
 # Start xbindkeys
-exec --no-startup-id xbindkeys
+#exec --no-startup-id xbindkeys
 
 # Run Geolocation service
-exec --no-startup-id nohup /usr/lib/geoclue-2.0/demos/agent
+#exec --no-startup-id nohup /usr/lib/geoclue-2.0/demos/agent
 
 # Run RedShift
 #exec --no-startup-id nohup /usr/lib/geoclue-2.0/demos/agent| redshift-gtk -c $HOME/.config/redshift.conf
@@ -248,30 +325,30 @@ exec --no-startup-id nohup /usr/lib/geoclue-2.0/demos/agent
 # This is now done by the startuplock script
 
 # Start notification daemon
-exec --no-startup-id xfce4-notifyd
+#exec --no-startup-id xfce4-notifyd
 
 # Start caffeine
-exec --no-startup-id bash $HOME/.bin/caffeine-startup
+#exec --no-startup-id bash $HOME/.bin/caffeine-startup
 
 # Start polkit
-exec --no-startup-id lxpolkit
+#exec --no-startup-id lxpolkit
 
 # Automount removable media
-exec --no-startup-id udiskie --tray --automount --notify --password-cache 60
+#exec --no-startup-id udiskie --tray --automount --notify --password-cache 60
 
 # Battery notifications
-exec --no-startup-id i3-battery-popup-git -n -L 50 -t 10m
+#exec --no-startup-id i3-battery-popup-git -n -L 50 -t 10m
 
 # Set x11 keyboard layout to use the right alt key as a compose key
 # That way I can type accented characters for Spanish
-exec --no-startup-id setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl
+#exec --no-startup-id setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl
 
 # Resore ALSA sound setting
-exec --no-startup-id alsactl --file $HOME/.config/asound.state restore
+#exec --no-startup-id alsactl --file $HOME/.config/asound.state restore
 
 # Run greenclip daemon on startup
-exec --no-startup-id greenclip daemon
+#exec --no-startup-id greenclip daemon
 
 # Lock screen on startup
 #exec --no-startup-id i3lock -c 000000
-exec --no-startup-id $HOME/.bin/startuplock
+#exec --no-startup-id $HOME/.bin/startuplock

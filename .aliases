@@ -144,7 +144,7 @@ mkcd(){
 }
 
 # Update submodules yadm
-alias yadmSubmoduleUpdate='yadm submodule foreach git pull origin master && yadm submodule foreach update'
+alias yadmSubmoduleUpdate='yadm pull --recurse-submodules && yadm submodule foreach git checkout --'
 
 # Make Arch wallpaper
 mkmemepaper(){
@@ -162,7 +162,7 @@ mkmemepaper(){
 alias rm-true-orphans='yay -Rnscu $(sudo -u deleuze yay -Qtdq)'
 
 # Optimize g++ compile
-alias g++='g++ -march=haswell'
+alias g++='g++ -march=skylake'
 
 # Alias gzip to pigz
 alias gzip='pigz'

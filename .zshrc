@@ -44,48 +44,57 @@ bindkey -e
 
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
-typeset -A key
+typeset -g -A key
 
-key[Home]="$terminfo[khome]"
-key[End]="$terminfo[kend]"
-key[Insert]="$terminfo[kich1]"
-key[Backspace]="$terminfo[kbs]"
-key[Delete]="$terminfo[kdch1]"
-key[Up]="$terminfo[kcuu1]"
-key[Down]="$terminfo[kcud1]"
-key[Left]="$terminfo[kcub1]"
-key[Right]="$terminfo[kcuf1]"
-key[PageUp]="$terminfo[kpp]"
-key[PageDown]="$terminfo[knp]"
+key[Home]="${terminfo[khome]}"
+key[End]="${terminfo[kend]}"
+key[Insert]="${terminfo[kich1]}"
+key[Backspace]="${terminfo[kbs]}"
+key[Delete]="${terminfo[kdch1]}"
+key[Up]="${terminfo[kcuu1]}"
+key[Down]="${terminfo[kcud1]}"
+key[Left]="${terminfo[kcub1]}"
+key[Right]="${terminfo[kcuf1]}"
+key[PageUp]="${terminfo[kpp]}"
+key[PageDown]="${terminfo[knp]}"
+key[Shift-Tab]="${terminfo[kcbt]}"
 
 # setup key accordingly
-[[ -n "$key[Home]"      ]] && bindkey -- "$key[Home]"      beginning-of-line
-[[ -n "$key[End]"       ]] && bindkey -- "$key[End]"       end-of-line
-[[ -n "$key[Insert]"    ]] && bindkey -- "$key[Insert]"    overwrite-mode
-[[ -n "$key[Backspace]" ]] && bindkey -- "$key[Backspace]" backward-delete-char
-[[ -n "$key[Delete]"    ]] && bindkey -- "$key[Delete]"    delete-char
-[[ -n "$key[Up]"        ]] && bindkey -- "$key[Up]"        up-line-or-beginning-search
-[[ -n "$key[Down]"      ]] && bindkey -- "$key[Down]"      down-line-or-beginning-search
-[[ -n "$key[Left]"      ]] && bindkey -- "$key[Left]"      backward-char
-[[ -n "$key[Right]"     ]] && bindkey -- "$key[Right]"     forward-char
+[[ -n "${key[Home]}"      ]] && bindkey -- "${key[Home]}"       beginning-of-line
+[[ -n "${key[End]}"       ]] && bindkey -- "${key[End]}"        end-of-line
+[[ -n "${key[Insert]}"    ]] && bindkey -- "${key[Insert]}"     overwrite-mode
+[[ -n "${key[Backspace]}" ]] && bindkey -- "${key[Backspace]}"  backward-delete-char
+[[ -n "${key[Delete]}"    ]] && bindkey -- "${key[Delete]}"     delete-char
+[[ -n "${key[Up]}"        ]] && bindkey -- "${key[Up]}"         up-line-or-history
+[[ -n "${key[Down]}"      ]] && bindkey -- "${key[Down]}"       down-line-or-history
+[[ -n "${key[Left]}"      ]] && bindkey -- "${key[Left]}"       backward-char
+[[ -n "${key[Right]}"     ]] && bindkey -- "${key[Right]}"      forward-char
+[[ -n "${key[PageUp]}"    ]] && bindkey -- "${key[PageUp]}"     beginning-of-buffer-or-history
+[[ -n "${key[PageDown]}"  ]] && bindkey -- "${key[PageDown]}"   end-of-buffer-or-history
+
+# Keybinds for kitty
+bindkey '\e[H'  beginning-of-line
+bindkey '\e[F'  end-of-line
+bindkey '\e[3~' delete-char
 
 # Finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
-if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
-    function zle-line-init () {
-        echoti smkx
-    }
-    function zle-line-finish () {
-        echoti rmkx
-    }
-    zle -N zle-line-init
-    zle -N zle-line-finish
+if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
+	autoload -Uz add-zle-hook-widget
+	function zle_application_mode_start { echoti smkx }
+	function zle_application_mode_stop { echoti rmkx }
+	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
+	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
 fi
 
 # Load modules:
 autoload -Uz compinit promptinit
 # Command completion
 compinit
+
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
+
 # Load fancy prompt
 promptinit
 
@@ -122,14 +131,18 @@ export AUTO_NOTIFY_EXPIRE_TIME=1500
 # do not notify these programs
 export AUTO_NOTIFY_IGNORE=("vim" "man" "sleep" "nvim" "nano" "sudo" "steam" "steam-native")
 export BROWSER="waterfox"
+export CLUTTER_BACKEND=wayland
 export CCACHE_DIR="/var/tmp/ccache"
 export EDITOR="nvim"
+export ECORE_EVAS_ENGINE=wayland-egl
+export ELM_ENGINE=wayland_egl
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 export GDK_CORE_DEVICE_EVENTS=1
-export GDK_DPI_SCALE=0.5
+#export GDK_DPI_SCALE=0.5
 export GDK_SCALE=2
 #unset GIT_ASKPASS
 export GIT_ASKPASS=
+export GLFW_IM_MODULE=ibus
 export GO_ENV="$HOME/.goenvs"
 export GOPATH="$HOME/.go"
 export GST_VAAPI_ALL_DRIVERS=1
@@ -137,26 +150,36 @@ export GTK_IM_MODULE=ibus
 export GTK_IM_MODULE_FILE=/usr/lib/gtk-3.0/3.0.0/immodules.cache
 export HISTSIZE=10000
 export _JAVA_OPTIONS='-Dsun.java2d.opengl=true -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+export _JAVA_AWT_WM_NONREPARENTING=1
 export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
 export LESS='-R '
 export LIBVA_DRIVER_NAME=i965
 export LOGNAME="godel"
+export MOZ_ENABLE_WAYLAND=1
 export MOZ_WEBRENDER=1
+export MOZ_DBUS_REMOTE=1
 ##export MESA_LOADER_DRIVER_OVERRIDE=iris
 export NO_AT_BRIDGE=1
 export PATH="/usr/local/bin:$PATH"
+export QT_QPA_PLATFORM=wayland-egl
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export QT_IM_MODULE=ibus
 export SAVEHIST=10000
+export SDL_VIDEODRIVER=wayland
 export STEAM_RUNTIME=1
 export SHELL="/bin/zsh"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 #unset SSH_ASKPASS
-export SSH_ASKPASS=
+#export SSH_ASKPASS=
 export SSH_CONNECTION="rhizome"
-export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/id_ed25519"
+export SWAYSHOT_SCREENSHOTS="~/Pictures/Screenshots"
+export TZ='America/Los_Angeles'
 export VDPAU_DRIVER='va_gl'
+export XDG_SESSION_TYPE=wayland
+export XDG_SESSION_DESKTOP=sway
+export XDG_CURRENT_DESKTOP=sway
 export XDG_CONFIG_HOME="$HOME/.config"
 export XMODIFIERS=@im=ibus
 export WINEDEBUG=+relay,-debug
@@ -192,7 +215,7 @@ source $HOME/.zplugin/bin/zplugin.zsh
 #              Z-Plugin loading           #
 ###########################################
 
-source '/home/deleuze/.zplugin/bin/zplugin.zsh'
+source '/home/gatnewhou/.zplugin/bin/zplugin.zsh'
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 
@@ -238,6 +261,9 @@ zplugin ice pick"safe-paste.plugin.zsh"; zplugin light oz/safe-paste
 # Load OMZ Git library
 zplugin snippet OMZ::lib/git.zsh
 
+# Load SSH plugin from OMZ
+zplugin snippet OMZ::plugins/ssh-agent/ssh-agent.plugin.zsh
+
 # Load Git plugin from OMZ
 zplugin snippet OMZ::plugins/git/git.plugin.zsh
 zplugin cdclear -q # <- forget completions provided up to this moment
@@ -252,6 +278,10 @@ zplugin light denysdovhan/spaceship-prompt
 
 # This one to be ran just once, in interactive session 
 #zplugin creinstall %HOME/my_completions  # Handle completions without loading any plugin, see "clist" command
+
+# Load github cli completions
+zplugin ice pick'cli.zsh'; zplugin light sudosubin/zsh-github-cli
+
 
 # Zsh completions
 zplugin ice blockf

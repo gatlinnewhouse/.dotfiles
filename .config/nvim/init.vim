@@ -23,7 +23,7 @@ Plug 'mhinz/vim-startify'
 Plug 'mitsuhiko/vim-python-combined', { 'for': 'python' }
 
 " Syntax support for i3 config file
-Plug 'PotatoesMaster/i3-vim-syntax', { 'for': 'i3' }
+"Plug 'PotatoesMaster/i3-vim-syntax', { 'for': 'i3' }
 
 " Syntax support for CSS files
 Plug 'JulesWang/css.vim', { 'for': 'css' }
@@ -43,6 +43,12 @@ Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
 " Syntax support for git files
 Plug 'tpope/vim-git', { 'for': ['gitconfig','gitcommit','gitrebase','gitsendemail', 'git'] }
 
+" Support for swaywm
+Plug 'terminalnode/sway-vim-syntax'
+
+" golang support
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 " Support for icon glyphs for filetypes
 Plug 'ryanoasis/vim-devicons'
 
@@ -53,7 +59,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sleuth'
 
 " Quickly comment stuff out
-Plug 'scrooloose/nerdcommenter'
+"Plug 'scrooloose/nerdcommenter'
+Plug 'numToStr/Comment.nvim'
 
 " Show colors for hexadecimal codes in CSS files
 Plug 'ap/vim-css-color', { 'for': ['i3', 'css', 'html', 'svg', 'Xresources']}
@@ -136,28 +143,31 @@ map <F11> :Goyo <bar> %:PencilToggle<CR>
 " Clear all comment markers (one rule for all languages) using "_" key
 map _ :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohlsearch<CR>
 
-function! s:MyCSettings()
+"function! s:MyCSettings()
   " Insert comments markers
-  map - :s/^/\/\//<CR>:nohlsearch<CR>
-endfunction
+"  map - :s/^/\/\//<CR>:nohlsearch<CR>
+"endfunction
 
-function! s:MyVimSettings()
+"function! s:MyVimSettings()
   " Insert comments markers
-  map - :s/^/\"/<CR>:nohlsearch<CR>
-endfunction
+"  map - :s/^/\"/<CR>:nohlsearch<CR>
+"endfunction
 
 " *========================================================================================*
 "                         	General NeoVim Settings
 " *========================================================================================*
 
 " Set colorcolumn to 110
-set colorcolumn=110
+"set colorcolumn=110
 
 " Set not compatible with vi
 set nocompatible
 
 " Set automatically changing directories
 set autochdir
+
+" Set textwidth to 80
+set textwidth=80
 
 " Set shell to zsh
 set shell=zsh
@@ -177,12 +187,15 @@ let g:vim_markdown_math = 1
 " Use the GPG Agent for encrypted files
 let g:GPGUseAgent = 1
 
+" Set up comment plugin
+lua require('Comment').setup()
+
 " PaperColor theme, make terminal 256 bit, enable syntax highlighting, 
 " and use the light theme
 syntax on
 set t_Co=256
+set background=dark
 colorscheme PaperColor
-set background=light
 filetype plugin indent on
 
 " Add line numbers by default
@@ -246,11 +259,11 @@ augroup pencil
 augroup END
 
 " Quick comment out lines or uncomment them
-augroup vimrc_filetype
-  autocmd!
-  autocmd FileType c    call s:MyCSettings()
-  autocmd FileType vim  call s:MyVimSettings()
-augroup end
+"augroup vimrc_filetype
+"  autocmd!
+"  autocmd FileType c    call s:MyCSettings()
+"  autocmd FileType vim  call s:MyVimSettings()
+"augroup end
 
 " Spellcheck/Thesaurus for prose files
 augroup lexical
